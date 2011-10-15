@@ -46,7 +46,7 @@ clean:
 doc: __start_doxygen__
 
 __start_doxygen__:
-	doxygen zamp2.doxy
+	doxygen GenDoc.doxy
 help:
 	@echo
 	@echo " make,make all       - budowanie aplikacji"

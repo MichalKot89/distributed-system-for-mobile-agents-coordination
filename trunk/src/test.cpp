@@ -9,7 +9,15 @@
 #include "test.hh"
 
 using namespace std;
-
+/*!
+ * \author Michal W
+ *
+ * \brief Funkcja flaksjdf;laksjd
+ *
+ * Funkcja klsdfj;alsdkfj;alskdf
+ *
+ *
+ */
 int test()
 {
 cout<<GROUP<<endl;

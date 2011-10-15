@@ -8,5 +8,5 @@
 #ifndef MAIN_HH_
 #define MAIN_HH_
 
-#define GROUP Najlepsi
+#define GROUP "Najlepsi"
 #endif /* MAIN_HH_ */

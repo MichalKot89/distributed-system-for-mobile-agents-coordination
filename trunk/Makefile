@@ -1,38 +1,32 @@
-__start__: Mobile_agent_system
+MOB_AG_SYS = Mobile_agent_system
+__start__: $(MOB_AG_SYS)
 
 CPPFLAGS=-Wall -g -pedantic -Iinc
 
 OBJDIR = obj/
 SRCDIR = src/
 INCDIR = src/
+BINDIR = bin/
+
+BINARY := $(BINDIR)$(MOB_AG_SYS)
 #Tutaj dopisujemy zrodla z .cpp, koniec wiersza -> \
 
 SRCS = \
 main.cpp 
 
-#Obiekty i naglowki
-HDRS = $(SRCS:.cpp=.hh)
+#Obiekty
 OBJS = $(SRCS:.cpp=.o)
-
-P_SRCS = $(addprefix src/,SRCS)
-P_HDRS = $(addprefix src/,HDRS)
-P_OBJS = $(addprefix obj/,$(OBJS))
-
-Mobile_agent_system: $(P_OBJS)
-	g++ ${LDFLAGS} -o $@ $(P_OBJS)
-
-$(P_OBJS): %.cpp %.hh
-	g++ -c ${CPPFLAGS} $< -o *@
+P_OBJS = $(addprefix $(OBJDIR),$(OBJS))
+#Glowny program
+$(MOB_AG_SYS): $(P_OBJS)
+	g++ ${LDFLAGS} -o $(BINARY) $(P_OBJS)
+#Poszczegolne klasy
+$(OBJDIR)%.o: $(SRCDIR)%.cpp $(INCDIR)%.hh
+	g++ -c ${CPPFLAGS} $< -o $@
 
 
 clean:
-	\rm -f obj/*.o src/*~ inc/*~ lib/*.so zamp2 
-tar:
-	tar -czf ../zad2.tar.gz ./
-wtyczka: lib/turn90.so
-	@echo "Biblioteka utworzona"
-lib/turn90.so: src/command4turn90.cpp inc/command4turn90.hh 
-	g++ ${LIBFLAGS}  -o lib/turn90.so src/command4turn90.cpp -lm 
+	\rm -f $(OBJDIR)*.o $(SRCDIR)*~ $(INCDIR)*~ $(BINARY)
 doc: __start_doxygen__
 
 __start_doxygen__:
@@ -41,6 +35,5 @@ help:
 	@echo
 	@echo " make        - tworzenie i uruchomienie aplikacji"
 	@echo " make clean  - usuniecie produktow kompilacji i konsolidacji"
-	@echo " make tar  - utworzenie archiwum zawierajacego projekt"
-	@echo " make wtyczka  - kompilacja wtyczki turn90"
+	@echo " make doc    - tworzenie dokumentacji w doxy"
 	@echo

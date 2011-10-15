@@ -9,6 +9,7 @@
 
 MOB_AG_SYS = Mobile_agent_system
 all: $(MOB_AG_SYS)
+		@echo "Koniec make all"
 
 CXX = g++
 CPPFLAGS=-Wall -g -pedantic
@@ -43,10 +44,12 @@ $(DEPDIR)%.d: $(SRCDIR)%.cpp
 
 clean:
 	\rm -f $(OBJDIR)*.o $(SRCDIR)*~ $(INCDIR)*~ $(BINARY)
+	@echo " Koniec make clean "
 doc: __start_doxygen__
 
 __start_doxygen__:
 	doxygen GenDoc.doxy
+	@echo "Koniec make doc"
 help:
 	@echo
 	@echo " make,make all       - budowanie aplikacji"

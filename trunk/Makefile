@@ -9,16 +9,24 @@
 
 MOB_AG_SYS = Mobile_agent_system
 all: $(MOB_AG_SYS)
-		@echo "Koniec make all"
+		@echo "Koniec make all - stworzono "$(BINARY)
 
 CXX = g++
-CPPFLAGS=-Wall -g -pedantic
+CPPFLAGS=-Wall -pedantic
+DEBUGFLAGS= -g
 
 OBJDIR = obj/
 SRCDIR = src/
 INCDIR = src/
 BINDIR = bin/
 DEPDIR = dep/
+
+debug: CPPFLAGS := $(CPPFLAGS) $(DEBUGFLAGS)
+debug: BINARY := $(BINDIR)$(MOB_AG_SYS)_DEBUG
+debug: all
+		@echo "Koniec make debug - stworzono "$(BINARY)
+	
+
 #Binarka
 BINARY := $(BINDIR)$(MOB_AG_SYS)
 
@@ -43,7 +51,7 @@ $(DEPDIR)%.d: $(SRCDIR)%.cpp
 
 
 clean:
-	\rm -f $(OBJDIR)*.o $(SRCDIR)*~ $(INCDIR)*~ $(BINARY)
+	\rm -f $(OBJDIR)*.o $(SRCDIR)*~ $(INCDIR)*~ $(BINARY) $(BINDIR)$(MOB_AG_SYS)_DEBUG
 	@echo " Koniec make clean "
 doc: __start_doxygen__
 

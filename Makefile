@@ -62,5 +62,6 @@ help:
 	@echo
 	@echo " make,make all       - budowanie aplikacji"
 	@echo " make clean          - usuniecie produktow kompilacji i konsolidacji"
+	@echo " make debug          - budowanie aplikacji pod debugging"
 	@echo " make doc            - tworzenie dokumentacji w doxy"
 	@echo

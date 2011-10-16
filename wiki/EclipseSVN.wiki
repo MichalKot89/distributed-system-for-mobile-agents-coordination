@@ -1,4 +1,4 @@
-#Eclipse SVN - mały tutorial 
+#summary Eclipse SVN - mały tutorial
 
 = Eclipse SVN - mały tutorial =
 

@@ -18,6 +18,7 @@ public:
 	Segment(){};
 	Segment(Coordinates start,Coordinates end);
 	~Segment();
+	void SetVelocity(double v);
 };
 
 #endif /* SEGMENT_HH_ */

@@ -35,6 +35,9 @@ Agent::Agent(list<Segment> ListOfSegments,double vel,double radius,double Square
 
 	_MyID=_NumOfAgentsCreated++;
 	_ListOfSegments=ResolveForbiddenSectors(ListOfSegments);
+	SetVelocityToSegments();
+
+
 	list<Segment>::iterator ListIter=_ListOfSegments.begin();
 	for(;ListIter!=_ListOfSegments.end();ListIter++){
 cout<<ListIter->_Start._x<<" "<<ListIter->_Start._y<<" "
@@ -414,6 +417,18 @@ CornerIter++;
 }//koniec while
 }
 return ResultListOfSegments;
+}
+
+
+
+void Agent::SetVelocityToSegments()
+{
+	list<Segment>::iterator ListIter=_ListOfSegments.begin();
+	for(;ListIter!=_ListOfSegments.end();ListIter++){
+		ListIter->SetVelocity(_MyVel);
+	}
+
+
 }
 
 int Agent::DropActualPosition()

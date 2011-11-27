@@ -14,6 +14,7 @@ all: $(MOB_AG_SYS)
 CXX = g++
 CPPFLAGS=-Wall -pedantic
 DEBUGFLAGS= -g
+LDFLAGS=-Wall
 
 OBJDIR = obj/
 SRCDIR = src/
@@ -47,8 +48,6 @@ $(OBJDIR)%.o: $(SRCDIR)%.cpp $(DEPDIR)%.d $(INCDIR)%.hh
 #Zaleznosci
 $(DEPDIR)%.d: $(SRCDIR)%.cpp
 	$(CXX) $(CPPFLAGS) -MM -MT '$(patsubst $(SRCDIR)%,$(OBJDIR)%,$(patsubst %.cpp,%.o,$<))' $< > $@
-
-
 
 clean:
 	\rm -f $(OBJDIR)*.o $(SRCDIR)*~ $(INCDIR)*~ $(BINARY) $(BINDIR)$(MOB_AG_SYS)_DEBUG

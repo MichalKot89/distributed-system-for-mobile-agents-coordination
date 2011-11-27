@@ -40,6 +40,7 @@ bool _PathDone;
 	~Agent();
 	int Move();
 	std::list<Segment> ResolveForbiddenSectors(std::list<Segment> ListOfSegments);
+	void SetVelocityToSegments();
 	int DropActualPosition();
 	static int CalculateCollisionPoints(Segment S,double r,Coordinates Start,Coordinates O, double & InTime, double & OutTime);
 	static int SquareEqRoots(double a,double b,double c,double &t1,double &t2);

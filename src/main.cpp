@@ -32,7 +32,7 @@ int main()
 
 
 
-	Agent A1(Trasa,1,1,5);
+	Agent A1(Trasa,50,1,5);
 	while(!A1._PathDone){
 		A1.Move();
 

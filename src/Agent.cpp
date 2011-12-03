@@ -54,8 +54,9 @@ Agent::~Agent() {
 
 int Agent::Move()
 {
-	double FinalX,FinalY;
+	double FinalX,FinalY,timeToCrossSqare,timeToLeaveSqare;
 	double EstimatedTimeToEndX,EstimatedTimeToEndY,EstimatedTimeToEnd;
+	int Status; //0 - normal move, 1 - waiting
 	list<Segment>::iterator ListIter=_ListOfSegments.begin();
 	for(int i=0;i<_SegmentNo;i++)
 		if(ListIter!=_ListOfSegments.end())
@@ -64,9 +65,21 @@ int Agent::Move()
 			cerr<<"Blad liczba segmentow wieksza niz rzeczywisty rozmiar listy!"<<endl;
 		exit(1);
 		}
+	timeToCrossSqare=GiveTimeToCrossSquare(ListIter);
+	timeToLeaveSqare=GiveTimeToLeaveSquare(ListIter);
+if((timeToCrossSqare<_TimeStep) &&(timeToCrossSqare>0.0)){
+	FinalX=ListIter->_XParamA*timeToCrossSqare+ListIter->_XParamB;
+	FinalY=ListIter->_YParamA*timeToCrossSqare+ListIter->_YParamB;
+	_ActualPosition=Coordinates(FinalX,FinalY);
 
+	Status=1;
+}else if((timeToLeaveSqare<_TimeStep) &&(timeToLeaveSqare>0.0)){
+	FinalX=ListIter->_XParamA*timeToLeaveSqare+ListIter->_XParamB;
+	FinalY=ListIter->_YParamA*timeToLeaveSqare+ListIter->_YParamB;
+	_ActualPosition=Coordinates(FinalX,FinalY);
 
-
+	Status=2;
+}else{
 if(ListIter->_XParamA!=0.0)
 	EstimatedTimeToEndX=
 		(ListIter->_End._x-ListIter->_XParamB)/ListIter->_XParamA;
@@ -94,17 +107,88 @@ else
 	FinalY=ListIter->_YParamA*_TimeStep+ListIter->_YParamB;
 	_ActualPosition=Coordinates(FinalX,FinalY);
 	}
+	Status=0;
+}
 	ListIter->_XParamB=_ActualPosition._x;
 	ListIter->_YParamB=_ActualPosition._y;
 
 	DropActualPosition();
 
 	_Time+=_TimeStep;
-return 1;
+return Status;
 }
 
+double Agent::GiveTimeToCrossSquare(std::list<Segment>::iterator ListIter)
+{
+	double SquareX,SquareY,LocalStartX,LocalStartY,time1,time2,time3,time4;
+	//przeliczanie wspolrzednych do ukladu zwiazanego z kwadratem
+	SquareX=floor(_ActualPosition._x / _SquareLength);
+	SquareY=floor(_ActualPosition._y / _SquareLength);
+	LocalStartX=_ActualPosition._x - SquareX*_SquareLength;
+	LocalStartY=_ActualPosition._y - SquareY*_SquareLength;
+	if(ListIter->_XParamA!=0.0){
+		time1=(_SquareLength-_MyRadius-LocalStartX)/ListIter->_XParamA;
+		time2=(_MyRadius-LocalStartX)/ListIter->_XParamA;
+
+		time1=time1>time2? time1 : time2;
+	}else
+		time1=-1.0;
+
+	if(ListIter->_YParamA!=0.0){
+		time3=(_SquareLength-_MyRadius-LocalStartY)/ListIter->_YParamA;
+		time4=(_MyRadius-LocalStartY)/ListIter->_YParamA;
+
+		time3=time3>time4? time3 : time4;
+
+	}else
+		time3=-1.0;
+if((time1>0.0)&&(time3>0.0))
+	return time1 < time3 ? time1 : time3;
+else if(time1>0.0)
+	return time1;
+else if(time3>0.0)
+	return time3;
+else return 0.0;
 
 
+
+}
+
+double Agent::GiveTimeToLeaveSquare(std::list<Segment>::iterator ListIter)
+{
+	double SquareX,SquareY,LocalStartX,LocalStartY,time1,time2,time3,time4;
+	//przeliczanie wspolrzednych do ukladu zwiazanego z kwadratem
+	SquareX=floor(_ActualPosition._x / _SquareLength);
+	SquareY=floor(_ActualPosition._y / _SquareLength);
+	LocalStartX=_ActualPosition._x - SquareX*_SquareLength;
+	LocalStartY=_ActualPosition._y - SquareY*_SquareLength;
+	if(ListIter->_XParamA!=0.0){
+		time1=(_SquareLength-_MyRadius-LocalStartX)/ListIter->_XParamA;
+		time2=(_MyRadius-LocalStartX)/ListIter->_XParamA;
+
+		time1=time1<time2? time1 : time2;
+	}else
+		time1=-1.0;
+
+	if(ListIter->_YParamA!=0.0){
+		time3=(_SquareLength-_MyRadius-LocalStartY)/ListIter->_YParamA;
+		time4=(_MyRadius-LocalStartY)/ListIter->_YParamA;
+
+		time3=time3<time4? time3 : time4;
+
+	}else
+		time3=-1.0;
+if((time1>0.0)&&(time3>0.0))
+	return time1 < time3 ? time1 : time3;
+else if(time1>0.0)
+	return time1;
+else if(time3>0.0)
+	return time3;
+else return 0.0;
+
+
+
+}
 list<Segment> Agent::ResolveForbiddenSectors(list<Segment> ListOfSegments)
 {
 	double InTime=0,OutTime=0,TempTime=0,SquareX,SquareY;
@@ -346,7 +430,7 @@ CornerIter++;
 		TempTime=-1.0;
 		if(ListIter->_XParamA!=0.0){
 			TempTime=(_SquareLength-LocalStartX)/ListIter->_XParamA;//prawy bok kwadratu
-			if((TempTime>=0)) {//prawy bok kwadratu
+			if((TempTime>0)) {//prawy bok kwadratu
 				LocalEndX=_SquareLength;
 				LocalEndY=ListIter->_YParamA*TempTime+LocalStartY;
 				if((LocalEndY<=_SquareLength)&&(LocalEndY>=0.0))
@@ -355,7 +439,7 @@ CornerIter++;
 		}
 		if((!SquareResolved)&&(ListIter->_XParamA!=0.0)){
 			TempTime=(-LocalStartX)/ListIter->_XParamA;//lewy bok kwadratu
-			if((TempTime>=0)){//lewy bok kwadratu
+			if((TempTime>0)){//lewy bok kwadratu
 				LocalEndX=0;
 				LocalEndY=ListIter->_YParamA*TempTime+LocalStartY;
 				if((LocalEndY<=_SquareLength)&&(LocalEndY>=0.0))
@@ -365,7 +449,7 @@ CornerIter++;
 
 		if((!SquareResolved)&&(ListIter->_YParamA!=0.0)){
 			TempTime=(_SquareLength-LocalStartY)/ListIter->_YParamA;//gorny kwadrat
-			if((TempTime>=0)){//gorny kwadrat
+			if((TempTime>0)){//gorny kwadrat
 				LocalEndY=_SquareLength;
 				LocalEndX=ListIter->_XParamA*TempTime+LocalStartX;
 				if((LocalEndY<=_SquareLength)&&(LocalEndY>=0.0))
@@ -374,7 +458,7 @@ CornerIter++;
 		}
 		if((!SquareResolved)&&(ListIter->_YParamA!=0.0)){
 			TempTime=(-LocalStartY)/ListIter->_YParamA;//dolny kwadrat
-			if(TempTime>=0)
+			if(TempTime>0)
 			{//dolny kwadrat
 				LocalEndY=0;
 				LocalEndX=ListIter->_XParamA*TempTime+LocalStartX;
@@ -401,7 +485,7 @@ CornerIter++;
 		//dodanie pozycji segmentu od startu do miejsca wjechania na zakazane kolo
 		TempListOfSegments.push_front(Segment(Coordinates(LocalStartX,LocalStartY),TempListOfSegments.begin()->_Start));
 		//przejscie do globalnego ukladu wspolrzednych
-		ChangeStartOfCordSysForSegment(TempListOfSegments,Coordinates(-SquareX*_SquareLength,-SquareX*_SquareLength));
+		ChangeStartOfCordSysForSegment(TempListOfSegments,Coordinates(-SquareX*_SquareLength,-SquareY*_SquareLength));
 		//przepisanie scizeki do wynikowej trasy
 		list<Segment>::iterator TempListIter=TempListOfSegments.begin();
 		for(;TempListIter!=TempListOfSegments.end();TempListIter++){
@@ -507,9 +591,9 @@ list<Segment> Agent::FindPathResolvingForbiddenSector
 		fi2+=2*(M_PI-fi2);
 	if(fabs(fi1-fi2)>=M_PI){
 		if(fi1>fi2)
-			fi3=fi2-fabs(fi1-fi2)/2.0;
+			fi3=fi2-fabs(2*M_PI-fi1+fi2)/2.0;
 		else
-			fi3=fi1-fabs(fi1-fi2)/2.0;
+			fi3=fi1-fabs(2*M_PI-fi2+fi1)/2.0;
 
 	}else{
 		if(fi1>fi2)

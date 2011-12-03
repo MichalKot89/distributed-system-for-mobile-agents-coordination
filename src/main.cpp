@@ -21,8 +21,10 @@ int main()
 	GnuplotInit();
 	GnuplotSceneClean();
 	std::list<Segment> Trasa;
-	Trasa.push_back(Segment(Coordinates(5,10),Coordinates(5,5)));
-	Trasa.push_back(Segment(Coordinates(5,5),Coordinates(8,8)));
+
+	Trasa.push_back(Segment(Coordinates(2,2),Coordinates(8,2)));
+	Trasa.push_back(Segment(Coordinates(8,2),Coordinates(5,10)));
+	Trasa.push_back(Segment(Coordinates(5,10),Coordinates(8,12)));
 	//Trasa.push_back(Segment(Coordinates(6,6),Coordinates(8,6)));
 	//Trasa.push_back(Segment(Coordinates(8,6),Coordinates(10.5,10.5)));
 	//Trasa.push_back(Segment(Coordinates(10.5,10.5),Coordinates(15,15)));
@@ -34,7 +36,12 @@ int main()
 
 	Agent A1(Trasa,50,1,5);
 	while(!A1._PathDone){
-		A1.Move();
+		if(A1.Move()>0){
+			//czekanie
+			PlotScene(5,3,A1._MyID);
+			sleep(3);
+
+		}
 
 	}
 	PlotScene(5,3,A1._MyID);

@@ -39,6 +39,8 @@ bool _PathDone;
 	Agent(std::list<Segment> ListOfSegments,double vel,double radius,double SquareLength);
 	~Agent();
 	int Move();
+	double GiveTimeToCrossSquare(std::list<Segment>::iterator ListIter);
+	double GiveTimeToLeaveSquare(std::list<Segment>::iterator ListIter);
 	std::list<Segment> ResolveForbiddenSectors(std::list<Segment> ListOfSegments);
 	void SetVelocityToSegments();
 	int DropActualPosition();

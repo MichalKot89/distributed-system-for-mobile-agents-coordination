@@ -34,23 +34,13 @@ int main()
 
 //TODO:
 	//!!! Co jesli agent zaczyna na granicy kwadratow- jak przypisac mu kwadraty
-	//dodac poczatkowe ustawienie w kwadracie
+	//
 	//element czasowy w klasie agent (zegar)
 	//opis funkcji
 
-	Agent A1(Trasa,50,1,5);
-	while(!A1._PathDone){
-		if(A1.Move()>Agent::Moving){
-			//czekanie
-			PlotScene(5,3,A1._MyID);
-			cout<<A1._MySquare._x<<" "<<A1._MySquare._y<<" Next: "<<A1._MyNextSquare._x<<" "<<A1._MyNextSquare._y<<endl;
-			sleep(3);
-			A1._MyStatus=Agent::Moving;
+	Agent A1(Trasa,10,1,5,0.1);
+	A1.Run();
 
-		}
-
-	}
-	PlotScene(5,3,A1._MyID);
 
 	cin>>i;
 	GnuplotShutDown();

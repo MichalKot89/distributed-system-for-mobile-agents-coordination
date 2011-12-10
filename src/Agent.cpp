@@ -6,7 +6,7 @@
  */
 
 #include "Agent.hh"
-
+#include "GnuplotInc.hh"
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
@@ -20,16 +20,14 @@ using namespace std;
 
 int Agent::_NumOfAgentsCreated=0;
 
-Agent::Agent(list<Segment> ListOfSegments,double vel,double radius,double SquareLength)
+Agent::Agent(list<Segment> ListOfSegments,double vel,double radius,double SquareLength,double TimeStep)
 {
-
+	_MyClock=Clock(TimeStep);
 	_ActualPosition=ListOfSegments.front()._Start;
 	_MySquare=_MyNextSquare=CoordinatesToSquare(_ActualPosition,SquareLength);
 	_SegmentNo=0;
 
 	_MyVel=vel;
-	_TimeStep=0.02;
-	_Time=0;
 	_PathDone=false;
 	_SquareLength=SquareLength;
 	_MyRadius=radius;
@@ -51,6 +49,25 @@ cout<<ListIter->_Start._x<<" "<<ListIter->_Start._y<<" "
 
 Agent::~Agent() {
 	// TODO Auto-generated destructor stub
+}
+
+void Agent::Run()
+{
+	while(!_PathDone){
+		_MyClock.TickTack();
+		if(Move()>Moving){
+			//czekanie
+			//PlotScene(5,3,_MyID);
+			cout<<_MySquare._x<<" "<<_MySquare._y<<" Next: "<<_MyNextSquare._x<<" "<<_MyNextSquare._y<<endl;
+			//sleep(3);
+			_MyStatus=Moving;
+
+		}
+		cout<<"Actual TIme:"<<_MyClock.GiveActualTime()<<endl;
+		PlotScene(5,3,_MyID);
+	}
+	PlotScene(5,3,_MyID);
+
 }
 
 Agent::Status Agent::Move()
@@ -78,7 +95,7 @@ if((_MyStatus!=WaitingToEnterSquare)&&(_MyStatus!=WaitingToBypass)){
 		}
 	timeToCrossSqare=GiveTimeToCrossSquare(ListIter,ModX,ModY);
 	timeToLeaveSqare=GiveTimeToLeaveSquare(ListIter);
-if((timeToCrossSqare<_TimeStep) &&(timeToCrossSqare>0.0)){
+if((timeToCrossSqare<_MyClock.GiveTimeStep()) &&(timeToCrossSqare>0.0)){
 	FinalX=ListIter->_XParamA*timeToCrossSqare+ListIter->_XParamB;
 	FinalY=ListIter->_YParamA*timeToCrossSqare+ListIter->_YParamB;
 	_ActualPosition=Coordinates(FinalX,FinalY);
@@ -88,7 +105,7 @@ if((timeToCrossSqare<_TimeStep) &&(timeToCrossSqare>0.0)){
 	_MyNextSquare+=Coordinates(ModX,ModY);
 	//zmiana statusu
 	_MyStatus=ActualStatus=WaitingToEnterSquare;
-}else if((timeToLeaveSqare<_TimeStep) &&(timeToLeaveSqare>0.0)){
+}else if((timeToLeaveSqare<_MyClock.GiveTimeStep()) &&(timeToLeaveSqare>0.0)){
 	FinalX=ListIter->_XParamA*timeToLeaveSqare+ListIter->_XParamB;
 	FinalY=ListIter->_YParamA*timeToLeaveSqare+ListIter->_YParamB;
 	_ActualPosition=Coordinates(FinalX,FinalY);
@@ -115,7 +132,7 @@ else
 	EstimatedTimeToEnd=EstimatedTimeToEndX > EstimatedTimeToEndY ? EstimatedTimeToEndX : EstimatedTimeToEndY;
 
 	//sprawdzanie czy dotarl do punktu koncowego
-	if(EstimatedTimeToEnd<_TimeStep){
+	if(EstimatedTimeToEnd<_MyClock.GiveTimeStep()){
 		_ActualPosition=ListIter->_End;
 		_SegmentNo++;
 		//Jezeli cala sciezka
@@ -123,8 +140,8 @@ else
 		_PathDone=true;
 	}else{
 
-	FinalX=ListIter->_XParamA*_TimeStep+ListIter->_XParamB;
-	FinalY=ListIter->_YParamA*_TimeStep+ListIter->_YParamB;
+	FinalX=ListIter->_XParamA*_MyClock.GiveTimeStep()+ListIter->_XParamB;
+	FinalY=ListIter->_YParamA*_MyClock.GiveTimeStep()+ListIter->_YParamB;
 	_ActualPosition=Coordinates(FinalX,FinalY);
 	}
 	_MyStatus=ActualStatus=Moving;
@@ -134,7 +151,6 @@ else
 
 	DropActualPosition();
 
-	_Time+=_TimeStep;
 }else{
 	//waiting
 //Jakas funkcja interakcji
@@ -562,7 +578,7 @@ int Agent::DropActualPosition()
 		cerr<<"Nie mozna otworzyc pliku"<<endl;
 		return 1;
 	}
-	Strm<<_ActualPosition._x<<" "<<_ActualPosition._y<<" "<<_Time<<endl;
+	Strm<<_ActualPosition._x<<" "<<_ActualPosition._y<<" "<<_MyClock.GiveActualTime()<<endl;
 	Strm.close();
 	return 1;
 }

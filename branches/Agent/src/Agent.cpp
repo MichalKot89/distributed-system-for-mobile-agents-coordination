@@ -24,6 +24,7 @@ Agent::Agent(list<Segment> ListOfSegments,double vel,double radius,double Square
 {
 
 	_ActualPosition=ListOfSegments.front()._Start;
+	_MySquare=_MyNextSquare=CoordinatesToSquare(_ActualPosition,SquareLength);
 	_SegmentNo=0;
 
 	_MyVel=vel;
@@ -32,7 +33,7 @@ Agent::Agent(list<Segment> ListOfSegments,double vel,double radius,double Square
 	_PathDone=false;
 	_SquareLength=SquareLength;
 	_MyRadius=radius;
-
+	_MyStatus=Moving;
 	_MyID=_NumOfAgentsCreated++;
 	_ListOfSegments=ResolveForbiddenSectors(ListOfSegments);
 	SetVelocityToSegments();
@@ -52,11 +53,21 @@ Agent::~Agent() {
 	// TODO Auto-generated destructor stub
 }
 
-int Agent::Move()
+Agent::Status Agent::Move()
 {
 	double FinalX,FinalY,timeToCrossSqare,timeToLeaveSqare;
 	double EstimatedTimeToEndX,EstimatedTimeToEndY,EstimatedTimeToEnd;
-	int Status; //0 - normal move, 1 - waiting
+	Status ActualStatus=_MyStatus;
+	int ModX,ModY;
+if((_MyStatus!=WaitingToEnterSquare)&&(_MyStatus!=WaitingToBypass)){
+
+	_MySquare=CoordinatesToSquare(_ActualPosition, _SquareLength);
+
+	if(_MyStatus==LeavingSqare){
+//Jakas funkcja interakcji
+	_MyStatus=Moving;
+	}
+	//poruszanie sie
 	list<Segment>::iterator ListIter=_ListOfSegments.begin();
 	for(int i=0;i<_SegmentNo;i++)
 		if(ListIter!=_ListOfSegments.end())
@@ -65,20 +76,29 @@ int Agent::Move()
 			cerr<<"Blad liczba segmentow wieksza niz rzeczywisty rozmiar listy!"<<endl;
 		exit(1);
 		}
-	timeToCrossSqare=GiveTimeToCrossSquare(ListIter);
+	timeToCrossSqare=GiveTimeToCrossSquare(ListIter,ModX,ModY);
 	timeToLeaveSqare=GiveTimeToLeaveSquare(ListIter);
 if((timeToCrossSqare<_TimeStep) &&(timeToCrossSqare>0.0)){
 	FinalX=ListIter->_XParamA*timeToCrossSqare+ListIter->_XParamB;
 	FinalY=ListIter->_YParamA*timeToCrossSqare+ListIter->_YParamB;
 	_ActualPosition=Coordinates(FinalX,FinalY);
 
-	Status=1;
+
+	//ustalanie wspolrzednych kolejnego kwadratu
+	_MyNextSquare+=Coordinates(ModX,ModY);
+	//zmiana statusu
+	_MyStatus=ActualStatus=WaitingToEnterSquare;
 }else if((timeToLeaveSqare<_TimeStep) &&(timeToLeaveSqare>0.0)){
 	FinalX=ListIter->_XParamA*timeToLeaveSqare+ListIter->_XParamB;
 	FinalY=ListIter->_YParamA*timeToLeaveSqare+ListIter->_YParamB;
 	_ActualPosition=Coordinates(FinalX,FinalY);
+	//zwolnienie kwadratu
+	//Jakas funkcja interakcji
+if(_MySquare!=_MyNextSquare)//sytuacja w ktorej agent tylko na chwile, czescia
+	//wjezdza na kwadrat
+	_MyNextSquare=_MySquare;
 
-	Status=2;
+	_MyStatus=ActualStatus=LeavingSqare;
 }else{
 if(ListIter->_XParamA!=0.0)
 	EstimatedTimeToEndX=
@@ -107,7 +127,7 @@ else
 	FinalY=ListIter->_YParamA*_TimeStep+ListIter->_YParamB;
 	_ActualPosition=Coordinates(FinalX,FinalY);
 	}
-	Status=0;
+	_MyStatus=ActualStatus=Moving;
 }
 	ListIter->_XParamB=_ActualPosition._x;
 	ListIter->_YParamB=_ActualPosition._y;
@@ -115,10 +135,14 @@ else
 	DropActualPosition();
 
 	_Time+=_TimeStep;
-return Status;
+}else{
+	//waiting
+//Jakas funkcja interakcji
+}
+return ActualStatus;
 }
 
-double Agent::GiveTimeToCrossSquare(std::list<Segment>::iterator ListIter)
+double Agent::GiveTimeToCrossSquare(std::list<Segment>::iterator ListIter,int & ModX,int& ModY)
 {
 	double SquareX,SquareY,LocalStartX,LocalStartY,time1,time2,time3,time4;
 	//przeliczanie wspolrzednych do ukladu zwiazanego z kwadratem
@@ -126,10 +150,11 @@ double Agent::GiveTimeToCrossSquare(std::list<Segment>::iterator ListIter)
 	SquareY=floor(_ActualPosition._y / _SquareLength);
 	LocalStartX=_ActualPosition._x - SquareX*_SquareLength;
 	LocalStartY=_ActualPosition._y - SquareY*_SquareLength;
+	ModX=ModY=0;
 	if(ListIter->_XParamA!=0.0){
 		time1=(_SquareLength-_MyRadius-LocalStartX)/ListIter->_XParamA;
 		time2=(_MyRadius-LocalStartX)/ListIter->_XParamA;
-
+		ModX=time1>time2? 1: -1;
 		time1=time1>time2? time1 : time2;
 	}else
 		time1=-1.0;
@@ -137,18 +162,24 @@ double Agent::GiveTimeToCrossSquare(std::list<Segment>::iterator ListIter)
 	if(ListIter->_YParamA!=0.0){
 		time3=(_SquareLength-_MyRadius-LocalStartY)/ListIter->_YParamA;
 		time4=(_MyRadius-LocalStartY)/ListIter->_YParamA;
-
+		ModY=time3>time4? 1: -1;
 		time3=time3>time4? time3 : time4;
 
 	}else
 		time3=-1.0;
-if((time1>0.0)&&(time3>0.0))
+if((time1>0.0)&&(time3>0.0)){
+	if(time1 < time3)
+		ModY=0;
+	else
+		ModX=0;
 	return time1 < time3 ? time1 : time3;
-else if(time1>0.0)
+}else if(time1>0.0){
+	ModY=0;
 	return time1;
-else if(time3>0.0)
+}else if(time3>0.0){
+	ModX=0;
 	return time3;
-else return 0.0;
+}else return 0.0;
 
 
 
@@ -718,5 +749,23 @@ return ResultCoordinates;
 
 }
 
+
+Coordinates Agent::CoordinatesToSquare(Coordinates C, double SquareLength)
+{
+	Coordinates SquareCoordinates;
+	double SquareX,SquareY;
+	SquareX=floor(C._x / SquareLength);
+		//if((C._x / SquareLength)==SquareX)//jezeli na granicy kwadratow
+			//if(ListIter->_XParamA<0)//jezeli pochodna ujemna
+				//SquareX--;
+	SquareY=floor(C._y / SquareLength);
+		//if((C._y / SquareLength)==SquareY)//jezeli na granicy kwadratow
+			//if(ListIter->_YParamA<0)//jezeli pochodna ujemna
+				//SquareY--;
+
+	SquareCoordinates=Coordinates(SquareX,SquareY);
+
+	return SquareCoordinates;
+}
 
 

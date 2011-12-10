@@ -15,8 +15,10 @@ public:
 	Coordinates(double x, double y);
 	~Coordinates();
 	Coordinates operator -()const;
-	bool operator !=(Coordinates C);
-	bool operator ==(Coordinates C);
+	Coordinates & operator +=(const Coordinates & C);
+	bool operator !=(const Coordinates & C);
+	bool operator ==(const Coordinates & C);
+
 };
 
 #endif /* COORDINATES_HH_ */

@@ -17,12 +17,19 @@ Coordinates::~Coordinates() {
 	// TODO Auto-generated destructor stub
 }
 
-Coordinates Coordinates::operator -()const
+Coordinates  Coordinates::operator -()const
 {
 	return Coordinates(-_x,-_y);
 }
 
-bool Coordinates::operator !=(Coordinates C){
+Coordinates & Coordinates::operator +=(const Coordinates& C)
+		{
+	_x+=C._x;
+	_y+=C._y;
+	return(*this);
+		}
+
+bool Coordinates::operator !=(const Coordinates& C){
 	if((*this)==C)
 		return false;
 	else
@@ -30,7 +37,7 @@ bool Coordinates::operator !=(Coordinates C){
 
 }
 
-bool Coordinates::operator ==(Coordinates C){
+bool Coordinates::operator ==(const Coordinates& C){
 	if((_x==C._x)&&(_y==C._y))
 		return true;
 	else

@@ -14,6 +14,7 @@
 #define MWDEBUG 1
 
 #include "Segment.hh"
+#include "Clock.hh"
 #include <iostream>
 #include <list>
 
@@ -35,14 +36,15 @@ Coordinates _ActualPosition;
 Coordinates _MySquare;
 Coordinates _MyNextSquare;
 double _MyVel;
-double _TimeStep;
-double _Time;
+Clock _MyClock;
+
 
 //Flagi
 bool _PathDone;
 
-	Agent(std::list<Segment> ListOfSegments,double vel,double radius,double SquareLength);
+	Agent(std::list<Segment> ListOfSegments,double vel,double radius,double SquareLength,double TimeStep);
 	~Agent();
+	void Run();
 	Status Move();
 	double GiveTimeToCrossSquare(std::list<Segment>::iterator ListIter,int& ModX,int& ModY);
 	double GiveTimeToLeaveSquare(std::list<Segment>::iterator ListIter);

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Rozproszony_system_koordynacji_agentow_mobilnych: Plik źródłowy Coordinates.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.7.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="annotated.html"><span>Struktury&nbsp;Danych</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Globalne</span></a></li>
+    </ul>
+  </div>
+  <div class="navpath">
+    <ul>
+      <li><a class="el" href="dir_ea6d7edaf73c9bd1c81d51f5bfe68d38.html">src</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<h1>Coordinates.hh</h1>  </div>
+</div>
+<div class="contents">
+<a href="Coordinates_8hh.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00013"></a>00013 <span class="preprocessor">#ifndef COORDINATES_HH_</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#define COORDINATES_HH_</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span>
+<a name="l00024"></a><a class="code" href="classCoordinates.html">00024</a> <span class="keyword">class </span><a class="code" href="classCoordinates.html">Coordinates</a> {
+<a name="l00025"></a>00025 <span class="keyword">public</span>:
+<a name="l00026"></a><a class="code" href="classCoordinates.html#a4b1ebcbd2c5762be3a0bf12db756a2f9">00026</a>         <span class="keywordtype">double</span> <a class="code" href="classCoordinates.html#a46cd0305b4b243bed88609cae8a8deaa">_x</a>,<a class="code" href="classCoordinates.html#a4b1ebcbd2c5762be3a0bf12db756a2f9" title="wspolrzedne obiektu w przestrzeni dwuwymiarowej">_y</a>;
+<a name="l00027"></a><a class="code" href="classCoordinates.html#a89dd10af87d803fd51dfd9987f32e8cd">00027</a>         <a class="code" href="classCoordinates.html#a89dd10af87d803fd51dfd9987f32e8cd">Coordinates</a>(){};
+<a name="l00028"></a>00028         <a class="code" href="classCoordinates.html#a89dd10af87d803fd51dfd9987f32e8cd">Coordinates</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y);
+<a name="l00029"></a>00029         <a class="code" href="classCoordinates.html#add7d735f38950ba96dcc3f9ebfac7870">~Coordinates</a>();
+<a name="l00030"></a>00030         <a class="code" href="classCoordinates.html">Coordinates</a> <a class="code" href="classCoordinates.html#aab0184ff9512297524854b5b3b9d8fc1">operator -</a>()<span class="keyword">const</span>;
+<a name="l00031"></a>00031         <a class="code" href="classCoordinates.html">Coordinates</a> &amp; <a class="code" href="classCoordinates.html#aecca53cedf119bf92e5b1f555e52d03e">operator +=</a>(<span class="keyword">const</span> <a class="code" href="classCoordinates.html">Coordinates</a> &amp; C);
+<a name="l00032"></a>00032         <span class="keywordtype">bool</span> <a class="code" href="classCoordinates.html#a4ebc45faed71a7aaa7520ae3da3baa0c">operator !=</a>(<span class="keyword">const</span> <a class="code" href="classCoordinates.html">Coordinates</a> &amp; C);
+<a name="l00033"></a>00033         <span class="keywordtype">bool</span> <a class="code" href="classCoordinates.html#a0865247f07a863e00f11e3df9a1d6d47">operator ==</a>(<span class="keyword">const</span> <a class="code" href="classCoordinates.html">Coordinates</a> &amp; C);
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 };
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 <span class="preprocessor">#endif </span><span class="comment">/* COORDINATES_HH_ */</span>
+</pre></div></div>
+</div>
+<hr class="footer"/><address class="footer"><small>Wygenerowano Thu Dec 15 2011 11:45:51 dla Rozproszony_system_koordynacji_agentow_mobilnych programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
+</body>
+</html>

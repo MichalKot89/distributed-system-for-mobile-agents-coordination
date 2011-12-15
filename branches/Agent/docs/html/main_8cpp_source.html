@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Rozproszony_system_koordynacji_agentow_mobilnych: Plik źródłowy main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.7.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="annotated.html"><span>Struktury&nbsp;Danych</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Globalne</span></a></li>
+    </ul>
+  </div>
+  <div class="navpath">
+    <ul>
+      <li><a class="el" href="dir_ea6d7edaf73c9bd1c81d51f5bfe68d38.html">src</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<h1>main.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="main_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> * main.cpp</span>
+<a name="l00003"></a>00003 <span class="comment"> *</span>
+<a name="l00004"></a>00004 <span class="comment"> *  Created on: 14-10-2011</span>
+<a name="l00005"></a>00005 <span class="comment"> *      Author: michal</span>
+<a name="l00006"></a>00006 <span class="comment"> */</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="main_8hh.html">main.hh</a>&quot;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="GnuplotInc_8hh.html" title="Zawiera funkcje uzywane do rysowania wykresow uzywajac Gnuplot&amp;#39;a.">GnuplotInc.hh</a>&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="Segment_8hh.html" title="Zawiera opis klasy Segment.">Segment.hh</a>&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="Agent_8hh.html" title="Zawiera opis klasy Agent.">Agent.hh</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="Coordinates_8hh.html" title="Zawiera opis klasy Coordinates.">Coordinates.hh</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;cmath&gt;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keyword">using namespace </span>std;
+<a name="l00016"></a>00016 
+<a name="l00017"></a><a class="code" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">00017</a> <span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()
+<a name="l00018"></a>00018 {
+<a name="l00019"></a>00019         <span class="keywordtype">int</span> i;
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021         <a class="code" href="GnuplotInc_8cpp.html#a8addad24447bf769d41c3ab2f5c8519e" title="Procedura uruchamiajaca serwer, ktory dane z potoku przekazuje do Gnuplota.">GnuplotInit</a>();
+<a name="l00022"></a>00022         <a class="code" href="GnuplotInc_8cpp.html#a7b8a067f6d6901db018a84a57edb02d3">GnuplotSceneClean</a>();
+<a name="l00023"></a>00023         std::list&lt;Segment&gt; Trasa;
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025         Trasa.push_back(<a class="code" href="classSegment.html" title="Klasa opisujaca odcienek(prosta) w przestrzeni dwuwymiarowej.">Segment</a>(<a class="code" href="classCoordinates.html">Coordinates</a>(2,2),<a class="code" href="classCoordinates.html">Coordinates</a>(8,2)));
+<a name="l00026"></a>00026         Trasa.push_back(<a class="code" href="classSegment.html" title="Klasa opisujaca odcienek(prosta) w przestrzeni dwuwymiarowej.">Segment</a>(<a class="code" href="classCoordinates.html">Coordinates</a>(8,2),<a class="code" href="classCoordinates.html">Coordinates</a>(5,10)));
+<a name="l00027"></a>00027         Trasa.push_back(<a class="code" href="classSegment.html" title="Klasa opisujaca odcienek(prosta) w przestrzeni dwuwymiarowej.">Segment</a>(<a class="code" href="classCoordinates.html">Coordinates</a>(5,10),<a class="code" href="classCoordinates.html">Coordinates</a>(8,12)));
+<a name="l00028"></a>00028         <span class="comment">//Trasa.push_back(Segment(Coordinates(6,6),Coordinates(8,6)));</span>
+<a name="l00029"></a>00029         <span class="comment">//Trasa.push_back(Segment(Coordinates(8,6),Coordinates(10.5,10.5)));</span>
+<a name="l00030"></a>00030         <span class="comment">//Trasa.push_back(Segment(Coordinates(10.5,10.5),Coordinates(15,15)));</span>
+<a name="l00031"></a>00031         <span class="comment">//Trasa.push_back(Segment(Coordinates(15,15),Coordinates(7,12)));</span>
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="comment">//TODO:</span>
+<a name="l00037"></a>00037 <span class="comment"></span>        <span class="comment">//</span>
+<a name="l00038"></a>00038         <span class="comment">//element czasowy w klasie agent (zegar)</span>
+<a name="l00039"></a>00039         <span class="comment">//opis funkcji</span>
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041         <a class="code" href="classAgent.html" title="Klasa opisujaca mobilnego agenta dzialajacego w srodowisku systemu zdarzeniowego.">Agent</a> A1(Trasa,10,1,5,0.1);
+<a name="l00042"></a>00042         A1.<a class="code" href="classAgent.html#a80e144d0fd78f8e1a54abf92158448e1" title="Glowna procedura klasy agent bedaca realizacja istnienia agenta na scenie.">Run</a>();
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045         cin&gt;&gt;i;
+<a name="l00046"></a>00046         <a class="code" href="GnuplotInc_8cpp.html#a85e9d774c13b546806a0350beda1c055" title="Procedura konczaca dzialanie serwera FIFO.">GnuplotShutDown</a>();
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 }
+<a name="l00049"></a>00049 
+</pre></div></div>
+</div>
+<hr class="footer"/><address class="footer"><small>Wygenerowano Thu Dec 15 2011 11:45:51 dla Rozproszony_system_koordynacji_agentow_mobilnych programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
+</body>
+</html>

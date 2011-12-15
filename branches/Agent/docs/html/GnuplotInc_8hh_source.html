@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Rozproszony_system_koordynacji_agentow_mobilnych: Plik źródłowy GnuplotInc.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.7.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="annotated.html"><span>Struktury&nbsp;Danych</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Globalne</span></a></li>
+    </ul>
+  </div>
+  <div class="navpath">
+    <ul>
+      <li><a class="el" href="dir_ea6d7edaf73c9bd1c81d51f5bfe68d38.html">src</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<h1>GnuplotInc.hh</h1>  </div>
+</div>
+<div class="contents">
+<a href="GnuplotInc_8hh.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00012"></a>00012 <span class="preprocessor">#ifndef GNUPLOINC_HH_</span>
+<a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#define GNUPLOINC_HH_</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#include &lt;fstream&gt;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a><a class="code" href="GnuplotInc_8hh.html#a3ec677682fff5b0d42b967a6f62a4f90">00016</a> <span class="preprocessor">#define FIFO_FILE       &quot;GNUPLOT&quot; ///&lt;Nazwa potoku FIFO wykorzystywanego do</span>
+<a name="l00017"></a>00017 <span class="preprocessor"></span>
+<a name="l00018"></a><a class="code" href="GnuplotInc_8hh.html#a4905f5e9a8eeb48ce583354c1d0c7a9f">00018</a> <span class="preprocessor">#define PLOTDIR &quot;../plots/&quot; ///&lt;sciezka do danych z wykresow</span>
+<a name="l00019"></a>00019 <span class="preprocessor"></span>
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 
+<a name="l00029"></a><a class="code" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">00029</a> <span class="keyword">enum</span> <a class="code" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a>
+<a name="l00030"></a>00030 {
+<a name="l00031"></a><a class="code" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3ab7e4e0120a041dbe6528b050c04269e0">00031</a>         none,
+<a name="l00032"></a><a class="code" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3a40aed305ff38af63ddac586aff968d3b">00032</a>         eps,
+<a name="l00033"></a><a class="code" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3ae4ca64fdd73f453d7d68c28445f7accd">00033</a>         <a class="code" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3ae4ca64fdd73f453d7d68c28445f7accd" title="plik .png">png</a>
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 };
+<a name="l00036"></a>00036 
+<a name="l00050"></a>00050 <span class="keywordtype">void</span> <a class="code" href="GnuplotInc_8cpp.html#a07bd2e7a5945dc93fe3114d62e8040f7" title="Procedura zapisuje wyrysowany wykres do pliku o podanym rozszerzeniu.">SavePlot</a>(std::ofstream &amp;Strm,<span class="keywordtype">char</span>* PlotName,<a class="code" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a> ext,<span class="keywordtype">int</span> winid);
+<a name="l00051"></a>00051 
+<a name="l00061"></a>00061 <span class="keywordtype">void</span> <a class="code" href="GnuplotInc_8cpp.html#a8addad24447bf769d41c3ab2f5c8519e" title="Procedura uruchamiajaca serwer, ktory dane z potoku przekazuje do Gnuplota.">GnuplotInit</a>();
+<a name="l00062"></a>00062 
+<a name="l00072"></a>00072 <span class="keywordtype">int</span> <a class="code" href="GnuplotInc_8cpp.html#a85e9d774c13b546806a0350beda1c055" title="Procedura konczaca dzialanie serwera FIFO.">GnuplotShutDown</a>();
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 <span class="keywordtype">void</span> <a class="code" href="GnuplotInc_8cpp.html#a7b8a067f6d6901db018a84a57edb02d3">GnuplotSceneClean</a>();
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 <span class="keywordtype">int</span> <a class="code" href="GnuplotInc_8cpp.html#a23f4194eff7b71282f0d0278fd0834e5">PlotScene</a>(<span class="keywordtype">double</span> SquareLength,<span class="keywordtype">int</span> SceneSize,<span class="keywordtype">int</span> AgentID);
+<a name="l00077"></a>00077 
+<a name="l00094"></a>00094 <span class="keywordtype">int</span> <a class="code" href="GnuplotInc_8cpp.html#a561196655bce7044165f5d05d38b3188" title="Funkcja wyswietla dane zawarte w tablicy T w formie wykresu slupkowego.">BarPlot</a>(<span class="keywordtype">double</span> **T,<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m,<span class="keywordtype">int</span> winid, <a class="code" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a> ext);
+<a name="l00095"></a>00095 
+<a name="l00118"></a>00118 <span class="keywordtype">int</span> <a class="code" href="GnuplotInc_8cpp.html#a60ad3ed0cfef98900830ca6197e33cb2" title="Funkcja wyswietla dane zawarte w tablicy T w formie trojwymiarowej.">ColMapPlot</a>(<span class="keywordtype">double</span> **T,<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m,<span class="keywordtype">double</span> pa,<span class="keywordtype">double</span> pb,<span class="keywordtype">double</span> ka,
+<a name="l00119"></a>00119                 <span class="keywordtype">double</span> kb, <span class="keywordtype">int</span> winid, <a class="code" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a> ext);
+<a name="l00120"></a>00120 
+<a name="l00142"></a>00142 <span class="keywordtype">int</span> <a class="code" href="GnuplotInc_8cpp.html#a40b05327fdd4cc6c39c5fc29b82c2b08" title="Funkcja wyswietla dane zawarte w tablicach a i b w odniesieniu do wartosci ref w formie wykresu 2d...">PerformPlot</a>(<span class="keywordtype">int</span> *a,<span class="keywordtype">int</span> *b, <span class="keywordtype">int</span> ra,<span class="keywordtype">int</span> rb,<span class="keywordtype">int</span> ref,<span class="keywordtype">int</span> ref2,<span class="keywordtype">int</span> winid, <a class="code" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a> ext);
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145 <span class="preprocessor">#endif </span><span class="comment">/* GNUPLOINC_HH_ */</span>
+</pre></div></div>
+</div>
+<hr class="footer"/><address class="footer"><small>Wygenerowano Thu Dec 15 2011 11:45:51 dla Rozproszony_system_koordynacji_agentow_mobilnych programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
+</body>
+</html>

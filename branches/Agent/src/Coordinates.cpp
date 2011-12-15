@@ -1,8 +1,13 @@
-/*
- * Coordinates.cpp
+/*!
+ *\file Coordinates.cpp
+ *\author Michal Wcislo
+ *\date 15.12.2011
+ *\version 1.0
+ *\brief Zawiera implementacje klasy Coordinates
  *
- *  Created on: 27-10-2011
- *      Author: michal
+ *Zawiera implementacje klasy Coordinates
+ *
+ *
  */
 
 #include "Coordinates.hh"

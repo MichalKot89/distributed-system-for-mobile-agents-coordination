@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Rozproszony_system_koordynacji_agentow_mobilnych: Plik źródłowy Coordinates.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.7.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="annotated.html"><span>Struktury&nbsp;Danych</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Globalne</span></a></li>
+    </ul>
+  </div>
+  <div class="navpath">
+    <ul>
+      <li><a class="el" href="dir_ea6d7edaf73c9bd1c81d51f5bfe68d38.html">src</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<h1>Coordinates.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="Coordinates_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="Coordinates_8hh.html" title="Zawiera opis klasy Coordinates.">Coordinates.hh</a>&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="classCoordinates.html#ab1de1f45f2c6554a35288ff40d11132f">00015</a> <a class="code" href="classCoordinates.html#a89dd10af87d803fd51dfd9987f32e8cd">Coordinates::Coordinates</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y) {
+<a name="l00016"></a>00016         <a class="code" href="classCoordinates.html#a46cd0305b4b243bed88609cae8a8deaa">_x</a>=x;
+<a name="l00017"></a>00017         <a class="code" href="classCoordinates.html#a4b1ebcbd2c5762be3a0bf12db756a2f9" title="wspolrzedne obiektu w przestrzeni dwuwymiarowej">_y</a>=y;
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 }
+<a name="l00020"></a>00020 
+<a name="l00021"></a><a class="code" href="classCoordinates.html#add7d735f38950ba96dcc3f9ebfac7870">00021</a> <a class="code" href="classCoordinates.html#add7d735f38950ba96dcc3f9ebfac7870">Coordinates::~Coordinates</a>() {
+<a name="l00022"></a>00022         <span class="comment">// TODO Auto-generated destructor stub</span>
+<a name="l00023"></a>00023 }
+<a name="l00024"></a>00024 
+<a name="l00025"></a><a class="code" href="classCoordinates.html#aab0184ff9512297524854b5b3b9d8fc1">00025</a> <a class="code" href="classCoordinates.html">Coordinates</a>  <a class="code" href="classCoordinates.html#aab0184ff9512297524854b5b3b9d8fc1">Coordinates::operator -</a>()<span class="keyword">const</span>
+<a name="l00026"></a>00026 <span class="keyword"></span>{
+<a name="l00027"></a>00027         <span class="keywordflow">return</span> <a class="code" href="classCoordinates.html#a89dd10af87d803fd51dfd9987f32e8cd">Coordinates</a>(-<a class="code" href="classCoordinates.html#a46cd0305b4b243bed88609cae8a8deaa">_x</a>,-<a class="code" href="classCoordinates.html#a4b1ebcbd2c5762be3a0bf12db756a2f9" title="wspolrzedne obiektu w przestrzeni dwuwymiarowej">_y</a>);
+<a name="l00028"></a>00028 }
+<a name="l00029"></a>00029 
+<a name="l00030"></a><a class="code" href="classCoordinates.html#aecca53cedf119bf92e5b1f555e52d03e">00030</a> <a class="code" href="classCoordinates.html">Coordinates</a> &amp; <a class="code" href="classCoordinates.html#aecca53cedf119bf92e5b1f555e52d03e">Coordinates::operator +=</a>(<span class="keyword">const</span> <a class="code" href="classCoordinates.html">Coordinates</a>&amp; C)
+<a name="l00031"></a>00031                 {
+<a name="l00032"></a>00032         <a class="code" href="classCoordinates.html#a46cd0305b4b243bed88609cae8a8deaa">_x</a>+=C.<a class="code" href="classCoordinates.html#a46cd0305b4b243bed88609cae8a8deaa">_x</a>;
+<a name="l00033"></a>00033         <a class="code" href="classCoordinates.html#a4b1ebcbd2c5762be3a0bf12db756a2f9" title="wspolrzedne obiektu w przestrzeni dwuwymiarowej">_y</a>+=C.<a class="code" href="classCoordinates.html#a4b1ebcbd2c5762be3a0bf12db756a2f9" title="wspolrzedne obiektu w przestrzeni dwuwymiarowej">_y</a>;
+<a name="l00034"></a>00034         <span class="keywordflow">return</span>(*<span class="keyword">this</span>);
+<a name="l00035"></a>00035                 }
+<a name="l00036"></a>00036 
+<a name="l00037"></a><a class="code" href="classCoordinates.html#a4ebc45faed71a7aaa7520ae3da3baa0c">00037</a> <span class="keywordtype">bool</span> <a class="code" href="classCoordinates.html#a4ebc45faed71a7aaa7520ae3da3baa0c">Coordinates::operator !=</a>(<span class="keyword">const</span> <a class="code" href="classCoordinates.html">Coordinates</a>&amp; C){
+<a name="l00038"></a>00038         <span class="keywordflow">if</span>((*<span class="keyword">this</span>)==C)
+<a name="l00039"></a>00039                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00040"></a>00040         <span class="keywordflow">else</span>
+<a name="l00041"></a>00041                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 }
+<a name="l00044"></a>00044 
+<a name="l00045"></a><a class="code" href="classCoordinates.html#a0865247f07a863e00f11e3df9a1d6d47">00045</a> <span class="keywordtype">bool</span> <a class="code" href="classCoordinates.html#a0865247f07a863e00f11e3df9a1d6d47">Coordinates::operator ==</a>(<span class="keyword">const</span> <a class="code" href="classCoordinates.html">Coordinates</a>&amp; C){
+<a name="l00046"></a>00046         <span class="keywordflow">if</span>((<a class="code" href="classCoordinates.html#a46cd0305b4b243bed88609cae8a8deaa">_x</a>==C.<a class="code" href="classCoordinates.html#a46cd0305b4b243bed88609cae8a8deaa">_x</a>)&amp;&amp;(<a class="code" href="classCoordinates.html#a4b1ebcbd2c5762be3a0bf12db756a2f9" title="wspolrzedne obiektu w przestrzeni dwuwymiarowej">_y</a>==C.<a class="code" href="classCoordinates.html#a4b1ebcbd2c5762be3a0bf12db756a2f9" title="wspolrzedne obiektu w przestrzeni dwuwymiarowej">_y</a>))
+<a name="l00047"></a>00047                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00048"></a>00048         <span class="keywordflow">else</span>
+<a name="l00049"></a>00049                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00050"></a>00050 }
+<a name="l00051"></a>00051 
+</pre></div></div>
+</div>
+<hr class="footer"/><address class="footer"><small>Wygenerowano Thu Dec 15 2011 11:45:51 dla Rozproszony_system_koordynacji_agentow_mobilnych programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
+</body>
+</html>

@@ -1,0 +1,34 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir=LR;
+  Node1 [label="main",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="GnuplotInit",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$GnuplotInc_8cpp.html#a8addad24447bf769d41c3ab2f5c8519e",tooltip="Procedura uruchamiajaca serwer, ktory dane z potoku przekazuje do Gnuplota."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="GnuplotSceneClean",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$GnuplotInc_8cpp.html#a7b8a067f6d6901db018a84a57edb02d3"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="GnuplotShutDown",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$GnuplotInc_8cpp.html#a85e9d774c13b546806a0350beda1c055",tooltip="Procedura konczaca dzialanie serwera FIFO."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="Agent::Run",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAgent.html#a80e144d0fd78f8e1a54abf92158448e1",tooltip="Glowna procedura klasy agent bedaca realizacja istnienia agenta na scenie."];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="Clock::GiveActualTime",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classClock.html#a14ea1f48a24417870bfd5fc0153d140d"];
+  Node5 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="Agent::Move",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAgent.html#a141897370601ada8da1358b303d2e1e7",tooltip="Funkcja wykonująca ruch agenta zgodnie z zaplanowana sciezka."];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node8 [label="Agent::CoordinatesToSquare",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAgent.html#a1aab1eb9d67e80350290da71cfecb729",tooltip="Funkcja zamienia wspolrzedne globalne na wspolrzedne kwadratu w ktorym znajduje sie agent..."];
+  Node7 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node9 [label="Agent::DropActualPosition",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAgent.html#a51bc5c497653779725fc4c2f6dfee888",tooltip="Procedura zapisuje aktualną pozycje agenta di pliku Agent(ID).dat."];
+  Node9 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 [label="Clock::GiveTimeStep",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classClock.html#a2e4a260fdffd1362d5a3e9b44059b907"];
+  Node7 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node11 [label="Agent::GiveTimeToCrossSquare",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAgent.html#a886c0bc4f842f053fd88de10c9f8d55f",tooltip="Funkcja zwraca czas do momentu wkroczenia na sasiedni kwadrat."];
+  Node7 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node12 [label="Agent::GiveTimeToLeaveSquare",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAgent.html#a247de793fdc9c285b9a0289bc8022b94",tooltip="Funkcja zwraca czas do momentu calkowitego opuszczenia kwadratu."];
+  Node5 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node13 [label="PlotScene",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$GnuplotInc_8cpp.html#a23f4194eff7b71282f0d0278fd0834e5"];
+  Node5 -> Node14 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node14 [label="Clock::TickTack",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classClock.html#a7be770b38ca6e3a228850cf60b8cb82d",tooltip="Procedura odmierzajaca krok zegara."];
+}

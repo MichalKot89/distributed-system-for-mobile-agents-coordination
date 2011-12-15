@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Rozproszony_system_koordynacji_agentow_mobilnych: Plik źródłowy Segment.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.7.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="annotated.html"><span>Struktury&nbsp;Danych</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Globalne</span></a></li>
+    </ul>
+  </div>
+  <div class="navpath">
+    <ul>
+      <li><a class="el" href="dir_ea6d7edaf73c9bd1c81d51f5bfe68d38.html">src</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<h1>Segment.hh</h1>  </div>
+</div>
+<div class="contents">
+<a href="Segment_8hh.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00013"></a>00013 <span class="preprocessor">#ifndef SEGMENT_HH_</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#define SEGMENT_HH_</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="Coordinates_8hh.html" title="Zawiera opis klasy Coordinates.">Coordinates.hh</a>&quot;</span>
+<a name="l00024"></a><a class="code" href="classSegment.html">00024</a> <span class="keyword">class </span><a class="code" href="classSegment.html" title="Klasa opisujaca odcienek(prosta) w przestrzeni dwuwymiarowej.">Segment</a> {
+<a name="l00025"></a>00025 <span class="keyword">public</span>:
+<a name="l00026"></a><a class="code" href="classSegment.html#ae628193c6d019a46071bf2d649e8b57b">00026</a>         <a class="code" href="classCoordinates.html">Coordinates</a> <a class="code" href="classSegment.html#ae628193c6d019a46071bf2d649e8b57b" title="poczatek odcinka">_Start</a>;
+<a name="l00027"></a><a class="code" href="classSegment.html#abaf11cb5b3b623c9dc278ca7bac5bdf0">00027</a>         <a class="code" href="classCoordinates.html">Coordinates</a> <a class="code" href="classSegment.html#abaf11cb5b3b623c9dc278ca7bac5bdf0" title="koniec odcinka">_End</a>;
+<a name="l00028"></a><a class="code" href="classSegment.html#add1eb7f6085946f04808ac96eff4a2a6">00028</a>         <span class="keywordtype">double</span> <a class="code" href="classSegment.html#a1b3d58ab45b040d60ba2fb6385526fda">_XParamA</a>,<a class="code" href="classSegment.html#add1eb7f6085946f04808ac96eff4a2a6" title="wspolczynniki rownania opisujacego ruch dla osi X=at+b">_XParamB</a>;
+<a name="l00029"></a><a class="code" href="classSegment.html#a7515a9f8f060e6b9a806bbdabf5a1679">00029</a>         <span class="keywordtype">double</span> <a class="code" href="classSegment.html#a951ffa6de4422a7bfe8955753775cde8">_YParamA</a>,<a class="code" href="classSegment.html#a7515a9f8f060e6b9a806bbdabf5a1679" title="wspolczynniki rownania opisujacego ruch dla osi Y=at+b">_YParamB</a>;
+<a name="l00030"></a>00030 
+<a name="l00031"></a><a class="code" href="classSegment.html#adfe9fc7ffcc7269f961d4b1f6720d1e8">00031</a>         <a class="code" href="classSegment.html#adfe9fc7ffcc7269f961d4b1f6720d1e8">Segment</a>(){};
+<a name="l00041"></a>00041         <a class="code" href="classSegment.html#adfe9fc7ffcc7269f961d4b1f6720d1e8">Segment</a>(<a class="code" href="classCoordinates.html">Coordinates</a> start,<a class="code" href="classCoordinates.html">Coordinates</a> end);
+<a name="l00042"></a>00042         <a class="code" href="classSegment.html#a76b45a453304f1f485e3bc2fcad58b59">~Segment</a>();
+<a name="l00048"></a>00048         <span class="keywordtype">void</span> <a class="code" href="classSegment.html#a65b7aee9efda45769c2aa5180218d888">SetVelocity</a>(<span class="keywordtype">double</span> v);
+<a name="l00049"></a>00049 };
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 <span class="preprocessor">#endif </span><span class="comment">/* SEGMENT_HH_ */</span>
+</pre></div></div>
+</div>
+<hr class="footer"/><address class="footer"><small>Wygenerowano Thu Dec 15 2011 11:45:51 dla Rozproszony_system_koordynacji_agentow_mobilnych programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
+</body>
+</html>

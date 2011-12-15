@@ -1,8 +1,13 @@
-/*
- * Agent.cpp
+/*!
+ *\file Agent.cpp
+ *\author Michal Wcislo
+ *\date 15.12.2011
+ *\version 1.0
+ *\brief Zawiera implementacje klasy Agent
  *
- *  Created on: 27-10-2011
- *      Author: michal
+ *Zawiera implementacje klasy Agent
+ *
+ *
  */
 
 #include "Agent.hh"

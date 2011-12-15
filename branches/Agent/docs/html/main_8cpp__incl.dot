@@ -1,0 +1,29 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="main.cpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="iostream",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="main.hh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8hh.html"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="GnuplotInc.hh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$GnuplotInc_8hh.html",tooltip="Zawiera funkcje uzywane do rysowania wykresow uzywajac Gnuplot&#39;a."];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="fstream",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="Segment.hh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Segment_8hh.html",tooltip="Zawiera opis klasy Segment."];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="Coordinates.hh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Coordinates_8hh.html",tooltip="Zawiera opis klasy Coordinates."];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node8 [label="Agent.hh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Agent_8hh.html",tooltip="Zawiera opis klasy Agent."];
+  Node8 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node9 [label="Clock.hh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Clock_8hh.html",tooltip="Zawiera opis klasy Clock."];
+  Node8 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node8 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 [label="list",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node11 [label="cmath",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

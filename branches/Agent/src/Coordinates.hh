@@ -1,16 +1,29 @@
-/*
- * Coordinates.hh
+/*!
+ *\file Coordinates.hh
+ *\author Michal Wcislo
+ *\date 15.12.2011
+ *\version 1.0
+ *\brief Zawiera opis klasy Coordinates
  *
- *  Created on: 27-10-2011
- *      Author: michal
+ *Zawiera opis klasy Coordinates
+ *
+ *
  */
 
 #ifndef COORDINATES_HH_
 #define COORDINATES_HH_
 
+/*!
+ *
+ * \class Coordinates
+ * \brief Klasa opisujaca wspolrzedne w dwuwymiarowym ukladzie
+ *
+ * Klasa opisujaca wspolrzedne w dwuwymiarowym ukladzie.
+ *
+ */
 class Coordinates {
 public:
-	double _x,_y;
+	double _x,_y;///< wspolrzedne obiektu w przestrzeni dwuwymiarowej
 	Coordinates(){};
 	Coordinates(double x, double y);
 	~Coordinates();

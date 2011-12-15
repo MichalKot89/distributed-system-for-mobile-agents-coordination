@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Rozproszony_system_koordynacji_agentow_mobilnych: Plik źródłowy Agent.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.7.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="annotated.html"><span>Struktury&nbsp;Danych</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Globalne</span></a></li>
+    </ul>
+  </div>
+  <div class="navpath">
+    <ul>
+      <li><a class="el" href="dir_ea6d7edaf73c9bd1c81d51f5bfe68d38.html">src</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<h1>Agent.hh</h1>  </div>
+</div>
+<div class="contents">
+<a href="Agent_8hh.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00013"></a>00013 <span class="preprocessor">#ifndef AGENT_HH_</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#define AGENT_HH_</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span>
+<a name="l00017"></a><a class="code" href="Agent_8hh.html#a4905f5e9a8eeb48ce583354c1d0c7a9f">00017</a> <span class="preprocessor">#define PLOTDIR &quot;../plots/&quot; ///&lt;sciezka do danych z wykresow</span>
+<a name="l00018"></a><a class="code" href="Agent_8hh.html#a956e2723d559858d08644ac99146e910">00018</a> <span class="preprocessor"></span><span class="preprocessor">#define INFINITY 1000000000 ///&lt; nieskonczonosc</span>
+<a name="l00019"></a><a class="code" href="Agent_8hh.html#ad021f4ac05222c9ef8812db0587c2ccd">00019</a> <span class="preprocessor"></span><span class="preprocessor">#define MWDEBUG 1</span>
+<a name="l00020"></a>00020 <span class="preprocessor"></span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="Segment_8hh.html" title="Zawiera opis klasy Segment.">Segment.hh</a>&quot;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="Clock_8hh.html" title="Zawiera opis klasy Clock.">Clock.hh</a>&quot;</span>
+<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;list&gt;</span>
+<a name="l00025"></a>00025 
+<a name="l00036"></a><a class="code" href="classAgent.html">00036</a> <span class="keyword">class </span><a class="code" href="classAgent.html" title="Klasa opisujaca mobilnego agenta dzialajacego w srodowisku systemu zdarzeniowego.">Agent</a> {
+<a name="l00037"></a>00037 <span class="keyword">public</span>:
+<a name="l00043"></a><a class="code" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646ea04bc7dc369d05d9d1dab116c4f4ad504">00043</a>         <span class="keyword">enum</span> <a class="code" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646e" title="Typ wyliczeniowy opisujacy status agenta.">Status</a>{Moving,LeavingSqare,WaitingToEnterSquare,<a class="code" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646ea58292f478559f744879e700594b1e95c">WaitingToBypass</a>};
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 
+<a name="l00046"></a><a class="code" href="classAgent.html#a1a14519d4403a1715574eecf9d239551">00046</a> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classAgent.html#a1a14519d4403a1715574eecf9d239551" title="Liczba stworzonych agentow.">_NumOfAgentsCreated</a>; 
+<a name="l00047"></a><a class="code" href="classAgent.html#a4ad85b810d47200d82a3e8445e222bc2">00047</a> <span class="keywordtype">int</span> <a class="code" href="classAgent.html#a4ad85b810d47200d82a3e8445e222bc2" title="Numer ID agenta bedacy rowniez priorytetem agenta.">_MyID</a>;
+<a name="l00048"></a>00048 
+<a name="l00049"></a><a class="code" href="classAgent.html#ae1a82c0ae07e9d430411e681542b3852">00049</a> <span class="keywordtype">double</span> <a class="code" href="classAgent.html#ae1a82c0ae07e9d430411e681542b3852" title="promien agenta (agent jest kolem)">_MyRadius</a>;
+<a name="l00050"></a><a class="code" href="classAgent.html#a53941d002024f35cc7b9f202896746bf">00050</a> <a class="code" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646e" title="Typ wyliczeniowy opisujacy status agenta.">Status</a> <a class="code" href="classAgent.html#a53941d002024f35cc7b9f202896746bf" title="status agenta">_MyStatus</a>;
+<a name="l00051"></a><a class="code" href="classAgent.html#a0da83836e6986f53455d1f8663d999c7">00051</a> <a class="code" href="classCoordinates.html">Coordinates</a> <a class="code" href="classAgent.html#a0da83836e6986f53455d1f8663d999c7" title="kwadrat w ktorym obecnie znajduje sie agent">_MySquare</a>;
+<a name="l00052"></a><a class="code" href="classAgent.html#a41335bf2fd1fe065f82c3409927d8738">00052</a> <a class="code" href="classCoordinates.html">Coordinates</a> <a class="code" href="classAgent.html#a41335bf2fd1fe065f82c3409927d8738" title="kwadrat na ktory agent ma zamiar wjechac">_MyNextSquare</a>;
+<a name="l00053"></a><a class="code" href="classAgent.html#a481f40f58a7bfaa1d7fddf145e3d9635">00053</a> <span class="keywordtype">double</span> <a class="code" href="classAgent.html#a481f40f58a7bfaa1d7fddf145e3d9635" title="predkosc wypadkowa agenta">_MyVel</a>;
+<a name="l00054"></a><a class="code" href="classAgent.html#a569b980937fe959673a4e6010866afe7">00054</a> <a class="code" href="classClock.html" title="Klasa opsiujaca obiekt zegarka.">Clock</a> <a class="code" href="classAgent.html#a569b980937fe959673a4e6010866afe7" title="zegar agenta pozwalajacy na odniesienie do rzeczywistego czasu symulacji">_MyClock</a>;
+<a name="l00055"></a>00055 
+<a name="l00056"></a><a class="code" href="classAgent.html#ad2120cdac7ca4094490755d0aca36aed">00056</a> std::list&lt;Segment&gt; <a class="code" href="classAgent.html#ad2120cdac7ca4094490755d0aca36aed" title="lista odcinkow w trasie agenta">_ListOfSegments</a>;
+<a name="l00057"></a><a class="code" href="classAgent.html#a9d03ca9b7af5b26503a75213c8601abd">00057</a> <span class="keywordtype">int</span> <a class="code" href="classAgent.html#a9d03ca9b7af5b26503a75213c8601abd" title="aktualnie realizowany odcinek trasy">_SegmentNo</a>;
+<a name="l00058"></a><a class="code" href="classAgent.html#ad8e89284dfa2c9d4019b29ebd4944c6d">00058</a> <span class="keywordtype">double</span> <a class="code" href="classAgent.html#ad8e89284dfa2c9d4019b29ebd4944c6d" title="dlugosc boku kwadratu bedacy sektorem w srodowisku symulatora">_SquareLength</a>;
+<a name="l00059"></a><a class="code" href="classAgent.html#aefb96a00785fe32c6e856160485f0aab">00059</a> <a class="code" href="classCoordinates.html">Coordinates</a> <a class="code" href="classAgent.html#aefb96a00785fe32c6e856160485f0aab" title="globalna pozycja agenta">_ActualPosition</a>;
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="comment">//Flagi</span>
+<a name="l00065"></a><a class="code" href="classAgent.html#ad7b052e72604807dfadac10d28b4ef86">00065</a> <span class="keywordtype">bool</span> <a class="code" href="classAgent.html#ad7b052e72604807dfadac10d28b4ef86" title="flaga trasy TRUE - trasa ukonczona, FALSE - odwrotnie">_PathDone</a>;
+<a name="l00066"></a>00066 
+<a name="l00077"></a>00077         <a class="code" href="classAgent.html#a18df514da404e6a46557dcb90628b9f6" title="Konstruktor parametryczny klasy agent.">Agent</a>(std::list&lt;Segment&gt; ListOfSegments,<span class="keywordtype">double</span> vel,<span class="keywordtype">double</span> radius,<span class="keywordtype">double</span> SquareLength,<span class="keywordtype">double</span> TimeStep);
+<a name="l00078"></a>00078 
+<a name="l00083"></a>00083         <a class="code" href="classAgent.html#ab8dd8d152605cf1339fed595376e83cb" title="destruktor klasy Agent">~Agent</a>();
+<a name="l00084"></a>00084 
+<a name="l00090"></a>00090         <span class="keywordtype">void</span> <a class="code" href="classAgent.html#a80e144d0fd78f8e1a54abf92158448e1" title="Glowna procedura klasy agent bedaca realizacja istnienia agenta na scenie.">Run</a>();
+<a name="l00109"></a>00109         <a class="code" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646e" title="Typ wyliczeniowy opisujacy status agenta.">Status</a> <a class="code" href="classAgent.html#a141897370601ada8da1358b303d2e1e7" title="Funkcja wykonująca ruch agenta zgodnie z zaplanowana sciezka.">Move</a>();
+<a name="l00110"></a>00110 
+<a name="l00125"></a>00125         <span class="keywordtype">double</span> <a class="code" href="classAgent.html#a886c0bc4f842f053fd88de10c9f8d55f" title="Funkcja zwraca czas do momentu wkroczenia na sasiedni kwadrat.">GiveTimeToCrossSquare</a>(std::list&lt;Segment&gt;::iterator ListIter,<span class="keywordtype">int</span>&amp; ModX,<span class="keywordtype">int</span>&amp; ModY);
+<a name="l00137"></a>00137         <span class="keywordtype">double</span> <a class="code" href="classAgent.html#a247de793fdc9c285b9a0289bc8022b94" title="Funkcja zwraca czas do momentu calkowitego opuszczenia kwadratu.">GiveTimeToLeaveSquare</a>(std::list&lt;Segment&gt;::iterator ListIter);
+<a name="l00150"></a>00150         std::list&lt;Segment&gt; <a class="code" href="classAgent.html#a5d4e48e7d966f940c1935817ffb63b9f" title="Funkcja modyfikuje wejsciowa trase agenta tak aby omijala wierzcholki kwadratowych sektorów...">ResolveForbiddenSectors</a>(std::list&lt;Segment&gt; ListOfSegments);
+<a name="l00160"></a>00160         <span class="keywordtype">void</span> <a class="code" href="classAgent.html#ab15fff7775dd38bda618306c02871ec6" title="Procedura ustawia predkosc ruchu agenta poprzez zmiane funkcji ruchu w poszczegolnych segmentach tras...">SetVelocityToSegments</a>();
+<a name="l00168"></a>00168         <span class="keywordtype">int</span> <a class="code" href="classAgent.html#a51bc5c497653779725fc4c2f6dfee888" title="Procedura zapisuje aktualną pozycje agenta di pliku Agent(ID).dat.">DropActualPosition</a>();
+<a name="l00183"></a>00183         <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classAgent.html#a2a709195dc58a13aecee4b5639c3875b" title="Funkcja obliczajaca czas do wjazdu i wyjazdu z okregu o srodku w wierzcholku kwadratu.">CalculateCollisionPoints</a>(<a class="code" href="classSegment.html" title="Klasa opisujaca odcienek(prosta) w przestrzeni dwuwymiarowej.">Segment</a> S,<span class="keywordtype">double</span> r,<a class="code" href="classCoordinates.html">Coordinates</a> Start,<a class="code" href="classCoordinates.html">Coordinates</a> O, <span class="keywordtype">double</span> &amp; InTime, <span class="keywordtype">double</span> &amp; OutTime);
+<a name="l00193"></a>00193         <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classAgent.html#ab789551a0abd4cf9daed34c2a9577f16" title="Funkcja oblicza pierwiastki rownania kwadratowego.">SquareEqRoots</a>(<span class="keywordtype">double</span> a,<span class="keywordtype">double</span> b,<span class="keywordtype">double</span> c,<span class="keywordtype">double</span> &amp;t1,<span class="keywordtype">double</span> &amp;t2);
+<a name="l00207"></a>00207         <span class="keyword">static</span> std::list&lt;Segment&gt; <a class="code" href="classAgent.html#a4c8aa915f9f00c389d31cda24fdbfd7b" title="Funkcja zwraca trase omijajaca zakazany obszar (kolo) w wierzcholku kwadratu.">FindPathResolvingForbiddenSector</a>
+<a name="l00208"></a>00208         (<a class="code" href="classCoordinates.html">Coordinates</a> In,<a class="code" href="classCoordinates.html">Coordinates</a> Out,<a class="code" href="classCoordinates.html">Coordinates</a> O);
+<a name="l00218"></a>00218         <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classAgent.html#a4146de8fd62c2766e8263bf3af7859fb" title="Procedura zmienia uklad wspolrzednych segmentu.">ChangeStartOfCordSysForSegment</a>
+<a name="l00219"></a>00219         (<a class="code" href="classSegment.html" title="Klasa opisujaca odcienek(prosta) w przestrzeni dwuwymiarowej.">Segment</a> &amp; OneSegment, <a class="code" href="classCoordinates.html">Coordinates</a> Into);
+<a name="l00229"></a>00229         <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classAgent.html#a4146de8fd62c2766e8263bf3af7859fb" title="Procedura zmienia uklad wspolrzednych segmentu.">ChangeStartOfCordSysForSegment</a>
+<a name="l00230"></a>00230         (std::list&lt;Segment&gt; &amp; ListOfSegments, <a class="code" href="classCoordinates.html">Coordinates</a> Into);
+<a name="l00245"></a>00245         <span class="keyword">static</span> <a class="code" href="classSegment.html" title="Klasa opisujaca odcienek(prosta) w przestrzeni dwuwymiarowej.">Segment</a> <a class="code" href="classAgent.html#a355fd36b0c2b604c89d7b29ad08890d7" title="Funkcja szuka odcinka (prostej) prostopadlej do zadanej prostej w punkcie.">FindLinePerpendicularToPoint</a>(<a class="code" href="classSegment.html" title="Klasa opisujaca odcienek(prosta) w przestrzeni dwuwymiarowej.">Segment</a> OneSegment, <a class="code" href="classCoordinates.html">Coordinates</a> Point);
+<a name="l00258"></a>00258         <span class="keyword">static</span> <a class="code" href="classCoordinates.html">Coordinates</a> <a class="code" href="classAgent.html#acc8d2f2989984b4bbe85c92113552ab0" title="Funkcja szuka punktu przeciecia dwoch odcinkow (prostych).">FindCrossPointBetweenSegments</a>(<a class="code" href="classSegment.html" title="Klasa opisujaca odcienek(prosta) w przestrzeni dwuwymiarowej.">Segment</a> Seg1,<a class="code" href="classSegment.html" title="Klasa opisujaca odcienek(prosta) w przestrzeni dwuwymiarowej.">Segment</a> Seg2);
+<a name="l00273"></a>00273         <span class="keyword">static</span> <a class="code" href="classCoordinates.html">Coordinates</a> <a class="code" href="classAgent.html#a1aab1eb9d67e80350290da71cfecb729" title="Funkcja zamienia wspolrzedne globalne na wspolrzedne kwadratu w ktorym znajduje sie agent...">CoordinatesToSquare</a>(<a class="code" href="classCoordinates.html">Coordinates</a> C, <span class="keywordtype">double</span> SquareLength);
+<a name="l00274"></a>00274 };
+<a name="l00275"></a>00275 
+<a name="l00276"></a>00276 <span class="preprocessor">#endif </span><span class="comment">/* AGENT_HH_ */</span>
+</pre></div></div>
+</div>
+<hr class="footer"/><address class="footer"><small>Wygenerowano Thu Dec 15 2011 11:45:51 dla Rozproszony_system_koordynacji_agentow_mobilnych programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
+</body>
+</html>

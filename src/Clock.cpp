@@ -1,8 +1,13 @@
-/*
- * Clock.cpp
+/*!
+ *\file Clock.cpp
+ *\author Michal Wcislo
+ *\date 15.12.2011
+ *\version 1.0
+ *\brief Zawiera implementcje klasy Clock
  *
- *  Created on: 10-12-2011
- *      Author: michal
+ *Zawiera implementcje klasy Clock
+ *
+ *
  */
 
 #include "Clock.hh"

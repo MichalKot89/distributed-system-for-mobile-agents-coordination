@@ -1,0 +1,1072 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Rozproszony_system_koordynacji_agentow_mobilnych: Dokumentacja klasy Agent</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.7.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Struktury&nbsp;Danych</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Struktury&nbsp;danych</span></a></li>
+      <li><a href="classes.html"><span>Indeks&nbsp;struktur&nbsp;danych</span></a></li>
+      <li><a href="functions.html"><span>Pola&nbsp;danych</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Typy publiczne</a> &#124;
+<a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="#pub-static-methods">Statyczne metody publiczne</a> &#124;
+<a href="#pub-attribs">Pola danych</a> &#124;
+<a href="#pub-static-attribs">Statyczne atrybuty publiczne</a>  </div>
+  <div class="headertitle">
+<h1>Dokumentacja klasy Agent</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="Agent" -->
+<p>Klasa opisujaca mobilnego agenta dzialajacego w srodowisku systemu zdarzeniowego.  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Agent_8hh_source.html">Agent.hh</a>&gt;</code></p>
+<div class="dynheader">
+Diagram współpracy dla Agent:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgent__coll__graph.png" border="0" usemap="#Agent_coll__map" alt="Collaboration graph"/></div>
+<map name="Agent_coll__map" id="Agent_coll__map">
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legenda</a>]</span></center></div>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Typy publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646e">Status</a> { <a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646eaaf468dcc2da585268fe4ca43929c4160">Moving</a>, 
+<a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646ea64a94303fb303332b949043fe536a5b3">LeavingSqare</a>, 
+<a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646ea04bc7dc369d05d9d1dab116c4f4ad504">WaitingToEnterSquare</a>, 
+<a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646ea58292f478559f744879e700594b1e95c">WaitingToBypass</a>
+ }</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><p>Typ wyliczeniowy opisujacy status agenta. </p>
+ <a href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646e">Więcej...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a18df514da404e6a46557dcb90628b9f6">Agent</a> (std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt; ListOfSegments, double vel, double radius, double SquareLength, double TimeStep)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Konstruktor parametryczny klasy agent.  <a href="#a18df514da404e6a46557dcb90628b9f6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a51bc5c497653779725fc4c2f6dfee888">DropActualPosition</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Procedura zapisuje aktualną pozycje agenta di pliku Agent(ID).dat.  <a href="#a51bc5c497653779725fc4c2f6dfee888"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a886c0bc4f842f053fd88de10c9f8d55f">GiveTimeToCrossSquare</a> (std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt;::iterator ListIter, int &amp;ModX, int &amp;ModY)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funkcja zwraca czas do momentu wkroczenia na sasiedni kwadrat.  <a href="#a886c0bc4f842f053fd88de10c9f8d55f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a247de793fdc9c285b9a0289bc8022b94">GiveTimeToLeaveSquare</a> (std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt;::iterator ListIter)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funkcja zwraca czas do momentu calkowitego opuszczenia kwadratu.  <a href="#a247de793fdc9c285b9a0289bc8022b94"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646e">Status</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a141897370601ada8da1358b303d2e1e7">Move</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funkcja wykonująca ruch agenta zgodnie z zaplanowana sciezka.  <a href="#a141897370601ada8da1358b303d2e1e7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a5d4e48e7d966f940c1935817ffb63b9f">ResolveForbiddenSectors</a> (std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt; ListOfSegments)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funkcja modyfikuje wejsciowa trase agenta tak aby omijala wierzcholki kwadratowych sektorów.  <a href="#a5d4e48e7d966f940c1935817ffb63b9f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a80e144d0fd78f8e1a54abf92158448e1">Run</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Glowna procedura klasy agent bedaca realizacja istnienia agenta na scenie.  <a href="#a80e144d0fd78f8e1a54abf92158448e1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#ab15fff7775dd38bda618306c02871ec6">SetVelocityToSegments</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Procedura ustawia predkosc ruchu agenta poprzez zmiane funkcji ruchu w poszczegolnych segmentach trasy.  <a href="#ab15fff7775dd38bda618306c02871ec6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#ab8dd8d152605cf1339fed595376e83cb">~Agent</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">destruktor klasy <a class="el" href="classAgent.html" title="Klasa opisujaca mobilnego agenta dzialajacego w srodowisku systemu zdarzeniowego.">Agent</a>  <a href="#ab8dd8d152605cf1339fed595376e83cb"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Statyczne metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a2a709195dc58a13aecee4b5639c3875b">CalculateCollisionPoints</a> (<a class="el" href="classSegment.html">Segment</a> S, double r, <a class="el" href="classCoordinates.html">Coordinates</a> Start, <a class="el" href="classCoordinates.html">Coordinates</a> O, double &amp;InTime, double &amp;OutTime)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funkcja obliczajaca czas do wjazdu i wyjazdu z okregu o srodku w wierzcholku kwadratu.  <a href="#a2a709195dc58a13aecee4b5639c3875b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a4146de8fd62c2766e8263bf3af7859fb">ChangeStartOfCordSysForSegment</a> (<a class="el" href="classSegment.html">Segment</a> &amp;OneSegment, <a class="el" href="classCoordinates.html">Coordinates</a> Into)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Procedura zmienia uklad wspolrzednych segmentu.  <a href="#a4146de8fd62c2766e8263bf3af7859fb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a66750ec5f3eab7af67daab601bffafbb">ChangeStartOfCordSysForSegment</a> (std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt; &amp;ListOfSegments, <a class="el" href="classCoordinates.html">Coordinates</a> Into)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Procedura zmienia uklad wspolrzednych listy segmentow.  <a href="#a66750ec5f3eab7af67daab601bffafbb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCoordinates.html">Coordinates</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a1aab1eb9d67e80350290da71cfecb729">CoordinatesToSquare</a> (<a class="el" href="classCoordinates.html">Coordinates</a> C, double SquareLength)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funkcja zamienia wspolrzedne globalne na wspolrzedne kwadratu w ktorym znajduje sie agent.  <a href="#a1aab1eb9d67e80350290da71cfecb729"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCoordinates.html">Coordinates</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#acc8d2f2989984b4bbe85c92113552ab0">FindCrossPointBetweenSegments</a> (<a class="el" href="classSegment.html">Segment</a> Seg1, <a class="el" href="classSegment.html">Segment</a> Seg2)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funkcja szuka punktu przeciecia dwoch odcinkow (prostych).  <a href="#acc8d2f2989984b4bbe85c92113552ab0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classSegment.html">Segment</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a355fd36b0c2b604c89d7b29ad08890d7">FindLinePerpendicularToPoint</a> (<a class="el" href="classSegment.html">Segment</a> OneSegment, <a class="el" href="classCoordinates.html">Coordinates</a> Point)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funkcja szuka odcinka (prostej) prostopadlej do zadanej prostej w punkcie.  <a href="#a355fd36b0c2b604c89d7b29ad08890d7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a4c8aa915f9f00c389d31cda24fdbfd7b">FindPathResolvingForbiddenSector</a> (<a class="el" href="classCoordinates.html">Coordinates</a> In, <a class="el" href="classCoordinates.html">Coordinates</a> Out, <a class="el" href="classCoordinates.html">Coordinates</a> O)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funkcja zwraca trase omijajaca zakazany obszar (kolo) w wierzcholku kwadratu.  <a href="#a4c8aa915f9f00c389d31cda24fdbfd7b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#ab789551a0abd4cf9daed34c2a9577f16">SquareEqRoots</a> (double a, double b, double c, double &amp;t1, double &amp;t2)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funkcja oblicza pierwiastki rownania kwadratowego.  <a href="#ab789551a0abd4cf9daed34c2a9577f16"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Pola danych</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCoordinates.html">Coordinates</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#aefb96a00785fe32c6e856160485f0aab">_ActualPosition</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">globalna pozycja agenta  <a href="#aefb96a00785fe32c6e856160485f0aab"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#ad2120cdac7ca4094490755d0aca36aed">_ListOfSegments</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">lista odcinkow w trasie agenta  <a href="#ad2120cdac7ca4094490755d0aca36aed"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classClock.html">Clock</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a569b980937fe959673a4e6010866afe7">_MyClock</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">zegar agenta pozwalajacy na odniesienie do rzeczywistego czasu symulacji  <a href="#a569b980937fe959673a4e6010866afe7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a4ad85b810d47200d82a3e8445e222bc2">_MyID</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Numer ID agenta bedacy rowniez priorytetem agenta.  <a href="#a4ad85b810d47200d82a3e8445e222bc2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCoordinates.html">Coordinates</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a41335bf2fd1fe065f82c3409927d8738">_MyNextSquare</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">kwadrat na ktory agent ma zamiar wjechac  <a href="#a41335bf2fd1fe065f82c3409927d8738"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#ae1a82c0ae07e9d430411e681542b3852">_MyRadius</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">promien agenta (agent jest kolem)  <a href="#ae1a82c0ae07e9d430411e681542b3852"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCoordinates.html">Coordinates</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a0da83836e6986f53455d1f8663d999c7">_MySquare</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">kwadrat w ktorym obecnie znajduje sie agent  <a href="#a0da83836e6986f53455d1f8663d999c7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646e">Status</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a53941d002024f35cc7b9f202896746bf">_MyStatus</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">status agenta  <a href="#a53941d002024f35cc7b9f202896746bf"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a481f40f58a7bfaa1d7fddf145e3d9635">_MyVel</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">predkosc wypadkowa agenta  <a href="#a481f40f58a7bfaa1d7fddf145e3d9635"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#ad7b052e72604807dfadac10d28b4ef86">_PathDone</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">flaga trasy TRUE - trasa ukonczona, FALSE - odwrotnie  <a href="#ad7b052e72604807dfadac10d28b4ef86"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a9d03ca9b7af5b26503a75213c8601abd">_SegmentNo</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">aktualnie realizowany odcinek trasy  <a href="#a9d03ca9b7af5b26503a75213c8601abd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#ad8e89284dfa2c9d4019b29ebd4944c6d">_SquareLength</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">dlugosc boku kwadratu bedacy sektorem w srodowisku symulatora  <a href="#ad8e89284dfa2c9d4019b29ebd4944c6d"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
+Statyczne atrybuty publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a1a14519d4403a1715574eecf9d239551">_NumOfAgentsCreated</a> = 0</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Liczba stworzonych agentow.  <a href="#a1a14519d4403a1715574eecf9d239551"></a><br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>Klasa opisuje podstawowe cechy agenta takie jak rozmiar, predkosc, status... Dodatkowo klasa zawiera sciezke agenta i algorytmy interakcji pomiedzy innymi agentami. </p>
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00036">36</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+<hr/><h2>Dokumentacja składowych wyliczanych</h2>
+<a class="anchor" id="ae8c51ce6dc1b881ac5ef5f876253646e"></a><!-- doxytag: member="Agent::Status" ref="ae8c51ce6dc1b881ac5ef5f876253646e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646e">Agent::Status</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl><dt><b>Wartości wyliczeń: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="ae8c51ce6dc1b881ac5ef5f876253646eaaf468dcc2da585268fe4ca43929c4160"></a><!-- doxytag: member="Moving" ref="ae8c51ce6dc1b881ac5ef5f876253646eaaf468dcc2da585268fe4ca43929c4160" args="" -->Moving</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae8c51ce6dc1b881ac5ef5f876253646ea64a94303fb303332b949043fe536a5b3"></a><!-- doxytag: member="LeavingSqare" ref="ae8c51ce6dc1b881ac5ef5f876253646ea64a94303fb303332b949043fe536a5b3" args="" -->LeavingSqare</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae8c51ce6dc1b881ac5ef5f876253646ea04bc7dc369d05d9d1dab116c4f4ad504"></a><!-- doxytag: member="WaitingToEnterSquare" ref="ae8c51ce6dc1b881ac5ef5f876253646ea04bc7dc369d05d9d1dab116c4f4ad504" args="" -->WaitingToEnterSquare</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ae8c51ce6dc1b881ac5ef5f876253646ea58292f478559f744879e700594b1e95c"></a><!-- doxytag: member="WaitingToBypass" ref="ae8c51ce6dc1b881ac5ef5f876253646ea58292f478559f744879e700594b1e95c" args="" -->WaitingToBypass</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00043">43</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a18df514da404e6a46557dcb90628b9f6"></a><!-- doxytag: member="Agent::Agent" ref="a18df514da404e6a46557dcb90628b9f6" args="(std::list&lt; Segment &gt; ListOfSegments, double vel, double radius, double SquareLength, double TimeStep)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Agent::Agent </td>
+          <td>(</td>
+          <td class="paramtype">std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt;&nbsp;</td>
+          <td class="paramname"> <em>ListOfSegments</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>vel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>radius</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>SquareLength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>TimeStep</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Konstruktor tworzacy agenta w srodowisku systemu zdarzeniowego </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>ListOfSegments</em>&nbsp;</td><td>- wejsciowa lista odcinkow trasy </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>vel</em>&nbsp;</td><td>- predkosc agenta na calej trasie </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>radius</em>&nbsp;</td><td>- promien agenta </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>SquareLength</em>&nbsp;</td><td>- dlugosc boku kwadratu </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>TimeStep</em>&nbsp;</td><td>- dlugosc kroku symulacji </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab8dd8d152605cf1339fed595376e83cb"></a><!-- doxytag: member="Agent::~Agent" ref="ab8dd8d152605cf1339fed595376e83cb" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Agent::~Agent </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00055">55</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a2a709195dc58a13aecee4b5639c3875b"></a><!-- doxytag: member="Agent::CalculateCollisionPoints" ref="a2a709195dc58a13aecee4b5639c3875b" args="(Segment S, double r, Coordinates Start, Coordinates O, double &amp;InTime, double &amp;OutTime)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Agent::CalculateCollisionPoints </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSegment.html">Segment</a>&nbsp;</td>
+          <td class="paramname"> <em>S</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCoordinates.html">Coordinates</a>&nbsp;</td>
+          <td class="paramname"> <em>Start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCoordinates.html">Coordinates</a>&nbsp;</td>
+          <td class="paramname"> <em>O</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&nbsp;</td>
+          <td class="paramname"> <em>InTime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&nbsp;</td>
+          <td class="paramname"> <em>OutTime</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcja obliczajaca czas do wjazdu i wyjazdu z okregu o srodku w wierzcholku kwadratu. Zwraca ilosc punktow przecieca (0,1,2).</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>S</em>&nbsp;</td><td>- odcinek trasy </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>r</em>&nbsp;</td><td>- promien okregu </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>Start</em>&nbsp;</td><td>- miejse startowe (poczatek ruchu) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>O</em>&nbsp;</td><td>- wspolrzedne srodka okregu (wierzcholka kwadratu) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>InTime</em>&nbsp;</td><td>- czas wjazdu(wyjazdu) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OutTime</em>&nbsp;</td><td>- czas wyjazdu(wjazdu) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00592">592</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a>, <a class="el" href="Segment_8hh_source.html#l00028">Segment::_XParamA</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>, <a class="el" href="Segment_8hh_source.html#l00029">Segment::_YParamA</a> i <a class="el" href="Agent_8cpp_source.html#l00603">SquareEqRoots()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgent_a2a709195dc58a13aecee4b5639c3875b_cgraph.png" border="0" usemap="#classAgent_a2a709195dc58a13aecee4b5639c3875b_cgraph" alt=""/></div>
+<map name="classAgent_a2a709195dc58a13aecee4b5639c3875b_cgraph" id="classAgent_a2a709195dc58a13aecee4b5639c3875b_cgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4146de8fd62c2766e8263bf3af7859fb"></a><!-- doxytag: member="Agent::ChangeStartOfCordSysForSegment" ref="a4146de8fd62c2766e8263bf3af7859fb" args="(Segment &amp;OneSegment, Coordinates Into)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Agent::ChangeStartOfCordSysForSegment </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSegment.html">Segment</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>OneSegment</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCoordinates.html">Coordinates</a>&nbsp;</td>
+          <td class="paramname"> <em>Into</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Procedura zmienia uklad wspolrzednych segmentu.</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>OneSegment</em>&nbsp;</td><td>- zmieniany odcinek segment </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>Into</em>&nbsp;</td><td>- wspolrzedne srodka ukladu do ktorego transformujemy segment (wzgledem obecnego ukladu) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00695">695</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="Segment_8hh_source.html#l00027">Segment::_End</a>, <a class="el" href="Segment_8hh_source.html#l00026">Segment::_Start</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a>, <a class="el" href="Segment_8hh_source.html#l00028">Segment::_XParamB</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a> i <a class="el" href="Segment_8hh_source.html#l00029">Segment::_YParamB</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a66750ec5f3eab7af67daab601bffafbb"></a><!-- doxytag: member="Agent::ChangeStartOfCordSysForSegment" ref="a66750ec5f3eab7af67daab601bffafbb" args="(std::list&lt; Segment &gt; &amp;ListOfSegments, Coordinates Into)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Agent::ChangeStartOfCordSysForSegment </td>
+          <td>(</td>
+          <td class="paramtype">std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt; &amp;&nbsp;</td>
+          <td class="paramname"> <em>ListOfSegments</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCoordinates.html">Coordinates</a>&nbsp;</td>
+          <td class="paramname"> <em>Into</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Procedura zmienia uklad wspolrzednych listy segmentow.</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>ListOfSegments</em>&nbsp;</td><td>- zmieniana lista segmentow </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>Into</em>&nbsp;</td><td>- wspolrzedne srodka ukladu do ktorego transformujemy segment (wzgledem obecnego ukladu) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a1aab1eb9d67e80350290da71cfecb729"></a><!-- doxytag: member="Agent::CoordinatesToSquare" ref="a1aab1eb9d67e80350290da71cfecb729" args="(Coordinates C, double SquareLength)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCoordinates.html">Coordinates</a> Agent::CoordinatesToSquare </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCoordinates.html">Coordinates</a>&nbsp;</td>
+          <td class="paramname"> <em>C</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>SquareLength</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcja zamienia wspolrzedne globalne na wspolrzedne kwadratu w ktorym znajduje sie agent.</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>C</em>&nbsp;</td><td>- wspolrzedne na plaszczyznie globalnej </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>SquareLength</em>&nbsp;</td><td>- dlugosc boku kwadratu </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="pre"><dt><b>Warunek wstępny:</b></dt><dd>Nalezy pamietac,ze do danego kwadratu nalezy jego pole, lewy i dolny bok i wierzcholek laczacy dany kwadrat, pozostale trzy wierzcholki i dwa boki beda zaliczone do kolejnego kwadratu. </dd></dl>
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00774">774</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a> i <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51bc5c497653779725fc4c2f6dfee888"></a><!-- doxytag: member="Agent::DropActualPosition" ref="a51bc5c497653779725fc4c2f6dfee888" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Agent::DropActualPosition </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Procedura zapisuje aktualną pozycje agenta di pliku Agent(ID).dat </p>
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00570">570</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="Agent_8hh_source.html#l00059">_ActualPosition</a>, <a class="el" href="Agent_8hh_source.html#l00054">_MyClock</a>, <a class="el" href="Agent_8hh_source.html#l00047">_MyID</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a> i <a class="el" href="Clock_8cpp_source.html#l00039">Clock::GiveActualTime()</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgent_a51bc5c497653779725fc4c2f6dfee888_cgraph.png" border="0" usemap="#classAgent_a51bc5c497653779725fc4c2f6dfee888_cgraph" alt=""/></div>
+<map name="classAgent_a51bc5c497653779725fc4c2f6dfee888_cgraph" id="classAgent_a51bc5c497653779725fc4c2f6dfee888_cgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="acc8d2f2989984b4bbe85c92113552ab0"></a><!-- doxytag: member="Agent::FindCrossPointBetweenSegments" ref="acc8d2f2989984b4bbe85c92113552ab0" args="(Segment Seg1, Segment Seg2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCoordinates.html">Coordinates</a> Agent::FindCrossPointBetweenSegments </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSegment.html">Segment</a>&nbsp;</td>
+          <td class="paramname"> <em>Seg1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classSegment.html">Segment</a>&nbsp;</td>
+          <td class="paramname"> <em>Seg2</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcja szuka punktu przeciecia dwoch odcinkow (prostych). Zwraca wspolrzedne punktu przeciecia prostych.</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>Seg1,Seg2</em>&nbsp;</td><td>- badane segmenty</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="pre"><dt><b>Warunek wstępny:</b></dt><dd>Segmenty nie moga byc rownolegle, jezeli sa, nastepuje przerwanie programu </dd></dl>
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00733">733</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="Segment_8hh_source.html#l00028">Segment::_XParamA</a>, <a class="el" href="Segment_8hh_source.html#l00028">Segment::_XParamB</a>, <a class="el" href="Segment_8hh_source.html#l00029">Segment::_YParamA</a> i <a class="el" href="Segment_8hh_source.html#l00029">Segment::_YParamB</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a355fd36b0c2b604c89d7b29ad08890d7"></a><!-- doxytag: member="Agent::FindLinePerpendicularToPoint" ref="a355fd36b0c2b604c89d7b29ad08890d7" args="(Segment OneSegment, Coordinates Point)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSegment.html">Segment</a> Agent::FindLinePerpendicularToPoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSegment.html">Segment</a>&nbsp;</td>
+          <td class="paramname"> <em>OneSegment</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCoordinates.html">Coordinates</a>&nbsp;</td>
+          <td class="paramname"> <em>Point</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcja szuka odcinka (prostej) prostopadlej do zadanej prostej w punkcie.</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>OneSegment</em>&nbsp;</td><td>- zadana prosta </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>Point</em>&nbsp;</td><td>- punkt przeciecia</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="pre"><dt><b>Warunek wstępny:</b></dt><dd>Point musi lezec na prostej OneSegment </dd></dl>
+<dl class="post"><dt><b>Warunek końcowy:</b></dt><dd>Zwracany segment NIE MA USTAWIONYCH PUNKTOW POCZATKOWEGO I KONCOWEGO!!! </dd></dl>
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00714">714</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="Segment_8hh_source.html#l00027">Segment::_End</a>, <a class="el" href="Segment_8hh_source.html#l00026">Segment::_Start</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a>, <a class="el" href="Segment_8hh_source.html#l00028">Segment::_XParamA</a>, <a class="el" href="Segment_8hh_source.html#l00028">Segment::_XParamB</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>, <a class="el" href="Segment_8hh_source.html#l00029">Segment::_YParamA</a> i <a class="el" href="Segment_8hh_source.html#l00029">Segment::_YParamB</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4c8aa915f9f00c389d31cda24fdbfd7b"></a><!-- doxytag: member="Agent::FindPathResolvingForbiddenSector" ref="a4c8aa915f9f00c389d31cda24fdbfd7b" args="(Coordinates In, Coordinates Out, Coordinates O)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list&lt; <a class="el" href="classSegment.html">Segment</a> &gt; Agent::FindPathResolvingForbiddenSector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCoordinates.html">Coordinates</a>&nbsp;</td>
+          <td class="paramname"> <em>In</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCoordinates.html">Coordinates</a>&nbsp;</td>
+          <td class="paramname"> <em>Out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCoordinates.html">Coordinates</a>&nbsp;</td>
+          <td class="paramname"> <em>O</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcja zwraca trase omijajaca zakazany obszar (kolo) w wierzcholku kwadratu. Wygenerowana trasa omija zakazany obszar generujac lamana laczaca punkt wejscia i wyjscia na obszar niedozwolony.</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>In</em>&nbsp;</td><td>- wspolrzedne wejscia na zakazane kolo </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>Out</em>&nbsp;</td><td>- wspolrzedne wyjscia z zakazanego kola </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>O</em>&nbsp;</td><td>- wspolrzedne srodka zakazanego kola </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00618">618</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="Segment_8hh_source.html#l00027">Segment::_End</a>, <a class="el" href="Segment_8hh_source.html#l00026">Segment::_Start</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a> i <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a886c0bc4f842f053fd88de10c9f8d55f"></a><!-- doxytag: member="Agent::GiveTimeToCrossSquare" ref="a886c0bc4f842f053fd88de10c9f8d55f" args="(std::list&lt; Segment &gt;::iterator ListIter, int &amp;ModX, int &amp;ModY)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Agent::GiveTimeToCrossSquare </td>
+          <td>(</td>
+          <td class="paramtype">std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt;::iterator&nbsp;</td>
+          <td class="paramname"> <em>ListIter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&nbsp;</td>
+          <td class="paramname"> <em>ModX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&nbsp;</td>
+          <td class="paramname"> <em>ModY</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcja zwraca czas do momentu wkroczenia na sasiedni kwadrat. Wykorzystywana jest w procesie interakcji z innymi agentami do znalezienia momentu w ktorym agent powinien sie zatrzymac i wymienic informacje z innymi agentami</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>ListIter</em>&nbsp;</td><td>- iterator wskazujacy na aktualnie realizowany odcinek trasy </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ModX</em>&nbsp;</td><td>- modyfikator wspolrzednych kwadratu w osi X, wykorzystywany w do obliczania wspolrzednych kwadratu na ktory agent ma zamiar wjechac. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ModY</em>&nbsp;</td><td>- modyfikator wspolrzednych kwadratu w osi X, wykorzystywany w do obliczania wspolrzednych kwadratu na ktory agent ma zamiar wjechac. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00166">166</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="Agent_8hh_source.html#l00059">_ActualPosition</a>, <a class="el" href="Agent_8hh_source.html#l00049">_MyRadius</a>, <a class="el" href="Agent_8hh_source.html#l00058">_SquareLength</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a> i <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a247de793fdc9c285b9a0289bc8022b94"></a><!-- doxytag: member="Agent::GiveTimeToLeaveSquare" ref="a247de793fdc9c285b9a0289bc8022b94" args="(std::list&lt; Segment &gt;::iterator ListIter)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Agent::GiveTimeToLeaveSquare </td>
+          <td>(</td>
+          <td class="paramtype">std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt;::iterator&nbsp;</td>
+          <td class="paramname"> <em>ListIter</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcja zwraca czas do momentu calkowitego opuszczenia kwadratu. Wykorzystywana jest w procesie interakcji z innymi agentami do znalezienia momentu w ktorym agent powinien zwolnic poprzednio zajmowany kwadrat</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>ListIter</em>&nbsp;</td><td>- iterator wskazujacy na aktualnie realizowany odcinek trasy </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00209">209</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="Agent_8hh_source.html#l00059">_ActualPosition</a>, <a class="el" href="Agent_8hh_source.html#l00049">_MyRadius</a>, <a class="el" href="Agent_8hh_source.html#l00058">_SquareLength</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a> i <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a141897370601ada8da1358b303d2e1e7"></a><!-- doxytag: member="Agent::Move" ref="a141897370601ada8da1358b303d2e1e7" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646e">Agent::Status</a> Agent::Move </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcja wykonująca ruch agenta zgodnie z zaplanowana sciezka. Zwraca status agenta po wykonaniu ruchu. Ruch jest wykonywany w czasie jednego kroku symulacji z zadana predkoscia. Ruch moze polegac także na poruszeniu sie do konca danego segmentu, do punktu wjazdu i wyjazdu z kwadratu, lub moze sie nie wykonac w przypadku jezeli agent czeka na cos.</p>
+<dl class="pre"><dt><b>Warunek wstępny:</b></dt><dd>Funkcja może być wywolywana niezaleznie od warunkow, gdyz sama sprawdza warunki wykonywania ruchu </dd></dl>
+<dl class="post"><dt><b>Warunek końcowy:</b></dt><dd>Oprocz zmiany pozycji agenta _ActualPosition, funkcja moze zmienic status agenta _MyStatus, aktualnie realizowany odcinek trasy _SegmentNo, flage zakonczenia sciezki _PathDone,aktualny i nastepny kwadrat zajmowany przez agenta _MySquare,_MyNextSquare. Na koniec funkcja zapisuje aktualna pozycje agenta do pliku Agent(ID).dat . </dd></dl>
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00078">78</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="Agent_8hh_source.html#l00059">_ActualPosition</a>, <a class="el" href="Agent_8hh_source.html#l00056">_ListOfSegments</a>, <a class="el" href="Agent_8hh_source.html#l00054">_MyClock</a>, <a class="el" href="Agent_8hh_source.html#l00052">_MyNextSquare</a>, <a class="el" href="Agent_8hh_source.html#l00051">_MySquare</a>, <a class="el" href="Agent_8hh_source.html#l00050">_MyStatus</a>, <a class="el" href="Agent_8hh_source.html#l00065">_PathDone</a>, <a class="el" href="Agent_8hh_source.html#l00057">_SegmentNo</a>, <a class="el" href="Agent_8hh_source.html#l00058">_SquareLength</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>, <a class="el" href="Agent_8cpp_source.html#l00774">CoordinatesToSquare()</a>, <a class="el" href="Agent_8cpp_source.html#l00570">DropActualPosition()</a>, <a class="el" href="Clock_8cpp_source.html#l00043">Clock::GiveTimeStep()</a>, <a class="el" href="Agent_8cpp_source.html#l00166">GiveTimeToCrossSquare()</a>, <a class="el" href="Agent_8cpp_source.html#l00209">GiveTimeToLeaveSquare()</a>, <a class="el" href="Agent_8hh_source.html#l00043">LeavingSqare</a>, <a class="el" href="Agent_8hh_source.html#l00043">WaitingToBypass</a> i <a class="el" href="Agent_8hh_source.html#l00043">WaitingToEnterSquare</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00059">Run()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgent_a141897370601ada8da1358b303d2e1e7_cgraph.png" border="0" usemap="#classAgent_a141897370601ada8da1358b303d2e1e7_cgraph" alt=""/></div>
+<map name="classAgent_a141897370601ada8da1358b303d2e1e7_cgraph" id="classAgent_a141897370601ada8da1358b303d2e1e7_cgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5d4e48e7d966f940c1935817ffb63b9f"></a><!-- doxytag: member="Agent::ResolveForbiddenSectors" ref="a5d4e48e7d966f940c1935817ffb63b9f" args="(std::list&lt; Segment &gt; ListOfSegments)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt;<a class="el" href="classSegment.html">Segment</a>&gt; Agent::ResolveForbiddenSectors </td>
+          <td>(</td>
+          <td class="paramtype">std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt;&nbsp;</td>
+          <td class="paramname"> <em>ListOfSegments</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcja modyfikuje wejsciowa trase agenta tak aby omijala wierzcholki kwadratowych sektorów. Zmodyfikowana trasa takze skalda sie z odcinkow.</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>ListOfSegments</em>&nbsp;</td><td>- lista odcinkow tworzacych trase </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="pre"><dt><b>Warunek wstępny:</b></dt><dd>ListOfSegments musi zawierac ciagla trase dla agenta </dd></dl>
+<dl class="post"><dt><b>Warunek końcowy:</b></dt><dd>Funkcja zwraca zmodyfikowana trase agenta </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a80e144d0fd78f8e1a54abf92158448e1"></a><!-- doxytag: member="Agent::Run" ref="a80e144d0fd78f8e1a54abf92158448e1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Agent::Run </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Glowna procedura klasy agent bedaca realizacja istnienia agenta na scenie </p>
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00059">59</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="Agent_8hh_source.html#l00054">_MyClock</a>, <a class="el" href="Agent_8hh_source.html#l00047">_MyID</a>, <a class="el" href="Agent_8hh_source.html#l00052">_MyNextSquare</a>, <a class="el" href="Agent_8hh_source.html#l00051">_MySquare</a>, <a class="el" href="Agent_8hh_source.html#l00050">_MyStatus</a>, <a class="el" href="Agent_8hh_source.html#l00065">_PathDone</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>, <a class="el" href="Clock_8cpp_source.html#l00039">Clock::GiveActualTime()</a>, <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>, <a class="el" href="Agent_8hh_source.html#l00043">Moving</a>, <a class="el" href="GnuplotInc_8cpp_source.html#l00111">PlotScene()</a> i <a class="el" href="Clock_8cpp_source.html#l00031">Clock::TickTack()</a>.</p>
+
+<p>Odwołania w <a class="el" href="main_8cpp_source.html#l00017">main()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgent_a80e144d0fd78f8e1a54abf92158448e1_cgraph.png" border="0" usemap="#classAgent_a80e144d0fd78f8e1a54abf92158448e1_cgraph" alt=""/></div>
+<map name="classAgent_a80e144d0fd78f8e1a54abf92158448e1_cgraph" id="classAgent_a80e144d0fd78f8e1a54abf92158448e1_cgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab15fff7775dd38bda618306c02871ec6"></a><!-- doxytag: member="Agent::SetVelocityToSegments" ref="ab15fff7775dd38bda618306c02871ec6" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Agent::SetVelocityToSegments </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Procedura ustawia predkosc ruchu agenta poprzez zmiane funkcji ruchu w poszczegolnych segmentach trasy </p>
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00560">560</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="Agent_8hh_source.html#l00056">_ListOfSegments</a> i <a class="el" href="Agent_8hh_source.html#l00053">_MyVel</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab789551a0abd4cf9daed34c2a9577f16"></a><!-- doxytag: member="Agent::SquareEqRoots" ref="ab789551a0abd4cf9daed34c2a9577f16" args="(double a, double b, double c, double &amp;t1, double &amp;t2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Agent::SquareEqRoots </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&nbsp;</td>
+          <td class="paramname"> <em>t1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&nbsp;</td>
+          <td class="paramname"> <em>t2</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcja oblicza pierwiastki rownania kwadratowego.</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>a,b,c</em>&nbsp;</td><td>- wspolczynniki rownania kwadratowego </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>t1,t2</em>&nbsp;</td><td>- pierwiastki rownania kwadratowego (wpisywane po wykonaniu obliczen) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00603">603</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00592">CalculateCollisionPoints()</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja pól</h2>
+<a class="anchor" id="aefb96a00785fe32c6e856160485f0aab"></a><!-- doxytag: member="Agent::_ActualPosition" ref="aefb96a00785fe32c6e856160485f0aab" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCoordinates.html">Coordinates</a> <a class="el" href="classAgent.html#aefb96a00785fe32c6e856160485f0aab">Agent::_ActualPosition</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00059">59</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00570">DropActualPosition()</a>, <a class="el" href="Agent_8cpp_source.html#l00166">GiveTimeToCrossSquare()</a>, <a class="el" href="Agent_8cpp_source.html#l00209">GiveTimeToLeaveSquare()</a> i <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad2120cdac7ca4094490755d0aca36aed"></a><!-- doxytag: member="Agent::_ListOfSegments" ref="ad2120cdac7ca4094490755d0aca36aed" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt;<a class="el" href="classSegment.html">Segment</a>&gt; <a class="el" href="classAgent.html#ad2120cdac7ca4094490755d0aca36aed">Agent::_ListOfSegments</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00056">56</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a> i <a class="el" href="Agent_8cpp_source.html#l00560">SetVelocityToSegments()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a569b980937fe959673a4e6010866afe7"></a><!-- doxytag: member="Agent::_MyClock" ref="a569b980937fe959673a4e6010866afe7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classClock.html">Clock</a> <a class="el" href="classAgent.html#a569b980937fe959673a4e6010866afe7">Agent::_MyClock</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00054">54</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00570">DropActualPosition()</a>, <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a> i <a class="el" href="Agent_8cpp_source.html#l00059">Run()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4ad85b810d47200d82a3e8445e222bc2"></a><!-- doxytag: member="Agent::_MyID" ref="a4ad85b810d47200d82a3e8445e222bc2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classAgent.html#a4ad85b810d47200d82a3e8445e222bc2">Agent::_MyID</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00047">47</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00570">DropActualPosition()</a> i <a class="el" href="Agent_8cpp_source.html#l00059">Run()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a41335bf2fd1fe065f82c3409927d8738"></a><!-- doxytag: member="Agent::_MyNextSquare" ref="a41335bf2fd1fe065f82c3409927d8738" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCoordinates.html">Coordinates</a> <a class="el" href="classAgent.html#a41335bf2fd1fe065f82c3409927d8738">Agent::_MyNextSquare</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00052">52</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a> i <a class="el" href="Agent_8cpp_source.html#l00059">Run()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae1a82c0ae07e9d430411e681542b3852"></a><!-- doxytag: member="Agent::_MyRadius" ref="ae1a82c0ae07e9d430411e681542b3852" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classAgent.html#ae1a82c0ae07e9d430411e681542b3852">Agent::_MyRadius</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00049">49</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00166">GiveTimeToCrossSquare()</a> i <a class="el" href="Agent_8cpp_source.html#l00209">GiveTimeToLeaveSquare()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0da83836e6986f53455d1f8663d999c7"></a><!-- doxytag: member="Agent::_MySquare" ref="a0da83836e6986f53455d1f8663d999c7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCoordinates.html">Coordinates</a> <a class="el" href="classAgent.html#a0da83836e6986f53455d1f8663d999c7">Agent::_MySquare</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00051">51</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a> i <a class="el" href="Agent_8cpp_source.html#l00059">Run()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a53941d002024f35cc7b9f202896746bf"></a><!-- doxytag: member="Agent::_MyStatus" ref="a53941d002024f35cc7b9f202896746bf" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646e">Status</a> <a class="el" href="classAgent.html#a53941d002024f35cc7b9f202896746bf">Agent::_MyStatus</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00050">50</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a> i <a class="el" href="Agent_8cpp_source.html#l00059">Run()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a481f40f58a7bfaa1d7fddf145e3d9635"></a><!-- doxytag: member="Agent::_MyVel" ref="a481f40f58a7bfaa1d7fddf145e3d9635" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classAgent.html#a481f40f58a7bfaa1d7fddf145e3d9635">Agent::_MyVel</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00053">53</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00560">SetVelocityToSegments()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a14519d4403a1715574eecf9d239551"></a><!-- doxytag: member="Agent::_NumOfAgentsCreated" ref="a1a14519d4403a1715574eecf9d239551" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classAgent.html#a1a14519d4403a1715574eecf9d239551">Agent::_NumOfAgentsCreated</a> = 0<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00046">46</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad7b052e72604807dfadac10d28b4ef86"></a><!-- doxytag: member="Agent::_PathDone" ref="ad7b052e72604807dfadac10d28b4ef86" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classAgent.html#ad7b052e72604807dfadac10d28b4ef86">Agent::_PathDone</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00065">65</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a> i <a class="el" href="Agent_8cpp_source.html#l00059">Run()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9d03ca9b7af5b26503a75213c8601abd"></a><!-- doxytag: member="Agent::_SegmentNo" ref="a9d03ca9b7af5b26503a75213c8601abd" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classAgent.html#a9d03ca9b7af5b26503a75213c8601abd">Agent::_SegmentNo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00057">57</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad8e89284dfa2c9d4019b29ebd4944c6d"></a><!-- doxytag: member="Agent::_SquareLength" ref="ad8e89284dfa2c9d4019b29ebd4944c6d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classAgent.html#ad8e89284dfa2c9d4019b29ebd4944c6d">Agent::_SquareLength</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00058">58</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00166">GiveTimeToCrossSquare()</a>, <a class="el" href="Agent_8cpp_source.html#l00209">GiveTimeToLeaveSquare()</a> i <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="Agent_8hh_source.html">Agent.hh</a></li>
+<li><a class="el" href="Agent_8cpp_source.html">Agent.cpp</a></li>
+</ul>
+</div>
+<hr class="footer"/><address class="footer"><small>Wygenerowano Thu Dec 15 2011 11:45:52 dla Rozproszony_system_koordynacji_agentow_mobilnych programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
+</body>
+</html>

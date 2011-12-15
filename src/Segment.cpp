@@ -1,8 +1,13 @@
-/*
- * Segment.cpp
+/*!
+ *\file Segment.cpp
+ *\author Michal Wcislo
+ *\date 15.12.2011
+ *\version 1.0
+ *\brief Zawiera implementacje klasy Segment
  *
- *  Created on: 27-10-2011
- *      Author: michal
+ *Zawiera implementacje klasy Segment
+ *
+ *
  */
 #include <cmath>
 #include "Segment.hh"

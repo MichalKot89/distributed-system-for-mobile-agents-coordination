@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Rozproszony_system_koordynacji_agentow_mobilnych: Dokumentacja pliku GnuplotInc.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.7.1 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="annotated.html"><span>Struktury&nbsp;Danych</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="dirs.html"><span>Katalogi</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Globalne</span></a></li>
+    </ul>
+  </div>
+  <div class="navpath">
+    <ul>
+      <li><a class="el" href="dir_ea6d7edaf73c9bd1c81d51f5bfe68d38.html">src</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definicje</a> &#124;
+<a href="#enum-members">Wyliczenia</a> &#124;
+<a href="#func-members">Funkcje</a>  </div>
+  <div class="headertitle">
+<h1>Dokumentacja pliku GnuplotInc.hh</h1>  </div>
+</div>
+<div class="contents">
+
+<p>Zawiera funkcje uzywane do rysowania wykresow uzywajac Gnuplot'a.  
+<a href="#_details">Więcej...</a></p>
+<code>#include &lt;fstream&gt;</code><br/>
+<div class="dynheader">
+Wykres zależności załączania dla GnuplotInc.hh:</div>
+<div class="dyncontent">
+<div class="center"><img src="GnuplotInc_8hh__incl.png" border="0" usemap="#GnuplotInc_8hh" alt=""/></div>
+<map name="GnuplotInc_8hh" id="GnuplotInc_8hh">
+</map>
+</div>
+<div class="dynheader">
+Ten wykres pokazuje, które pliki bezpośrednio lub pośrednio załączają ten plik:</div>
+<div class="dyncontent">
+<div class="center"><img src="GnuplotInc_8hh__dep__incl.png" border="0" usemap="#GnuplotInc_8hhdep" alt=""/></div>
+<map name="GnuplotInc_8hhdep" id="GnuplotInc_8hhdep">
+</map>
+</div>
+
+<p><a href="GnuplotInc_8hh_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="define-members"></a>
+Definicje</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="GnuplotInc_8hh.html#a3ec677682fff5b0d42b967a6f62a4f90">FIFO_FILE</a>&nbsp;&nbsp;&nbsp;&quot;GNUPLOT&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="GnuplotInc_8hh.html#a4905f5e9a8eeb48ce583354c1d0c7a9f">PLOTDIR</a>&nbsp;&nbsp;&nbsp;&quot;../plots/&quot;</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">komunikacji z Gnuplotem  <a href="#a4905f5e9a8eeb48ce583354c1d0c7a9f"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="enum-members"></a>
+Wyliczenia</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a> { <a class="el" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3ab7e4e0120a041dbe6528b050c04269e0">none</a>, 
+<a class="el" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3a40aed305ff38af63ddac586aff968d3b">eps</a>, 
+<a class="el" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3ae4ca64fdd73f453d7d68c28445f7accd">png</a>
+ }</td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="GnuplotInc_8hh.html#a561196655bce7044165f5d05d38b3188">BarPlot</a> (double **T, int n, int m, int winid, <a class="el" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a> ext)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funkcja wyswietla dane zawarte w tablicy T w formie wykresu slupkowego.  <a href="#a561196655bce7044165f5d05d38b3188"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="GnuplotInc_8hh.html#a60ad3ed0cfef98900830ca6197e33cb2">ColMapPlot</a> (double **T, int n, int m, double pa, double pb, double ka, double kb, int winid, <a class="el" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a> ext)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funkcja wyswietla dane zawarte w tablicy T w formie trojwymiarowej.  <a href="#a60ad3ed0cfef98900830ca6197e33cb2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="GnuplotInc_8hh.html#a195d5d014ba88fb8b178c0b86ee38271">GnuplotInit</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Procedura uruchamiajaca serwer, ktory dane z potoku przekazuje do Gnuplota.  <a href="#a195d5d014ba88fb8b178c0b86ee38271"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="GnuplotInc_8hh.html#a7b8a067f6d6901db018a84a57edb02d3">GnuplotSceneClean</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="GnuplotInc_8hh.html#a49d8b3efac536a41a3b8fc68f9f38712">GnuplotShutDown</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Procedura konczaca dzialanie serwera FIFO.  <a href="#a49d8b3efac536a41a3b8fc68f9f38712"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="GnuplotInc_8hh.html#a40b05327fdd4cc6c39c5fc29b82c2b08">PerformPlot</a> (int *a, int *b, int ra, int rb, int ref, int ref2, int winid, <a class="el" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a> ext)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Funkcja wyswietla dane zawarte w tablicach a i b w odniesieniu do wartosci ref w formie wykresu 2d.  <a href="#a40b05327fdd4cc6c39c5fc29b82c2b08"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="GnuplotInc_8hh.html#a23f4194eff7b71282f0d0278fd0834e5">PlotScene</a> (double SquareLength, int SceneSize, int AgentID)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="GnuplotInc_8hh.html#ab49609c534ef453a6e59714b0500a0a1">SavePlot</a> (std::ofstream &amp;Strm, char *PlotName, <a class="el" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a> ext, int winid)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Procedura zapisuje wyrysowany wykres do pliku o podanym rozszerzeniu.  <a href="#ab49609c534ef453a6e59714b0500a0a1"></a><br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<dl class="author"><dt><b>Autor:</b></dt><dd>Michal Wcislo </dd></dl>
+<dl class="date"><dt><b>Data:</b></dt><dd>24.03.2011 </dd></dl>
+<dl class="version"><dt><b>Wersja:</b></dt><dd>1.0 Zawiera funkcje uzywane do rysowania wykresow uzywajac Gnuplot'a </dd></dl>
+
+<p>Definicja w pliku <a class="el" href="GnuplotInc_8hh_source.html">GnuplotInc.hh</a>.</p>
+<hr/><h2>Dokumentacja definicji</h2>
+<a class="anchor" id="a3ec677682fff5b0d42b967a6f62a4f90"></a><!-- doxytag: member="GnuplotInc.hh::FIFO_FILE" ref="a3ec677682fff5b0d42b967a6f62a4f90" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FIFO_FILE&nbsp;&nbsp;&nbsp;&quot;GNUPLOT&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Nazwa potoku FIFO wykorzystywanego do </p>
+
+<p>Definicja w linii <a class="el" href="GnuplotInc_8hh_source.html#l00016">16</a> pliku <a class="el" href="GnuplotInc_8hh_source.html">GnuplotInc.hh</a>.</p>
+
+<p>Odwołania w <a class="el" href="GnuplotInc_8cpp_source.html#l00166">BarPlot()</a>, <a class="el" href="GnuplotInc_8cpp_source.html#l00267">ColMapPlot()</a>, <a class="el" href="GnuplotInc_8cpp_source.html#l00096">GnuplotShutDown()</a>, <a class="el" href="GnuplotInc_8cpp_source.html#l00343">PerformPlot()</a> i <a class="el" href="GnuplotInc_8cpp_source.html#l00111">PlotScene()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4905f5e9a8eeb48ce583354c1d0c7a9f"></a><!-- doxytag: member="GnuplotInc.hh::PLOTDIR" ref="a4905f5e9a8eeb48ce583354c1d0c7a9f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PLOTDIR&nbsp;&nbsp;&nbsp;&quot;../plots/&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>sciezka do danych z wykresow </p>
+
+<p>Definicja w linii <a class="el" href="GnuplotInc_8hh_source.html#l00018">18</a> pliku <a class="el" href="GnuplotInc_8hh_source.html">GnuplotInc.hh</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja typów wyliczanych</h2>
+<a class="anchor" id="a2c794c5c13ab4dd7e65bad031dbe41c3"></a><!-- doxytag: member="GnuplotInc.hh::FileType" ref="a2c794c5c13ab4dd7e65bad031dbe41c3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Typ wyliczeniowy grupujacy typy plikow wynikowych wykresow. </p>
+<dl><dt><b>Wartości wyliczeń: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="a2c794c5c13ab4dd7e65bad031dbe41c3ab7e4e0120a041dbe6528b050c04269e0"></a><!-- doxytag: member="none" ref="a2c794c5c13ab4dd7e65bad031dbe41c3ab7e4e0120a041dbe6528b050c04269e0" args="" -->none</em>&nbsp;</td><td>
+<p>brak pliku wyjsciowego </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a2c794c5c13ab4dd7e65bad031dbe41c3a40aed305ff38af63ddac586aff968d3b"></a><!-- doxytag: member="eps" ref="a2c794c5c13ab4dd7e65bad031dbe41c3a40aed305ff38af63ddac586aff968d3b" args="" -->eps</em>&nbsp;</td><td>
+<p>plik .eps </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a2c794c5c13ab4dd7e65bad031dbe41c3ae4ca64fdd73f453d7d68c28445f7accd"></a><!-- doxytag: member="png" ref="a2c794c5c13ab4dd7e65bad031dbe41c3ae4ca64fdd73f453d7d68c28445f7accd" args="" -->png</em>&nbsp;</td><td>
+<p>plik .png </p>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="GnuplotInc_8hh_source.html#l00029">29</a> pliku <a class="el" href="GnuplotInc_8hh_source.html">GnuplotInc.hh</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji</h2>
+<a class="anchor" id="a561196655bce7044165f5d05d38b3188"></a><!-- doxytag: member="GnuplotInc.hh::BarPlot" ref="a561196655bce7044165f5d05d38b3188" args="(double **T, int n, int m, int winid, FileType ext)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int BarPlot </td>
+          <td>(</td>
+          <td class="paramtype">double **&nbsp;</td>
+          <td class="paramname"> <em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>winid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a>&nbsp;</td>
+          <td class="paramname"> <em>ext</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcja wyswietla dane zawarte w tablicy T w formie wykresu slupkowego. Aby pozwolic na poprawne wyswietlanie danych nalezy pamietac o zapewnienie okreslonego czasu na odrysowanie wykresu.</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>T</em>&nbsp;</td><td>- tablica z danymi </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>- ilosc wierszy tablicy </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>m</em>&nbsp;</td><td>- ilosc kolumn tablicy </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>winid</em>&nbsp;</td><td>- identyfikator okna na ktorym ma byc rysowany wykres </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ext</em>&nbsp;</td><td>- rozszerzenie pliku, do ktorego wykres zostanie zapisany wartosc 'none' nie zapisuje pliku. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="GnuplotInc_8cpp_source.html#l00166">166</a> pliku <a class="el" href="GnuplotInc_8cpp_source.html">GnuplotInc.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="GnuplotInc_8hh_source.html#l00016">FIFO_FILE</a>, <a class="el" href="Agent_8hh_source.html#l00017">PLOTDIR</a> i <a class="el" href="GnuplotInc_8cpp_source.html#l00036">SavePlot()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="GnuplotInc_8hh_a561196655bce7044165f5d05d38b3188_cgraph.png" border="0" usemap="#GnuplotInc_8hh_a561196655bce7044165f5d05d38b3188_cgraph" alt=""/></div>
+<map name="GnuplotInc_8hh_a561196655bce7044165f5d05d38b3188_cgraph" id="GnuplotInc_8hh_a561196655bce7044165f5d05d38b3188_cgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a60ad3ed0cfef98900830ca6197e33cb2"></a><!-- doxytag: member="GnuplotInc.hh::ColMapPlot" ref="a60ad3ed0cfef98900830ca6197e33cb2" args="(double **T, int n, int m, double pa, double pb, double ka, double kb, int winid, FileType ext)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ColMapPlot </td>
+          <td>(</td>
+          <td class="paramtype">double **&nbsp;</td>
+          <td class="paramname"> <em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>pa</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>pb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>ka</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>kb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>winid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a>&nbsp;</td>
+          <td class="paramname"> <em>ext</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcja wyswietla dane zawarte w tablicy T w formie trojwymiarowej. Aby pozwolic na poprawne wyswietlanie danych nalezy pamietac o zapewnienie okreslonego czasu na odrysowanie wykresu.</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>T</em>&nbsp;</td><td>- tablica z danymi </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>- ilosc wierszy tablicy </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>m</em>&nbsp;</td><td>- ilosc kolumn tablicy </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pa</em>&nbsp;</td><td>- poczatek zakresu pierwszej zmiennej </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pa</em>&nbsp;</td><td>- poczatek zakresu drugiej zmiennej </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ka</em>&nbsp;</td><td>- koniec zakresu pierwszej zmiennej </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>kb</em>&nbsp;</td><td>- koniec zakresu drugiej zmiennej </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>winid</em>&nbsp;</td><td>- identyfikator okna na ktorym ma byc rysowany wykres </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ext</em>&nbsp;</td><td>- rozszerzenie pliku, do ktorego wykres zostanie zapisany wartosc 'none' nie zapisuje pliku.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Funkcja wyswietla dane zawarte w tablicy T w formie trojwymiarowej. Aby pozwolic na poprawne wyswietlanie danych nalezy pamietac o zapewnienie okreslonego czasu na odrysowanie wykresu.</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>T</em>&nbsp;</td><td>- tablica z danymi </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>- ilosc wierszy tablicy </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>m</em>&nbsp;</td><td>- ilosc kolumn tablicy </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pa</em>&nbsp;</td><td>- poczatek zakresu pierwszej zmiennej </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pb</em>&nbsp;</td><td>- poczatek zakresu drugiej zmiennej </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ka</em>&nbsp;</td><td>- koniec zakresu pierwszej zmiennej </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>kb</em>&nbsp;</td><td>- koniec zakresu drugiej zmiennej </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>winid</em>&nbsp;</td><td>- identyfikator okna na ktorym ma byc rysowany wykres </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ext</em>&nbsp;</td><td>- rozszerzenie pliku, do ktorego wykres zostanie zapisany wartosc 'none' nie zapisuje pliku. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="GnuplotInc_8cpp_source.html#l00267">267</a> pliku <a class="el" href="GnuplotInc_8cpp_source.html">GnuplotInc.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="GnuplotInc_8hh_source.html#l00016">FIFO_FILE</a>, <a class="el" href="Agent_8hh_source.html#l00017">PLOTDIR</a> i <a class="el" href="GnuplotInc_8cpp_source.html#l00036">SavePlot()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="GnuplotInc_8hh_a60ad3ed0cfef98900830ca6197e33cb2_cgraph.png" border="0" usemap="#GnuplotInc_8hh_a60ad3ed0cfef98900830ca6197e33cb2_cgraph" alt=""/></div>
+<map name="GnuplotInc_8hh_a60ad3ed0cfef98900830ca6197e33cb2_cgraph" id="GnuplotInc_8hh_a60ad3ed0cfef98900830ca6197e33cb2_cgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a195d5d014ba88fb8b178c0b86ee38271"></a><!-- doxytag: member="GnuplotInc.hh::GnuplotInit" ref="a195d5d014ba88fb8b178c0b86ee38271" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GnuplotInit </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Procedura uruchamiajaca serwer, ktory dane z potoku przekazuje do Gnuplota. W jej ciele uruchamiany jest program FIFOserv </p>
+
+<p>Definicja w linii <a class="el" href="GnuplotInc_8cpp_source.html#l00072">72</a> pliku <a class="el" href="GnuplotInc_8cpp_source.html">GnuplotInc.cpp</a>.</p>
+
+<p>Odwołania w <a class="el" href="main_8cpp_source.html#l00017">main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7b8a067f6d6901db018a84a57edb02d3"></a><!-- doxytag: member="GnuplotInc.hh::GnuplotSceneClean" ref="a7b8a067f6d6901db018a84a57edb02d3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GnuplotSceneClean </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="GnuplotInc_8cpp_source.html#l00079">79</a> pliku <a class="el" href="GnuplotInc_8cpp_source.html">GnuplotInc.cpp</a>.</p>
+
+<p>Odwołania w <a class="el" href="main_8cpp_source.html#l00017">main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a49d8b3efac536a41a3b8fc68f9f38712"></a><!-- doxytag: member="GnuplotInc.hh::GnuplotShutDown" ref="a49d8b3efac536a41a3b8fc68f9f38712" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GnuplotShutDown </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Procedura konczaca dzialanie serwera FIFO. Zamkniecie programu powoduje zamkniecie wszystkich stworzonych wykresow. </p>
+
+<p>Definicja w linii <a class="el" href="GnuplotInc_8cpp_source.html#l00096">96</a> pliku <a class="el" href="GnuplotInc_8cpp_source.html">GnuplotInc.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="GnuplotInc_8hh_source.html#l00016">FIFO_FILE</a>.</p>
+
+<p>Odwołania w <a class="el" href="main_8cpp_source.html#l00017">main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a40b05327fdd4cc6c39c5fc29b82c2b08"></a><!-- doxytag: member="GnuplotInc.hh::PerformPlot" ref="a40b05327fdd4cc6c39c5fc29b82c2b08" args="(int *a, int *b, int ra, int rb, int ref, int ref2, int winid, FileType ext)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PerformPlot </td>
+          <td>(</td>
+          <td class="paramtype">int *&nbsp;</td>
+          <td class="paramname"> <em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&nbsp;</td>
+          <td class="paramname"> <em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ra</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>rb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ref</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ref2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>winid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a>&nbsp;</td>
+          <td class="paramname"> <em>ext</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Funkcja wyswietla dane zawarte w tablicach a i b w odniesieniu do wartosci ref w formie wykresu 2d. Aby pozwolic na poprawne wyswietlanie danych nalezy pamietac o zapewnienie okreslonego czasu na odrysowanie wykresu.</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>a</em>&nbsp;</td><td>- tablica z danymi </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>b</em>&nbsp;</td><td>- tablica z danymi </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ra</em>&nbsp;</td><td>- rozmiar tablicy a </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>rb</em>&nbsp;</td><td>- rozmiar tablicy b </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ref</em>&nbsp;</td><td>- wartosc odniesienia (np. wynik algorytmu Neh) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ref2</em>&nbsp;</td><td>- druga wartosc odniesienia (np. benchmark) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>winid</em>&nbsp;</td><td>- identyfikator okna na ktorym ma byc rysowany wykres </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ext</em>&nbsp;</td><td>- rozszerzenie pliku, do ktorego wykres zostanie zapisany wartosc 'none' nie zapisuje pliku. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="GnuplotInc_8cpp_source.html#l00343">343</a> pliku <a class="el" href="GnuplotInc_8cpp_source.html">GnuplotInc.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="GnuplotInc_8hh_source.html#l00016">FIFO_FILE</a>, <a class="el" href="Agent_8hh_source.html#l00017">PLOTDIR</a> i <a class="el" href="GnuplotInc_8cpp_source.html#l00036">SavePlot()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="GnuplotInc_8hh_a40b05327fdd4cc6c39c5fc29b82c2b08_cgraph.png" border="0" usemap="#GnuplotInc_8hh_a40b05327fdd4cc6c39c5fc29b82c2b08_cgraph" alt=""/></div>
+<map name="GnuplotInc_8hh_a40b05327fdd4cc6c39c5fc29b82c2b08_cgraph" id="GnuplotInc_8hh_a40b05327fdd4cc6c39c5fc29b82c2b08_cgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a23f4194eff7b71282f0d0278fd0834e5"></a><!-- doxytag: member="GnuplotInc.hh::PlotScene" ref="a23f4194eff7b71282f0d0278fd0834e5" args="(double SquareLength, int SceneSize, int AgentID)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PlotScene </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>SquareLength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>SceneSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>AgentID</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="GnuplotInc_8cpp_source.html#l00111">111</a> pliku <a class="el" href="GnuplotInc_8cpp_source.html">GnuplotInc.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="GnuplotInc_8hh_source.html#l00016">FIFO_FILE</a> i <a class="el" href="Agent_8hh_source.html#l00017">PLOTDIR</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00059">Agent::Run()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab49609c534ef453a6e59714b0500a0a1"></a><!-- doxytag: member="GnuplotInc.hh::SavePlot" ref="ab49609c534ef453a6e59714b0500a0a1" args="(std::ofstream &amp;Strm, char *PlotName, FileType ext, int winid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SavePlot </td>
+          <td>(</td>
+          <td class="paramtype">std::ofstream &amp;&nbsp;</td>
+          <td class="paramname"> <em>Strm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>PlotName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="GnuplotInc_8hh.html#a2c794c5c13ab4dd7e65bad031dbe41c3">FileType</a>&nbsp;</td>
+          <td class="paramname"> <em>ext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>winid</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Procedura zapisuje wyrysowany wykres do pliku o podanym rozszerzeniu.</p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>Strm</em>&nbsp;</td><td>- referencja na obiekt strumienia plikow (Potok FIFO) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>PlotName</em>&nbsp;</td><td>- nazwa zapisywanego pliku </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ext</em>&nbsp;</td><td>- rozszerzenie pliku, do ktorego wykres zostanie zapisany wartosc 'none' powoduje opuszczenie procedury. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>winid</em>&nbsp;</td><td>- identyfikator okna na ktorym ma byc rysowany wykres </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div>
+<hr class="footer"/><address class="footer"><small>Wygenerowano Thu Dec 15 2011 11:45:51 dla Rozproszony_system_koordynacji_agentow_mobilnych programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
+</body>
+</html>

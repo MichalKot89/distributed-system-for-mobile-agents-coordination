@@ -52,7 +52,7 @@ Diagram współpracy dla Agent:</div>
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Typy publiczne</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646e">Status</a> { <a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646eaaf468dcc2da585268fe4ca43929c4160">Moving</a>, 
-<a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646ea64a94303fb303332b949043fe536a5b3">LeavingSqare</a>, 
+<a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646ea8dff8ff6069589f7671320cb224f31fd">LeavingSquare</a>, 
 <a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646ea04bc7dc369d05d9d1dab116c4f4ad504">WaitingToEnterSquare</a>, 
 <a class="el" href="classAgent.html#ae8c51ce6dc1b881ac5ef5f876253646ea58292f478559f744879e700594b1e95c">WaitingToBypass</a>
  }</td></tr>
@@ -62,6 +62,8 @@ Typy publiczne</h2></td></tr>
 Metody publiczne</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a18df514da404e6a46557dcb90628b9f6">Agent</a> (std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt; ListOfSegments, double vel, double radius, double SquareLength, double TimeStep)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Konstruktor parametryczny klasy agent.  <a href="#a18df514da404e6a46557dcb90628b9f6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a1a31e1da3a9e6abaa9225fe0759b5d2c">DoSthWhenIAmLeavingSquare</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#ad3b5374997fe013a5ec059a737f590f2">DoSthWhenIAmWaitingToEnterSquare</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a51bc5c497653779725fc4c2f6dfee888">DropActualPosition</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Procedura zapisuje aktualną pozycje agenta di pliku Agent(ID).dat.  <a href="#a51bc5c497653779725fc4c2f6dfee888"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgent.html#a886c0bc4f842f053fd88de10c9f8d55f">GiveTimeToCrossSquare</a> (std::list&lt; <a class="el" href="classSegment.html">Segment</a> &gt;::iterator ListIter, int &amp;ModX, int &amp;ModY)</td></tr>
@@ -145,7 +147,7 @@ Statyczne atrybuty publiczne</h2></td></tr>
 <dl><dt><b>Wartości wyliczeń: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
 <tr><td valign="top"><em><a class="anchor" id="ae8c51ce6dc1b881ac5ef5f876253646eaaf468dcc2da585268fe4ca43929c4160"></a><!-- doxytag: member="Moving" ref="ae8c51ce6dc1b881ac5ef5f876253646eaaf468dcc2da585268fe4ca43929c4160" args="" -->Moving</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ae8c51ce6dc1b881ac5ef5f876253646ea64a94303fb303332b949043fe536a5b3"></a><!-- doxytag: member="LeavingSqare" ref="ae8c51ce6dc1b881ac5ef5f876253646ea64a94303fb303332b949043fe536a5b3" args="" -->LeavingSqare</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="ae8c51ce6dc1b881ac5ef5f876253646ea8dff8ff6069589f7671320cb224f31fd"></a><!-- doxytag: member="LeavingSquare" ref="ae8c51ce6dc1b881ac5ef5f876253646ea8dff8ff6069589f7671320cb224f31fd" args="" -->LeavingSquare</em>&nbsp;</td><td>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="ae8c51ce6dc1b881ac5ef5f876253646ea04bc7dc369d05d9d1dab116c4f4ad504"></a><!-- doxytag: member="WaitingToEnterSquare" ref="ae8c51ce6dc1b881ac5ef5f876253646ea04bc7dc369d05d9d1dab116c4f4ad504" args="" -->WaitingToEnterSquare</em>&nbsp;</td><td>
 </td></tr>
@@ -297,9 +299,9 @@ Statyczne atrybuty publiczne</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00592">592</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00594">594</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
 
-<p>Odwołuje się do <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a>, <a class="el" href="Segment_8hh_source.html#l00028">Segment::_XParamA</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>, <a class="el" href="Segment_8hh_source.html#l00029">Segment::_YParamA</a> i <a class="el" href="Agent_8cpp_source.html#l00603">SquareEqRoots()</a>.</p>
+<p>Odwołuje się do <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a>, <a class="el" href="Segment_8hh_source.html#l00028">Segment::_XParamA</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>, <a class="el" href="Segment_8hh_source.html#l00029">Segment::_YParamA</a> i <a class="el" href="Agent_8cpp_source.html#l00605">SquareEqRoots()</a>.</p>
 
 <p><div class="dynheader">
 Oto graf wywołań dla tej funkcji:</div>
@@ -345,7 +347,7 @@ Oto graf wywołań dla tej funkcji:</div>
   </dd>
 </dl>
 
-<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00695">695</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00697">697</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
 
 <p>Odwołuje się do <a class="el" href="Segment_8hh_source.html#l00027">Segment::_End</a>, <a class="el" href="Segment_8hh_source.html#l00026">Segment::_Start</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a>, <a class="el" href="Segment_8hh_source.html#l00028">Segment::_XParamB</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a> i <a class="el" href="Segment_8hh_source.html#l00029">Segment::_YParamB</a>.</p>
 
@@ -420,9 +422,51 @@ Oto graf wywołań dla tej funkcji:</div>
 </dl>
 <dl class="pre"><dt><b>Warunek wstępny:</b></dt><dd>Nalezy pamietac,ze do danego kwadratu nalezy jego pole, lewy i dolny bok i wierzcholek laczacy dany kwadrat, pozostale trzy wierzcholki i dwa boki beda zaliczone do kolejnego kwadratu. </dd></dl>
 
-<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00774">774</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00776">776</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
 
 <p>Odwołuje się do <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a> i <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a31e1da3a9e6abaa9225fe0759b5d2c"></a><!-- doxytag: member="Agent::DoSthWhenIAmLeavingSquare" ref="a1a31e1da3a9e6abaa9225fe0759b5d2c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Agent::DoSthWhenIAmLeavingSquare </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00794">794</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad3b5374997fe013a5ec059a737f590f2"></a><!-- doxytag: member="Agent::DoSthWhenIAmWaitingToEnterSquare" ref="ad3b5374997fe013a5ec059a737f590f2" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Agent::DoSthWhenIAmWaitingToEnterSquare </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00793">793</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
 
 <p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>.</p>
 
@@ -444,7 +488,7 @@ Oto graf wywołań dla tej funkcji:</div>
 <div class="memdoc">
 <p>Procedura zapisuje aktualną pozycje agenta di pliku Agent(ID).dat </p>
 
-<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00570">570</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00572">572</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
 
 <p>Odwołuje się do <a class="el" href="Agent_8hh_source.html#l00059">_ActualPosition</a>, <a class="el" href="Agent_8hh_source.html#l00054">_MyClock</a>, <a class="el" href="Agent_8hh_source.html#l00047">_MyID</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a> i <a class="el" href="Clock_8cpp_source.html#l00039">Clock::GiveActualTime()</a>.</p>
 
@@ -494,7 +538,7 @@ Oto graf wywołań dla tej funkcji:</div>
 </dl>
 <dl class="pre"><dt><b>Warunek wstępny:</b></dt><dd>Segmenty nie moga byc rownolegle, jezeli sa, nastepuje przerwanie programu </dd></dl>
 
-<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00733">733</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00735">735</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
 
 <p>Odwołuje się do <a class="el" href="Segment_8hh_source.html#l00028">Segment::_XParamA</a>, <a class="el" href="Segment_8hh_source.html#l00028">Segment::_XParamB</a>, <a class="el" href="Segment_8hh_source.html#l00029">Segment::_YParamA</a> i <a class="el" href="Segment_8hh_source.html#l00029">Segment::_YParamB</a>.</p>
 
@@ -535,7 +579,7 @@ Oto graf wywołań dla tej funkcji:</div>
 <dl class="pre"><dt><b>Warunek wstępny:</b></dt><dd>Point musi lezec na prostej OneSegment </dd></dl>
 <dl class="post"><dt><b>Warunek końcowy:</b></dt><dd>Zwracany segment NIE MA USTAWIONYCH PUNKTOW POCZATKOWEGO I KONCOWEGO!!! </dd></dl>
 
-<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00714">714</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00716">716</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
 
 <p>Odwołuje się do <a class="el" href="Segment_8hh_source.html#l00027">Segment::_End</a>, <a class="el" href="Segment_8hh_source.html#l00026">Segment::_Start</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a>, <a class="el" href="Segment_8hh_source.html#l00028">Segment::_XParamA</a>, <a class="el" href="Segment_8hh_source.html#l00028">Segment::_XParamB</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>, <a class="el" href="Segment_8hh_source.html#l00029">Segment::_YParamA</a> i <a class="el" href="Segment_8hh_source.html#l00029">Segment::_YParamB</a>.</p>
 
@@ -581,7 +625,7 @@ Oto graf wywołań dla tej funkcji:</div>
   </dd>
 </dl>
 
-<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00618">618</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00620">620</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
 
 <p>Odwołuje się do <a class="el" href="Segment_8hh_source.html#l00027">Segment::_End</a>, <a class="el" href="Segment_8hh_source.html#l00026">Segment::_Start</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a> i <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>.</p>
 
@@ -627,7 +671,7 @@ Oto graf wywołań dla tej funkcji:</div>
   </dd>
 </dl>
 
-<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00166">166</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00168">168</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
 
 <p>Odwołuje się do <a class="el" href="Agent_8hh_source.html#l00059">_ActualPosition</a>, <a class="el" href="Agent_8hh_source.html#l00049">_MyRadius</a>, <a class="el" href="Agent_8hh_source.html#l00058">_SquareLength</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a> i <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>.</p>
 
@@ -658,7 +702,7 @@ Oto graf wywołań dla tej funkcji:</div>
   </dd>
 </dl>
 
-<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00209">209</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00211">211</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
 
 <p>Odwołuje się do <a class="el" href="Agent_8hh_source.html#l00059">_ActualPosition</a>, <a class="el" href="Agent_8hh_source.html#l00049">_MyRadius</a>, <a class="el" href="Agent_8hh_source.html#l00058">_SquareLength</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a> i <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>.</p>
 
@@ -686,7 +730,7 @@ Oto graf wywołań dla tej funkcji:</div>
 
 <p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00078">78</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
 
-<p>Odwołuje się do <a class="el" href="Agent_8hh_source.html#l00059">_ActualPosition</a>, <a class="el" href="Agent_8hh_source.html#l00056">_ListOfSegments</a>, <a class="el" href="Agent_8hh_source.html#l00054">_MyClock</a>, <a class="el" href="Agent_8hh_source.html#l00052">_MyNextSquare</a>, <a class="el" href="Agent_8hh_source.html#l00051">_MySquare</a>, <a class="el" href="Agent_8hh_source.html#l00050">_MyStatus</a>, <a class="el" href="Agent_8hh_source.html#l00065">_PathDone</a>, <a class="el" href="Agent_8hh_source.html#l00057">_SegmentNo</a>, <a class="el" href="Agent_8hh_source.html#l00058">_SquareLength</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>, <a class="el" href="Agent_8cpp_source.html#l00774">CoordinatesToSquare()</a>, <a class="el" href="Agent_8cpp_source.html#l00570">DropActualPosition()</a>, <a class="el" href="Clock_8cpp_source.html#l00043">Clock::GiveTimeStep()</a>, <a class="el" href="Agent_8cpp_source.html#l00166">GiveTimeToCrossSquare()</a>, <a class="el" href="Agent_8cpp_source.html#l00209">GiveTimeToLeaveSquare()</a>, <a class="el" href="Agent_8hh_source.html#l00043">LeavingSqare</a>, <a class="el" href="Agent_8hh_source.html#l00043">WaitingToBypass</a> i <a class="el" href="Agent_8hh_source.html#l00043">WaitingToEnterSquare</a>.</p>
+<p>Odwołuje się do <a class="el" href="Agent_8hh_source.html#l00059">_ActualPosition</a>, <a class="el" href="Agent_8hh_source.html#l00056">_ListOfSegments</a>, <a class="el" href="Agent_8hh_source.html#l00054">_MyClock</a>, <a class="el" href="Agent_8hh_source.html#l00052">_MyNextSquare</a>, <a class="el" href="Agent_8hh_source.html#l00051">_MySquare</a>, <a class="el" href="Agent_8hh_source.html#l00050">_MyStatus</a>, <a class="el" href="Agent_8hh_source.html#l00065">_PathDone</a>, <a class="el" href="Agent_8hh_source.html#l00057">_SegmentNo</a>, <a class="el" href="Agent_8hh_source.html#l00058">_SquareLength</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_x</a>, <a class="el" href="Coordinates_8hh_source.html#l00026">Coordinates::_y</a>, <a class="el" href="Agent_8cpp_source.html#l00776">CoordinatesToSquare()</a>, <a class="el" href="Agent_8cpp_source.html#l00794">DoSthWhenIAmLeavingSquare()</a>, <a class="el" href="Agent_8cpp_source.html#l00793">DoSthWhenIAmWaitingToEnterSquare()</a>, <a class="el" href="Agent_8cpp_source.html#l00572">DropActualPosition()</a>, <a class="el" href="Clock_8cpp_source.html#l00043">Clock::GiveTimeStep()</a>, <a class="el" href="Agent_8cpp_source.html#l00168">GiveTimeToCrossSquare()</a>, <a class="el" href="Agent_8cpp_source.html#l00211">GiveTimeToLeaveSquare()</a>, <a class="el" href="Agent_8hh_source.html#l00043">LeavingSquare</a>, <a class="el" href="Agent_8hh_source.html#l00043">WaitingToBypass</a> i <a class="el" href="Agent_8hh_source.html#l00043">WaitingToEnterSquare</a>.</p>
 
 <p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00059">Run()</a>.</p>
 
@@ -777,7 +821,7 @@ Oto graf wywołań dla tej funkcji:</div>
 <div class="memdoc">
 <p>Procedura ustawia predkosc ruchu agenta poprzez zmiane funkcji ruchu w poszczegolnych segmentach trasy </p>
 
-<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00560">560</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00562">562</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
 
 <p>Odwołuje się do <a class="el" href="Agent_8hh_source.html#l00056">_ListOfSegments</a> i <a class="el" href="Agent_8hh_source.html#l00053">_MyVel</a>.</p>
 
@@ -834,9 +878,9 @@ Oto graf wywołań dla tej funkcji:</div>
   </dd>
 </dl>
 
-<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00603">603</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
+<p>Definicja w linii <a class="el" href="Agent_8cpp_source.html#l00605">605</a> pliku <a class="el" href="Agent_8cpp_source.html">Agent.cpp</a>.</p>
 
-<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00592">CalculateCollisionPoints()</a>.</p>
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00594">CalculateCollisionPoints()</a>.</p>
 
 </div>
 </div>
@@ -854,7 +898,7 @@ Oto graf wywołań dla tej funkcji:</div>
 
 <p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00059">59</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
 
-<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00570">DropActualPosition()</a>, <a class="el" href="Agent_8cpp_source.html#l00166">GiveTimeToCrossSquare()</a>, <a class="el" href="Agent_8cpp_source.html#l00209">GiveTimeToLeaveSquare()</a> i <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>.</p>
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00572">DropActualPosition()</a>, <a class="el" href="Agent_8cpp_source.html#l00168">GiveTimeToCrossSquare()</a>, <a class="el" href="Agent_8cpp_source.html#l00211">GiveTimeToLeaveSquare()</a> i <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>.</p>
 
 </div>
 </div>
@@ -871,7 +915,7 @@ Oto graf wywołań dla tej funkcji:</div>
 
 <p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00056">56</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
 
-<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a> i <a class="el" href="Agent_8cpp_source.html#l00560">SetVelocityToSegments()</a>.</p>
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a> i <a class="el" href="Agent_8cpp_source.html#l00562">SetVelocityToSegments()</a>.</p>
 
 </div>
 </div>
@@ -888,7 +932,7 @@ Oto graf wywołań dla tej funkcji:</div>
 
 <p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00054">54</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
 
-<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00570">DropActualPosition()</a>, <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a> i <a class="el" href="Agent_8cpp_source.html#l00059">Run()</a>.</p>
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00572">DropActualPosition()</a>, <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a> i <a class="el" href="Agent_8cpp_source.html#l00059">Run()</a>.</p>
 
 </div>
 </div>
@@ -905,7 +949,7 @@ Oto graf wywołań dla tej funkcji:</div>
 
 <p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00047">47</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
 
-<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00570">DropActualPosition()</a> i <a class="el" href="Agent_8cpp_source.html#l00059">Run()</a>.</p>
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00572">DropActualPosition()</a> i <a class="el" href="Agent_8cpp_source.html#l00059">Run()</a>.</p>
 
 </div>
 </div>
@@ -939,7 +983,7 @@ Oto graf wywołań dla tej funkcji:</div>
 
 <p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00049">49</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
 
-<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00166">GiveTimeToCrossSquare()</a> i <a class="el" href="Agent_8cpp_source.html#l00209">GiveTimeToLeaveSquare()</a>.</p>
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00168">GiveTimeToCrossSquare()</a> i <a class="el" href="Agent_8cpp_source.html#l00211">GiveTimeToLeaveSquare()</a>.</p>
 
 </div>
 </div>
@@ -990,7 +1034,7 @@ Oto graf wywołań dla tej funkcji:</div>
 
 <p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00053">53</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
 
-<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00560">SetVelocityToSegments()</a>.</p>
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00562">SetVelocityToSegments()</a>.</p>
 
 </div>
 </div>
@@ -1056,7 +1100,7 @@ Oto graf wywołań dla tej funkcji:</div>
 
 <p>Definicja w linii <a class="el" href="Agent_8hh_source.html#l00058">58</a> pliku <a class="el" href="Agent_8hh_source.html">Agent.hh</a>.</p>
 
-<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00166">GiveTimeToCrossSquare()</a>, <a class="el" href="Agent_8cpp_source.html#l00209">GiveTimeToLeaveSquare()</a> i <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>.</p>
+<p>Odwołania w <a class="el" href="Agent_8cpp_source.html#l00168">GiveTimeToCrossSquare()</a>, <a class="el" href="Agent_8cpp_source.html#l00211">GiveTimeToLeaveSquare()</a> i <a class="el" href="Agent_8cpp_source.html#l00078">Move()</a>.</p>
 
 </div>
 </div>
@@ -1065,7 +1109,7 @@ Oto graf wywołań dla tej funkcji:</div>
 <li><a class="el" href="Agent_8cpp_source.html">Agent.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Wygenerowano Thu Dec 15 2011 11:45:52 dla Rozproszony_system_koordynacji_agentow_mobilnych programem&nbsp;
+<hr class="footer"/><address class="footer"><small>Wygenerowano Thu Dec 15 2011 16:57:11 dla Rozproszony_system_koordynacji_agentow_mobilnych programem&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

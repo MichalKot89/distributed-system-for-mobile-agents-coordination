@@ -85,8 +85,8 @@ if((_MyStatus!=WaitingToEnterSquare)&&(_MyStatus!=WaitingToBypass)){
 
 	_MySquare=CoordinatesToSquare(_ActualPosition, _SquareLength);
 
-	if(_MyStatus==LeavingSqare){
-//Jakas funkcja interakcji
+	if(_MyStatus==LeavingSquare){
+
 	_MyStatus=Moving;
 	}
 	//poruszanie sie
@@ -116,11 +116,12 @@ if((timeToCrossSqare<_MyClock.GiveTimeStep()) &&(timeToCrossSqare>0.0)){
 	_ActualPosition=Coordinates(FinalX,FinalY);
 	//zwolnienie kwadratu
 	//Jakas funkcja interakcji
+	DoSthWhenIAmLeavingSquare();
 if(_MySquare!=_MyNextSquare)//sytuacja w ktorej agent tylko na chwile, czescia
 	//wjezdza na kwadrat
 	_MyNextSquare=_MySquare;
 
-	_MyStatus=ActualStatus=LeavingSqare;
+	_MyStatus=ActualStatus=LeavingSquare;
 }else{
 if(ListIter->_XParamA!=0.0)
 	EstimatedTimeToEndX=
@@ -159,6 +160,7 @@ else
 }else{
 	//waiting
 //Jakas funkcja interakcji
+	DoSthWhenIAmWaitingToEnterSquare();
 }
 return ActualStatus;
 }
@@ -788,5 +790,6 @@ Coordinates Agent::CoordinatesToSquare(Coordinates C, double SquareLength)
 
 	return SquareCoordinates;
 }
-
+void Agent::DoSthWhenIAmWaitingToEnterSquare(){};
+void Agent::DoSthWhenIAmLeavingSquare(){};
 

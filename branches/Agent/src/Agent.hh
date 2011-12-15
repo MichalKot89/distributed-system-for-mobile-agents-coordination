@@ -40,7 +40,7 @@ public:
 	 *
 	 * \brief Typ wyliczeniowy opisujacy status agenta
 	 */
-	enum Status{Moving,LeavingSqare,WaitingToEnterSquare,WaitingToBypass};
+	enum Status{Moving,LeavingSquare,WaitingToEnterSquare,WaitingToBypass};
 
 
 static int _NumOfAgentsCreated; ///<Liczba stworzonych agentow
@@ -271,6 +271,9 @@ bool _PathDone;///< flaga trasy TRUE - trasa ukonczona, FALSE - odwrotnie
 	 *
 	 */
 	static Coordinates CoordinatesToSquare(Coordinates C, double SquareLength);
+
+	void DoSthWhenIAmWaitingToEnterSquare();
+	void DoSthWhenIAmLeavingSquare();
 };
 
 #endif /* AGENT_HH_ */

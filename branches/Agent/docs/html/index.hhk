@@ -54,13 +54,15 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="CalculateCollisionPoints"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="ChangeStartOfCordSysForSegment"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="CoordinatesToSquare"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="DoSthWhenIAmLeavingSquare"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="DoSthWhenIAmWaitingToEnterSquare"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="DropActualPosition"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="FindCrossPointBetweenSegments"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="FindLinePerpendicularToPoint"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="FindPathResolvingForbiddenSector"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="GiveTimeToCrossSquare"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="GiveTimeToLeaveSquare"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="LeavingSqare"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="LeavingSquare"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="Move"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="Moving"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="ResolveForbiddenSectors"></OBJECT>
@@ -106,6 +108,8 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classCoordinates.html"><param name="Name" value="~Coordinates"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="CoordinatesToSquare"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="DoSthWhenIAmLeavingSquare"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="DoSthWhenIAmWaitingToEnterSquare"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="DropActualPosition"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="GnuplotInc_8hh.html"><param name="Name" value="eps"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="GnuplotInc_8hh.html"><param name="Name" value="FIFO_FILE"></OBJECT>
@@ -159,7 +163,7 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="GnuplotInc_8hh.html"><param name="Name" value="GnuplotInc.hh"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="Agent_8hh.html"><param name="Name" value="INFINITY"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="LeavingSqare"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="LeavingSquare"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html"><param name="Name" value="main.cpp"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html"><param name="Name" value="main"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classAgent.html"><param name="Name" value="Move"></OBJECT>

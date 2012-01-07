@@ -40,6 +40,7 @@ Agent::Agent(list<Segment> ListOfSegments,double vel,double radius,double Square
 	_MyID=_NumOfAgentsCreated++;
 	_ListOfSegments=ResolveForbiddenSectors(ListOfSegments);
 	SetVelocityToSegments();
+	Order=1;
 
 
 	list<Segment>::iterator ListIter=_ListOfSegments.begin();
@@ -793,3 +794,68 @@ Coordinates Agent::CoordinatesToSquare(Coordinates C, double SquareLength)
 void Agent::DoSthWhenIAmWaitingToEnterSquare(){};
 void Agent::DoSthWhenIAmLeavingSquare(){};
 
+void Agent::DoSthWhenIAmWaitingForAnotherAgent(){};
+
+void Agent::Coordinate()
+{
+	if (Order==1)
+	{
+		//ustawienie siê agenta w œrodku kwadratu
+		double temp=_MyVel;
+		_MyVel=0;
+		_ListOfSegments[_SegmentNo]._End._x=_SquareLength/2;
+		_ListOfSegments[_SegmentNo]._End._y=_SquareLength/2;
+		_ListOfSegments[_SegmentNo+1]._Start._x=_SquareLength/2;
+		_ListOfSegments[_SegmentNo+1]._Start._y=_SquareLength/2;
+		_MyVel=temp;
+
+		if (_ActualPosition._x==_ListOfSegments[_SegmentNo]._End._x && _ActualPosition._y==_ListOfSegments[_SegmentNo]._End._y)
+			_MyVel=0;
+		//wyœlij pozwolenie dla drugiego agenta na dalsz¹ jazdê
+		//oczekiwanie na przejazd drugiego agenta
+		DoSthWhenIAmWaitingForAnotherAgent();
+
+		//po przejeŸdzie drugiego agenta kontynuuj jazdê
+		_MyVel=temp;
+	}
+
+	if (Order==2)
+	{
+		double temp=_MyVel;
+		//agent zatrzymuje siê jeœli jest na granicy kwadratów i czeka na zezwolenie
+		double squareX=floor(_ActualPosition._x / SquareLength);
+		double squareY=floor(_ActualPosition._y / SquareLength);
+
+		if (((_ActualPosition._x / SquareLength) == squareX || (_ActualPosition._y / SquareLength) == squareY))
+			_MyVel=0;
+			
+		//jeœli otrzyma³ zezwolenie
+		double R=_MyRadius+anotherRadius+0.1;
+
+		list<Segment>::iterator IteratorForLastElement;
+		
+		//dla kazdego segmentu sprawdzamy czy przechodzi przez "zakazane" KOLA czyli ko³o, którego œrodek znajduje siê 
+		//w œrodku kwadratu i promieniu równym
+		//sumie promieni agenta i zarz¹dcy (+0.1)
+		
+		//przeplanowanie œcie¿ki
+
+		_MyVel=temp;
+
+		//jeœli znowu znajdzie siê na granicy kwadratów
+		double squareX=floor(_ActualPosition._x / SquareLength);
+		double squareY=floor(_ActualPosition._y / SquareLength);
+
+		if (((_ActualPosition._x / SquareLength) == squareX || (_ActualPosition._y / SquareLength) == squareY))
+			_MyVel=0;
+
+		//wyœlij wiadomoœæ o objechaniu agenta
+
+		_MyVel=temp;
+	}	
+}
+
+void Agent::ExaminePath()
+{
+
+}

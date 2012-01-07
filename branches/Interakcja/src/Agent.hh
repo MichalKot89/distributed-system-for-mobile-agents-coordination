@@ -58,8 +58,10 @@ int _SegmentNo;///< aktualnie realizowany odcinek trasy
 double _SquareLength;///< dlugosc boku kwadratu bedacy sektorem w srodowisku symulatora
 Coordinates _ActualPosition;///< globalna pozycja agenta
 
-
-
+//dodatkowe zmienne do koordynacji
+int anotherID; ///< numer ID drugiego agenta znajdujacego sie w kwadracie
+double anotherRadius; ///< promien drugiego agenta znajdujacego sie w kwadracie
+int Order; ///< zmienna okreslajaca hierarchie pomiedzy agentami wewnatrz kwadratu
 
 //Flagi
 bool _PathDone;///< flaga trasy TRUE - trasa ukonczona, FALSE - odwrotnie
@@ -274,6 +276,10 @@ bool _PathDone;///< flaga trasy TRUE - trasa ukonczona, FALSE - odwrotnie
 
 	void DoSthWhenIAmWaitingToEnterSquare();
 	void DoSthWhenIAmLeavingSquare();
+	void DoSthWhenIAmWaitingForAnotherAgent();
+	
+    // funkcja wywolywana w momencie wymijania sie dwoch agentow (wyglada lamersko)
+	void Coordinate();
 };
 
 #endif /* AGENT_HH_ */

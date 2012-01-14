@@ -279,7 +279,8 @@ bool _PathDone;///< flaga trasy TRUE - trasa ukonczona, FALSE - odwrotnie
 	void DoSthWhenIAmWaitingForAnotherAgent();
 	
     // funkcja wywolywana w momencie wymijania sie dwoch agentow (wyglada lamersko)
-	void Coordinate();
+	void Coordinate_Admin();
+	void Coordinate_User();
 };
 
 #endif /* AGENT_HH_ */

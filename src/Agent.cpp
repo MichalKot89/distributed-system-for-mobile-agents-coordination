@@ -830,7 +830,7 @@ void Agent::Coordinate_User()
 	double LocalStartX=0,LocalStartY=0,LocalEndX=0,LocalEndY=0;
 	double InX,InY,OutX,OutY;
 	double a,b,c,xO,yO;
-	double r=(_MyRadius+anotherRadius)*sqrt(2);
+	double r=(_MyRadius+anotherRadius)*sqrt(2); //promien zakazanego kola
 	bool ColisionFound=false,SquareResolved=false,EndOfSegInCircle=false;
 	bool OnlyInPoint=false;
 	int NumOfRoots=0,CornerIter=0;
@@ -838,8 +838,45 @@ void Agent::Coordinate_User()
 	list<Segment> ResultListOfSegments;
 	list<Segment> TempListOfSegments;
 
-	list<Segment>::iterator ListIter=_ListOfSegments.begin();
-	for(;ListIter!=_ListOfSegments.end();ListIter++){
+	SquareX=floor(_ActualPosition._x/_SquareLength);
+	SquareY=floor(_ActualPosition._y/_SquareLength);
 
+	x0=_SquareLength/2;
+	y0=_SquareLength/2;
+
+	list<Segment>::iterator ListIter=_ListOfSegments.begin();
+	std::advance(ListIter,_SegmentNo);
+
+	CalculateCollisionPoints((*ListIter),r, Coordinates(SquareX,SquareY),Coordinates(xO,yO),InTime,OutTime);
+
+	//jesli znaleziono punkty wejscia i wyjscia na zakazany obszar
+	if(InTime !=0 && OutTime !=0)
+	{
+		if (InTime>OutTime)
+		{
+			double temp=InTime;
+			InTime=OutTime;
+			OutTime=temp;
+		}
+
+		InX=ListIter->_XParamA*InTime+SquareX;
+		InY=ListIter->_YParamA*InTime+SquareY;
+
+		OutX=ListIter->_XParamA*OutTime+SquareX;
+		OutY=ListIter->_YParamA*OutTime+SquareY;
+
+		TempListOfSegments=FindPathResolvingForbiddenSector(Coordinates(InX,InY),Coordinates(OutX,OutY),Coordinates(xO,yO));
+
+		TempListOfSegments.push_front(Segment(Coordinates(LocalStartX,LocalStartY),TempListOfSegments.begin()->_Start));
+
+		ChangeStartOfCordSysForSegment(TempListOfSegments,Coordinates(-SquareX*_SquareLength,-SquareY*_SquareLength));
+
+		list<Segment>::iterator TempListIter=TempListOfSegments.begin();
+		for(;TempListIter!=TempListOfSegments.end();TempListIter++)
+		{
+			ResultListOfSegments.push_back(*TempListIter);
+		}
+
+		_ListOfSegments=ResultListOfSegments;
 	}
 }

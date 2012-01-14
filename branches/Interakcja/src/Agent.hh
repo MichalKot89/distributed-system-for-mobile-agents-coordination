@@ -278,8 +278,23 @@ bool _PathDone;///< flaga trasy TRUE - trasa ukonczona, FALSE - odwrotnie
 	void DoSthWhenIAmLeavingSquare();
 	void DoSthWhenIAmWaitingForAnotherAgent();
 	
-    // funkcja wywolywana w momencie wymijania sie dwoch agentow (wyglada lamersko)
+    /*!
+     * \brief Funkcja koordynuje ruch agenta, ktory jako pierwszy wjezdza do kwadratu
+     *
+     * Funkcja koordynuje ruch agenta, ktory jako pierwszy wjezdza do kwadratu. Agent zarzadca
+     * ustawia sie w srodku kwadratu i czeka, az drugi agent go wyminie.
+     *
+     */
 	void Coordinate_Admin();
+
+	/*!
+	 * \brief Funkcja koordynuje ruch agenta, ktory jako drugi wjezdza do kwadratu
+	 *
+	 * Funkcja koordynuje ruch agenta, ktory jako drugi wjezdza do kwadratu. Agent
+	 * sprawdza, czy jego sciezka przechodzi przez obszar zajmowany przez agenta zarzadce
+	 * i w zaleznosci od wyniku modyfikuje swoja sciezke.
+	 *
+	 */
 	void Coordinate_User();
 };
 

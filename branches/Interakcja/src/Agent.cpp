@@ -796,61 +796,50 @@ void Agent::DoSthWhenIAmLeavingSquare(){};
 
 void Agent::DoSthWhenIAmWaitingForAnotherAgent(){};
 
-void Agent::Coordinate()
+//funkcja zmienia cie¿kê agenta, który jako pierwszy bêdzie w kwadracie
+void Agent::Coordinate_Admin()
 {
-	if (Order==1)
-	{
-		//ustawienie siê agenta w œrodku kwadratu
-		double temp=_MyVel;
-		_MyVel=0;
-		_ListOfSegments[_SegmentNo]._End._x=_SquareLength/2;
-		_ListOfSegments[_SegmentNo]._End._y=_SquareLength/2;
-		_ListOfSegments[_SegmentNo+1]._Start._x=_SquareLength/2;
-		_ListOfSegments[_SegmentNo+1]._Start._y=_SquareLength/2;
-		_MyVel=temp;
+	double SquareX, SquareY;
 
-		if (_ActualPosition._x==_ListOfSegments[_SegmentNo]._End._x && _ActualPosition._y==_ListOfSegments[_SegmentNo]._End._y)
-			_MyVel=0;
-		//wyœlij pozwolenie dla drugiego agenta na dalsz¹ jazdê
-		//oczekiwanie na przejazd drugiego agenta
-		DoSthWhenIAmWaitingForAnotherAgent();
+	SquareX=floor(_ActualPosition._x/_SquareLength);
+	SquareY=floor(_ActualPosition._y/_SquareLength);
 
-		//po przejeŸdzie drugiego agenta kontynuuj jazdê
-		_MyVel=temp;
+	//ustawienie siê agenta w œrodku kwadratu
+	//wskaŸnik do listy segmentów
+	list<Segment>::iterator ListIter=_ListOfSegments.begin();
+
+	//ustawienie wskaŸnika na aktualnie realizowany odcinek trasy
+	std::advance(ListIter,_SegmentNo);
+
+	//zmiana parametrów aktualnie realizowanego odcinka trasy
+	ListIter->_Start._x=SquareX;
+	ListIter->_Start._y=SquareY;
+	ListIter->_End._x=_SquareLength/2;
+	ListIter->_End._y=_SquareLength/2;
+
+	//zmiana parametrów nastêpnego odcinka trasy
+	std::advance(ListIter,_SegmentNo+1);
+	ListIter->_Start._x=_SquareLength/2;
+	ListIter->_Start._y=_SquareLength/2;
+}
+
+//funkcja zmieniaj¹ca trasê agenta, który jako drugi wjedzie do kwadratu
+void Agent::Coordinate_User()
+{
+	double InTime=0,OutTime=0,TempTime=0,SquareX,SquareY;
+	double LocalStartX=0,LocalStartY=0,LocalEndX=0,LocalEndY=0;
+	double InX,InY,OutX,OutY;
+	double a,b,c,xO,yO;
+	double r=(_MyRadius+anotherRadius)*sqrt(2);
+	bool ColisionFound=false,SquareResolved=false,EndOfSegInCircle=false;
+	bool OnlyInPoint=false;
+	int NumOfRoots=0,CornerIter=0;
+	Coordinates ActualPos,ActualPosNext;
+	list<Segment> ResultListOfSegments;
+	list<Segment> TempListOfSegments;
+
+	list<Segment>::iterator ListIter=_ListOfSegments.begin();
+	for(;ListIter!=_ListOfSegments.end();ListIter++){
+
 	}
-
-	if (Order==2)
-	{
-		double temp=_MyVel;
-		//agent zatrzymuje siê jeœli jest na granicy kwadratów i czeka na zezwolenie
-		double squareX=floor(_ActualPosition._x / SquareLength);
-		double squareY=floor(_ActualPosition._y / SquareLength);
-
-		if (((_ActualPosition._x / SquareLength) == squareX || (_ActualPosition._y / SquareLength) == squareY))
-			_MyVel=0;
-			
-		//jeœli otrzyma³ zezwolenie
-		double R=_MyRadius+anotherRadius+0.1;
-
-		list<Segment>::iterator IteratorForLastElement;
-		
-		//dla kazdego segmentu sprawdzamy czy przechodzi przez "zakazane" KOLA czyli ko³o, którego œrodek znajduje siê 
-		//w œrodku kwadratu i promieniu równym
-		//sumie promieni agenta i zarz¹dcy (+0.1)
-		
-		//przeplanowanie œcie¿ki
-
-		_MyVel=temp;
-
-		//jeœli znowu znajdzie siê na granicy kwadratów
-		double squareX=floor(_ActualPosition._x / SquareLength);
-		double squareY=floor(_ActualPosition._y / SquareLength);
-
-		if (((_ActualPosition._x / SquareLength) == squareX || (_ActualPosition._y / SquareLength) == squareY))
-			_MyVel=0;
-
-		//wyœlij wiadomoœæ o objechaniu agenta
-
-		_MyVel=temp;
-	}	
 }

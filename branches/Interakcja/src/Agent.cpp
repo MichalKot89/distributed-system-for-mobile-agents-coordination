@@ -854,8 +854,3 @@ void Agent::Coordinate()
 		_MyVel=temp;
 	}	
 }
-
-void Agent::ExaminePath()
-{
-
-}

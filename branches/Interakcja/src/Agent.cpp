@@ -830,7 +830,7 @@ void Agent::Coordinate_User()
 	double LocalStartX=0,LocalStartY=0,LocalEndX=0,LocalEndY=0;
 	double InX,InY,OutX,OutY;
 	double a,b,c,xO,yO;
-	double r=(_MyRadius+anotherRadius)*sqrt(2); //promien zakazanego kola
+	double r=(_MyRadius+anotherRadius+0.2)*sqrt(2); //promien zakazanego kola
 	bool ColisionFound=false,SquareResolved=false,EndOfSegInCircle=false;
 	bool OnlyInPoint=false;
 	int NumOfRoots=0,CornerIter=0;

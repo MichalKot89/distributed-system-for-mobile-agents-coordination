@@ -1,0 +1,2 @@
+/home/michu/workspace/asdas/src/CMakeFiles/Agent.dir
+/home/michu/workspace/asdas/Spectator_src/CMakeFiles/Spect.dir

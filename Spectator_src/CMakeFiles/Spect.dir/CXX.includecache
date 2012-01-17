@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/michu/workspace/asdas/Spectator_src/Spect.cpp
+Spect.hh
+/home/michu/workspace/asdas/Spectator_src/Spect.hh
+
+/home/michu/workspace/asdas/Spectator_src/Spect.hh
+SpectBase.hh
+/home/michu/workspace/asdas/Spectator_src/SpectBase.hh
+Segment.hh
+/home/michu/workspace/asdas/Spectator_src/Segment.hh
+iostream
+-
+string
+-
+vector
+-
+
+/home/michu/workspace/asdas/Spectator_src/SpectBase.hh
+Coordinates.hh
+/home/michu/workspace/asdas/Spectator_src/Coordinates.hh
+iostream
+-
+string
+-
+vector
+-
+
+Spectator_src/../src/Coordinates.hh
+
+Spectator_src/../src/Segment.hh
+Coordinates.hh
+Spectator_src/../src/Coordinates.hh
+

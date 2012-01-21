@@ -17,6 +17,9 @@
 #include <cmath>
 #include <ctime>
 
+//#define PanicProgramming 1
+
+
 using namespace std;
 
 
@@ -99,7 +102,7 @@ void Agent::Run()
         return;
     }
 
-        while((!_PathDone)&&(_MyStatus!=Finished)){
+        while(!_PathDone){
                 //_MyClock.TickTack();
                 if(Move()>Moving){
                         //czekanie
@@ -107,12 +110,15 @@ void Agent::Run()
                         //cout<<_MySquare._x<<" "<<_MySquare._y<<" Next: "<<_MyNextSquare._x<<" "<<_MyNextSquare._y<<endl;
                         //sleep(3);
                         _MyStatus=Moving;
+
+                }
+
                         if(_SegmentNo>=(_ListOfSegments.size())){
                         _PathDone=true;
                     	_MyStatus=Finished;
                     	cout<<"ID:"<<_MyID<<" "<<"Trasa skonczona"<<endl;
                         }
-                }
+
                 //cout<<"Actual TIme:"<<_MyClock.GiveActualTime()<<endl;
                 //PlotScene(5,3,_MyID);
         }
@@ -143,6 +149,9 @@ void Agent::Run()
     _PathDone=true;
 	_MyStatus=Finished;
 	cout<<"ID:"<<_MyID<<" "<<"Trasa3 skonczona"<<endl;
+#ifdef MWDEBUG
+	exit(1);
+#endif
     }
     //std::cout << "Agent: " << _MyID << " Time: " << _MyTime << " Status: " << _MyStatus << std::endl;
 	}
@@ -163,11 +172,13 @@ if((_MyStatus!=WaitingToEnterSquare)&&(_MyStatus!=WaitingToBypass)){
         if(_MyStatus==LeavingSqare){
 //Jakas funkcja interakcji
         _MyStatus=Moving;
-        if(_SegmentNo>=(_ListOfSegments.size())){
-        _PathDone=true;
-    	_MyStatus=Finished;
-    	cout<<"ID:"<<_MyID<<" "<<"Trasa skonczona"<<endl;
-        }
+#ifdef PanicProgramming
+                        if(_SegmentNo>=(_ListOfSegments.size())){
+                        _PathDone=true;
+                    	_MyStatus=Finished;
+                    	cout<<"ID:"<<_MyID<<" "<<"Trasa skonczona"<<endl;
+                        }
+#endif
         }
         //poruszanie sie
         list<Segment>::iterator ListIter=_ListOfSegments.begin();
@@ -191,11 +202,13 @@ if((timeToCrossSqare<_TimeStep) &&(timeToCrossSqare>0.0)){
         _MyNextSquare+=Coordinates(ModX,ModY);
         //zmiana statusu
         _MyStatus=ActualStatus=WaitingToEnterSquare;
-        if(_SegmentNo>=(_ListOfSegments.size())){
-        _PathDone=true;
-    	_MyStatus=Finished;
-    	cout<<"ID:"<<_MyID<<" "<<"Trasa skonczona"<<endl;
-        }
+#ifdef PanicProgramming
+                        if(_SegmentNo>=(_ListOfSegments.size())){
+                        _PathDone=true;
+                    	_MyStatus=Finished;
+                    	cout<<"ID:"<<_MyID<<" "<<"Trasa skonczona"<<endl;
+                        }
+#endif
 }else if((timeToLeaveSqare<_TimeStep) &&(timeToLeaveSqare>0.0)){
         FinalX=ListIter->_XParamA*timeToLeaveSqare+ListIter->_XParamB;
         FinalY=ListIter->_YParamA*timeToLeaveSqare+ListIter->_YParamB;
@@ -207,11 +220,13 @@ if(_MySquare!=_MyNextSquare)//sytuacja w ktorej agent tylko na chwile, czescia
         _MyNextSquare=_MySquare;
 
         _MyStatus=ActualStatus=LeavingSqare;
-        if(_SegmentNo>=(_ListOfSegments.size())){
-        _PathDone=true;
-    	_MyStatus=Finished;
-    	cout<<"ID:"<<_MyID<<" "<<"Trasa skonczona"<<endl;
-        }
+#ifdef PanicProgramming
+                        if(_SegmentNo>=(_ListOfSegments.size())){
+                        _PathDone=true;
+                    	_MyStatus=Finished;
+                    	cout<<"ID:"<<_MyID<<" "<<"Trasa skonczona"<<endl;
+                        }
+#endif
 }else{
 if(ListIter->_XParamA!=0.0)
         EstimatedTimeToEndX=
@@ -233,11 +248,13 @@ else
                 _SegmentNo++;
             	cout<<"Segment:"<<_SegmentNo<<"Lista:"<<_ListOfSegments.size()<<endl;
                 //Jezeli cala sciezka
-                if(_SegmentNo>=(_ListOfSegments.size())){
-                _PathDone=true;
-            	_MyStatus=Finished;
-            	cout<<"ID:"<<_MyID<<" "<<"Trasa skonczona"<<endl;
-                }
+#ifdef PanicProgramming
+                        if(_SegmentNo>=(_ListOfSegments.size())){
+                        _PathDone=true;
+                    	_MyStatus=Finished;
+                    	cout<<"ID:"<<_MyID<<" "<<"Trasa skonczona"<<endl;
+                        }
+#endif
         }else{
 
         FinalX=ListIter->_XParamA*_TimeStep+ListIter->_XParamB;
@@ -245,11 +262,13 @@ else
         _ActualPosition=Coordinates(FinalX,FinalY);
         }
         _MyStatus=ActualStatus=Moving;
-        if(_SegmentNo>=(_ListOfSegments.size())){
-        _PathDone=true;
-    	_MyStatus=Finished;
-    	cout<<"ID:"<<_MyID<<" "<<"Trasa skonczona"<<endl;
-        }
+#ifdef PanicProgramming
+                        if(_SegmentNo>=(_ListOfSegments.size())){
+                        _PathDone=true;
+                    	_MyStatus=Finished;
+                    	cout<<"ID:"<<_MyID<<" "<<"Trasa skonczona"<<endl;
+                        }
+#endif
 }
         ListIter->_XParamB=_ActualPosition._x;
         ListIter->_YParamB=_ActualPosition._y;
@@ -421,7 +440,7 @@ while(ActualPos!=ListIter->_End){
                         break;
                 }
 
-        if(sqrt(pow(xO-LocalStartX,2.0)+pow(yO-LocalStartY,2.0))<r){//NE
+	if(sqrt(pow(xO-LocalStartX,2.0)+pow(yO-LocalStartY,2.0))<(r-0.001)){//MWci numeric problems here
 
                 CalculateCollisionPoints(*ListIter,r, Coordinates(LocalStartX,LocalStartY),Coordinates(xO,yO),InTime,OutTime);
                 if((OutTime<0))
@@ -432,11 +451,13 @@ while(ActualPos!=ListIter->_End){
                 ActualPos._x=ListIter->_XParamB=ListIter->_Start._x=LocalStartX+SquareX*_SquareLength;
                 ActualPos._y=ListIter->_YParamB=ListIter->_Start._y=LocalStartY+SquareY*_SquareLength;
                 ColisionFound=true;
+                SquareResolved=true;
         }
         CornerIter++;
         }
-        ColisionFound=false;
+        //ColisionFound=false;
         CornerIter=0;
+        //koniec w zakazanym kole
         while((!ColisionFound)&&(CornerIter<4)){
                 switch(CornerIter){
                 case 0:
@@ -456,9 +477,9 @@ while(ActualPos!=ListIter->_End){
                         yO=0;
                         break;
                 }
-        //koniec w zakazanym kole
-if(sqrt(pow(xO-LocalEndX,2.0)+pow(yO-LocalEndY,2.0))<r){//NE
-        ColisionFound=true;
+
+if(sqrt(pow(xO-LocalEndX,2.0)+pow(yO-LocalEndY,2.0))<(r-0.001)){//NE
+	ColisionFound=true;
 //szukanie punktu wejscia na zakazany okrag
 CalculateCollisionPoints((*ListIter),r, Coordinates(LocalStartX,LocalStartY),Coordinates(xO,yO),InTime,OutTime);
 if(OutTime<InTime)

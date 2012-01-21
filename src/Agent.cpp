@@ -415,7 +415,7 @@ if (OnlyInPoint)
 	TempListOfSegments.pop_back();
 
 //przejscie do globalnego ukladu wspolrzednych
-ChangeStartOfCordSysForSegment(TempListOfSegments,Coordinates(-SquareX*_SquareLength,-SquareX*_SquareLength));
+ChangeStartOfCordSysForSegment(TempListOfSegments,Coordinates(-SquareX*_SquareLength,-SquareY*_SquareLength));
 //przepisanie scizeki do wynikowej trasy
 list<Segment>::iterator TempListIter=TempListOfSegments.begin();
 for(;TempListIter!=TempListOfSegments.end();TempListIter++){

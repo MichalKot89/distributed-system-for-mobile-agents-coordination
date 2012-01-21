@@ -18,8 +18,9 @@
 #include <ctime>
 
 //#define PanicProgramming 1
-
-
+#define MWDEBUGL1	1
+#define MWDEBUGL2	2
+#define MWDEBUGL3	3
 using namespace std;
 
 
@@ -59,27 +60,31 @@ bool Agent::SetParameters(list<Segment> ListOfSegments,double vel,double radius,
         _SquareLength=SquareLength;
         _MyRadius=radius;
         _MyStatus=Moving;
-        cout<<"Jest1"<<endl;
+
         list<Segment>::iterator ListIter2=ListOfSegments.begin();
                 for(;ListIter2!=ListOfSegments.end();ListIter2++){
                 	_ListOfSegments.push_back(*ListIter2);
                 }
+
+#ifdef MWDEBUGL1
+                cout<<"Trasa wczytana z planszy:"<<endl;
                 list<Segment>::iterator ListIter=_ListOfSegments.begin();
                 for(;ListIter!=_ListOfSegments.end();ListIter++){
-        cout<<ListIter->_Start._x<<" "<<ListIter->_Start._y<<" "
+        cout<<ListIter->_Start._x<<" "<<ListIter->_Start._y<<"--->"
                         <<ListIter->_End._x<<" "<<ListIter->_End._y<<endl;
                 }
-                        cout<<"Jest5"<<endl;
+#endif
+
         _ListOfSegments=ResolveForbiddenSectors(_ListOfSegments);
         SetVelocityToSegments();
-        cout<<"Jest2"<<endl;
-
+#ifdef MWDEBUGL1
+        cout<<"Trasa z omijaniem wierzcholkow:"<<endl;
         ListIter=_ListOfSegments.begin();
         for(;ListIter!=_ListOfSegments.end();ListIter++){
-cout<<ListIter->_Start._x<<" "<<ListIter->_Start._y<<" "
+cout<<ListIter->_Start._x<<" "<<ListIter->_Start._y<<"--->"
                 <<ListIter->_End._x<<" "<<ListIter->_End._y<<endl;
         }
-        cout<<"Jest3"<<endl;
+#endif
         //DropActualPosition();
     std::cout << "Agent" << _MyID << ": ustawiono parametry" << std::endl;
     return true;
@@ -92,9 +97,9 @@ Agent::~Agent() {
 
 void Agent::Run()
 {
-	cout<<"Poza runem"<<endl;
+
 	if(_MyStatus!=Finished){
-		cout<<"W runie"<<endl;
+
     if (_ActualCommand != "NONE") {
         cerr << "Agent didn't managed to finish communication operation: Agent" << _MyID << endl
              << "   Actual command: " << _ActualCommand << endl;
@@ -116,7 +121,9 @@ void Agent::Run()
                         if(_SegmentNo>=(_ListOfSegments.size())){
                         _PathDone=true;
                     	_MyStatus=Finished;
-                    	cout<<"ID:"<<_MyID<<" "<<"Trasa skonczona"<<endl;
+#ifdef MWDEBUGL1
+                    	cout<<"ID:"<<_MyID<<" "<<"Trasa skonczona, wychodze z petli ruchu."<<endl;
+#endif
                         }
 
                 //cout<<"Actual TIme:"<<_MyClock.GiveActualTime()<<endl;
@@ -148,7 +155,9 @@ void Agent::Run()
     if(_SegmentNo>=(_ListOfSegments.size())){
     _PathDone=true;
 	_MyStatus=Finished;
-	cout<<"ID:"<<_MyID<<" "<<"Trasa3 skonczona"<<endl;
+#ifdef MWDEBUGL1
+	cout<<"ID:"<<_MyID<<" "<<"Trasa  ostatecznie zakonczona"<<endl;
+#endif
 #ifdef MWDEBUG
 	exit(1);
 #endif
@@ -246,8 +255,10 @@ else
         if(EstimatedTimeToEnd<_TimeStep){
                 _ActualPosition=ListIter->_End;
                 _SegmentNo++;
-            	cout<<"Segment:"<<_SegmentNo<<"Lista:"<<_ListOfSegments.size()<<endl;
-                //Jezeli cala sciezka
+#ifdef MWDEBUGL2
+            	cout<<"Segment:"<<_SegmentNo<<" Rozmiar listy:"<<_ListOfSegments.size()<<endl;
+#endif
+            	//Jezeli cala sciezka
 #ifdef PanicProgramming
                         if(_SegmentNo>=(_ListOfSegments.size())){
                         _PathDone=true;
@@ -293,7 +304,9 @@ else
         // Checks if next square is different from actual
         if (_MyNextSquare._x != _MySquare._x || _MyNextSquare._y != _MySquare._y) ActualStatus = InterestChecking;
     }*/
-cout<<"ID:"<<_MyID<<"Pozycja:"<<_ActualPosition._x<<" "<<_ActualPosition._y<<endl;
+#ifdef MWDEBUGL3
+cout<<"ID: "<<_MyID<<"  Pozycja:("<<_ActualPosition._x<<", "<<_ActualPosition._y<<")"<<endl;
+#endif
 return ActualStatus;
 }
 
@@ -445,7 +458,9 @@ while(ActualPos!=ListIter->_End){
                 CalculateCollisionPoints(*ListIter,r, Coordinates(LocalStartX,LocalStartY),Coordinates(xO,yO),InTime,OutTime);
                 if((OutTime<0))
                         OutTime=InTime;
-
+#ifdef MWDEBUGL3
+                cout<<"Kolizja: poczatek trasy w zakazanym obszarze"<<endl;
+#endif
                 LocalStartX=ListIter->_XParamA*OutTime+LocalStartX;
                 LocalStartY=ListIter->_YParamA*OutTime+LocalStartY;
                 ActualPos._x=ListIter->_XParamB=ListIter->_Start._x=LocalStartX+SquareX*_SquareLength;
@@ -480,6 +495,9 @@ while(ActualPos!=ListIter->_End){
 
 if(sqrt(pow(xO-LocalEndX,2.0)+pow(yO-LocalEndY,2.0))<(r-0.001)){//NE
 	ColisionFound=true;
+#ifdef MWDEBUGL3
+                cout<<"Kolizja: koniec trasy w zakazanym obszarze"<<endl;
+#endif
 //szukanie punktu wejscia na zakazany okrag
 CalculateCollisionPoints((*ListIter),r, Coordinates(LocalStartX,LocalStartY),Coordinates(xO,yO),InTime,OutTime);
 if(OutTime<InTime)
@@ -541,7 +559,7 @@ if (OnlyInPoint)
         TempListOfSegments.pop_back();
 
 //przejscie do globalnego ukladu wspolrzednych
-ChangeStartOfCordSysForSegment(TempListOfSegments,Coordinates(-SquareX*_SquareLength,-SquareX*_SquareLength));
+ChangeStartOfCordSysForSegment(TempListOfSegments,Coordinates(-SquareX*_SquareLength,-SquareY*_SquareLength));
 //przepisanie scizeki do wynikowej trasy
 list<Segment>::iterator TempListIter=TempListOfSegments.begin();
 for(;TempListIter!=TempListOfSegments.end();TempListIter++){
@@ -564,6 +582,9 @@ CornerIter++;
                 ChangeStartOfCordSysForSegment(S,Coordinates(- SquareX*_SquareLength,- SquareY*_SquareLength));
                 ResultListOfSegments.push_back(S);
         ActualPos=ListIter->_End;
+#ifdef MWDEBUGL3
+                cout<<"Koniec trasy w obecnym kwadracie"<<endl;
+#endif
         }else{
 //sprawdzamy czy wchodza na te male kola w rogach
 //Kolo NE
@@ -595,6 +616,9 @@ CornerIter++;
                 if(((NumOfRoots=SquareEqRoots(a,b,c,InTime,OutTime))>1)){//jezeli dwa rozwiazania
                         if((InTime>0)&&(OutTime>0)){//TODO Sprawdzic kiedy mozliwe jest ze jeden z czasow jest dodatni
                         ColisionFound=true;//to kolizja
+#ifdef MWDEBUGL3
+                cout<<"Kolizja: Trasa wchodzi na zakazany obszar"<<endl;
+#endif
                         if(OutTime<InTime){//czas wyjscia nie moze byc mniejszy od czasu wejscia
                                 TempTime=InTime;
                                 InTime=OutTime;
@@ -614,6 +638,7 @@ CornerIter++;
         }
 
         if((SquareResolved)||(!ColisionFound)){//jezeli nie ma kolizji
+
 //szukanie miejsca opuszczenia kwadratu
                 TempTime=-1.0;
                 if(ListIter->_XParamA!=0.0){
@@ -621,8 +646,12 @@ CornerIter++;
                         if((TempTime>0)) {//prawy bok kwadratu
                                 LocalEndX=_SquareLength;
                                 LocalEndY=ListIter->_YParamA*TempTime+LocalStartY;
-                                if((LocalEndY<=_SquareLength)&&(LocalEndY>=0.0))
+                                if((LocalEndY<=_SquareLength)&&(LocalEndY>=0.0)){
                                         SquareResolved=true;
+#ifdef MWDEBUGL3
+                cout<<"Brak kolizji: agent wyjezdza z kwadratu (prawy bok)"<<endl;
+#endif
+                                }
                         }
                 }
                 if((!SquareResolved)&&(ListIter->_XParamA!=0.0)){
@@ -630,8 +659,12 @@ CornerIter++;
                         if((TempTime>0)){//lewy bok kwadratu
                                 LocalEndX=0;
                                 LocalEndY=ListIter->_YParamA*TempTime+LocalStartY;
-                                if((LocalEndY<=_SquareLength)&&(LocalEndY>=0.0))
+                                if((LocalEndY<=_SquareLength)&&(LocalEndY>=0.0)){
                                         SquareResolved=true;
+#ifdef MWDEBUGL3
+                cout<<"Brak kolizji: agent wyjezdza z kwadratu (lewy bok)"<<endl;
+#endif
+                                }
                         }
                 }
 
@@ -640,8 +673,12 @@ CornerIter++;
                         if((TempTime>0)){//gorny kwadrat
                                 LocalEndY=_SquareLength;
                                 LocalEndX=ListIter->_XParamA*TempTime+LocalStartX;
-                                if((LocalEndY<=_SquareLength)&&(LocalEndY>=0.0))
+                                if((LocalEndY<=_SquareLength)&&(LocalEndY>=0.0)){
                                         SquareResolved=true;
+#ifdef MWDEBUGL3
+                cout<<"Brak kolizji: agent wyjezdza z kwadratu (gorny bok)"<<endl;
+#endif
+                                }
                         }
                 }
                 if((!SquareResolved)&&(ListIter->_YParamA!=0.0)){
@@ -650,8 +687,12 @@ CornerIter++;
                         {//dolny kwadrat
                                 LocalEndY=0;
                                 LocalEndX=ListIter->_XParamA*TempTime+LocalStartX;
-                                if((LocalEndY<=_SquareLength)&&(LocalEndY>=0.0))
+                                if((LocalEndY<=_SquareLength)&&(LocalEndY>=0.0)){
                                         SquareResolved=true;
+#ifdef MWDEBUGL3
+                cout<<"Brak kolizji: agent wyjezdza z kwadratu (dolny bok)"<<endl;
+#endif
+                                }
                         }
                 }
 
@@ -679,6 +720,9 @@ CornerIter++;
                 for(;TempListIter!=TempListOfSegments.end();TempListIter++){
                         ResultListOfSegments.push_back(*TempListIter);
                 }
+#ifdef MWDEBUGL3
+                cout<<"Trasa omijajaca zostala wygenerowana."<<endl;
+#endif
 
         }
         IteratorForLastElement=ResultListOfSegments.end();

@@ -40,8 +40,7 @@ public:
 	 *
 	 * \brief Typ wyliczeniowy opisujacy status agenta
 	 */
-	enum Status{Moving,LeavingSquare,WaitingToEnterSquare,WaitingToBypass};
-
+	enum Status{Moving,LeavingSquare,WaitingToEnterSquare,WaitingToBypass,Finished};
 
 static int _NumOfAgentsCreated; ///<Liczba stworzonych agentow
 int _MyID;///< Numer ID agenta bedacy rowniez priorytetem agenta

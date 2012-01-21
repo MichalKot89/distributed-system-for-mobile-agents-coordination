@@ -66,13 +66,18 @@ void Agent::Run()
 			cout<<_MySquare._x<<" "<<_MySquare._y<<" Next: "<<_MyNextSquare._x<<" "<<_MyNextSquare._y<<endl;
 			//sleep(3);
 			_MyStatus=Moving;
-
+			
+			//cout<<"Actual TIme:"<<_MyClock.GiveActualTime()<<endl;
+			//PlotScene(5,3,_MyID);
 		}
-		cout<<"Actual TIme:"<<_MyClock.GiveActualTime()<<endl;
-		PlotScene(5,3,_MyID);
-	}
-	PlotScene(5,3,_MyID);
+        if(_SegmentNo>=(_ListOfSegments.size())){
+        _PathDone=true;
+    	_MyStatus=Finished;
+    	cout<<"ID:"<<_MyID<<" "<<"Trasa skonczona"<<endl;
+        }
+	//PlotScene(5,3,_MyID);
 
+}
 }
 
 Agent::Status Agent::Move()
@@ -141,6 +146,7 @@ else
 	if(EstimatedTimeToEnd<_MyClock.GiveTimeStep()){
 		_ActualPosition=ListIter->_End;
 		_SegmentNo++;
+		PlotScene(5,3,_MyID);
 		//Jezeli cala sciezka
 		if(_SegmentNo>=_ListOfSegments.size())
 		_PathDone=true;
@@ -308,7 +314,7 @@ while(ActualPos!=ListIter->_End){
 			break;
 		}
 
-	if(sqrt(pow(xO-LocalStartX,2.0)+pow(yO-LocalStartY,2.0))<r){//NE
+	if(sqrt(pow(xO-LocalStartX,2.0)+pow(yO-LocalStartY,2.0))<(r-0.001)){//MWci numeric problems here
 
 		CalculateCollisionPoints(*ListIter,r, Coordinates(LocalStartX,LocalStartY),Coordinates(xO,yO),InTime,OutTime);
 		if((OutTime<0))
@@ -319,11 +325,13 @@ while(ActualPos!=ListIter->_End){
 		ActualPos._x=ListIter->_XParamB=ListIter->_Start._x=LocalStartX+SquareX*_SquareLength;
 		ActualPos._y=ListIter->_YParamB=ListIter->_Start._y=LocalStartY+SquareY*_SquareLength;
 		ColisionFound=true;
+		SquareResolved=true;
 	}
 	CornerIter++;
 	}
-	ColisionFound=false;
+	//ColisionFound=false;
 	CornerIter=0;
+	//koniec w zakazanym kole
 	while((!ColisionFound)&&(CornerIter<4)){
 		switch(CornerIter){
 		case 0:
@@ -343,8 +351,8 @@ while(ActualPos!=ListIter->_End){
 			yO=0;
 			break;
 		}
-	//koniec w zakazanym kole
-if(sqrt(pow(xO-LocalEndX,2.0)+pow(yO-LocalEndY,2.0))<r){//NE
+
+if(sqrt(pow(xO-LocalEndX,2.0)+pow(yO-LocalEndY,2.0))<(r-0.001)){//NE
 	ColisionFound=true;
 //szukanie punktu wejscia na zakazany okrag
 CalculateCollisionPoints((*ListIter),r, Coordinates(LocalStartX,LocalStartY),Coordinates(xO,yO),InTime,OutTime);

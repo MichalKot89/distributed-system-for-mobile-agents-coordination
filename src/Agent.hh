@@ -270,7 +270,9 @@ bool _PathDone;///< flaga trasy TRUE - trasa ukonczona, FALSE - odwrotnie
 	 *
 	 */
 	static Coordinates CoordinatesToSquare(Coordinates C, double SquareLength);
-
+	void Coordinate_User();
+	void Coordinate_Admin();
+	static int MoveIter;
 	void DoSthWhenIAmWaitingToEnterSquare();
 	void DoSthWhenIAmLeavingSquare();
 };

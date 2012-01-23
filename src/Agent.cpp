@@ -24,7 +24,7 @@
 using namespace std;
 
 int Agent::_NumOfAgentsCreated=0;
-
+int Agent::MoveIter=0;
 Agent::Agent(list<Segment> ListOfSegments,double vel,double radius,double SquareLength,double TimeStep)
 {
 	_MyClock=Clock(TimeStep);
@@ -86,6 +86,11 @@ Agent::Status Agent::Move()
 	double EstimatedTimeToEndX,EstimatedTimeToEndY,EstimatedTimeToEnd;
 	Status ActualStatus=_MyStatus;
 	int ModX,ModY;
+
+	MoveIter++;
+	if(MoveIter==4)
+		Coordinate_User();
+
 if((_MyStatus!=WaitingToEnterSquare)&&(_MyStatus!=WaitingToBypass)){
 
 	_MySquare=CoordinatesToSquare(_ActualPosition, _SquareLength);
@@ -168,6 +173,7 @@ else
 //Jakas funkcja interakcji
 	DoSthWhenIAmWaitingToEnterSquare();
 }
+cout<<"x:"<<_ActualPosition._x<<"y:"<<_ActualPosition._y<<endl;
 return ActualStatus;
 }
 
@@ -798,6 +804,111 @@ Coordinates Agent::CoordinatesToSquare(Coordinates C, double SquareLength)
 
 	return SquareCoordinates;
 }
+//funkcja zmienia cie¿kê agenta, który jako pierwszy bêdzie w kwadracie
+void Agent::Coordinate_Admin()
+{
+        double SquareX, SquareY;
+        double LocalStartX=0,LocalStartY=0,LocalEndX=0,LocalEndY=0,LocalActX=0,LocalActY=0;
+        list<Segment> TempListOfSegments;
+        _Coordinate_Admin=true;
+        SquareX=floor(_ActualPosition._x/_SquareLength);
+        SquareY=floor(_ActualPosition._y/_SquareLength);
+
+
+        //ustawienie siê agenta w rodku kwadratu
+        //wskanik do listy segmentów
+        list<Segment>::iterator ListIter=_ListOfSegments.begin();
+
+
+        std::advance(ListIter,_SegmentNo);//+-1
+        LocalStartX=ListIter->_Start._x-SquareX*_SquareLength;
+        LocalStartY=ListIter->_Start._y-SquareY*_SquareLength;
+        LocalEndX=ListIter->_End._x-SquareX*_SquareLength;
+        LocalEndY=ListIter->_End._y-SquareY*_SquareLength;
+        LocalActX=_ActualPosition._x-SquareX*_SquareLength;
+        LocalActY=_ActualPosition._y-SquareY*_SquareLength;
+        ListIter=_ListOfSegments.erase(ListIter);//wywalenie starej trasy przez kwadrat
+
+        TempListOfSegments.push_back(Segment(Coordinates(LocalStartX,LocalStartY),Coordinates(LocalActX,LocalActY)));
+        TempListOfSegments.push_back(Segment(Coordinates(LocalActX,LocalActY),Coordinates(_SquareLength/2,_SquareLength/2)));
+        TempListOfSegments.push_back(Segment(Coordinates(_SquareLength/2,_SquareLength/2),Coordinates(LocalEndX,LocalEndY)));
+        _SegmentNo++;//musi przejsc do nastepnego segmentu
+        ChangeStartOfCordSysForSegment(TempListOfSegments,Coordinates(-SquareX*_SquareLength,-SquareY*_SquareLength));
+
+        list<Segment>::iterator TempListIter=TempListOfSegments.begin();
+        for(;TempListIter!=TempListOfSegments.end();TempListIter++)
+        {
+        	_ListOfSegments.insert(ListIter,*TempListIter);
+        }
+
+
+}
+
+//funkcja zmieniaj¹ca trasê agenta, który jako drugi wjedzie do kwadratu
+void Agent::Coordinate_User()
+{
+        double InTime=0, OutTime=0,SquareX,SquareY;
+        double LocalStartX=0,LocalStartY=0,LocalEndX=0,LocalEndY=0;
+        double InX,InY,OutX,OutY;
+        double x0,y0;
+        double r=(_MyRadius+_MyRadius+0.2)/*sqrt(2)*/; //promien zakazanego kola
+        _Coordinate_User=true;
+        list<Segment> ResultListOfSegments;
+        list<Segment> TempListOfSegments;
+        Segment ActualSeg;
+        SquareX=floor(_ActualPosition._x/_SquareLength);
+        SquareY=floor(_ActualPosition._y/_SquareLength);
+        LocalStartX=_ActualPosition._x-SquareX*_SquareLength;
+        LocalStartY=_ActualPosition._y-SquareY*_SquareLength;
+
+        x0=_SquareLength/2;
+        y0=_SquareLength/2;
+
+        list<Segment>::iterator ListIter=_ListOfSegments.begin();
+        std::advance(ListIter,_SegmentNo);//+-1
+        LocalEndX=ListIter->_End._x-SquareX*_SquareLength;
+        LocalEndY=ListIter->_End._y-SquareY*_SquareLength;
+        ActualSeg=Segment(Coordinates(LocalStartX,LocalStartY),Coordinates(x0,y0));
+        CalculateCollisionPoints(ActualSeg,r, Coordinates(LocalStartX,LocalStartY),Coordinates(x0,y0),InTime,OutTime);
+
+        //jesli znaleziono punkty wejscia i wyjscia na zakazany obszar
+        if(InTime !=0 && OutTime !=0)
+        {
+                if (InTime>OutTime)
+                {
+                        double temp=InTime;
+                        InTime=OutTime;
+                        OutTime=temp;
+                }
+
+                InX=ActualSeg._XParamA*InTime+LocalStartX;
+                InY=ActualSeg._YParamA*InTime+LocalStartY;
+
+                OutX=ActualSeg._XParamA*OutTime+LocalStartX;
+                OutY=ActualSeg._YParamA*OutTime+LocalStartY;
+
+                TempListOfSegments=FindPathResolvingForbiddenSector(Coordinates(InX,InY),Coordinates(OutX,OutY),Coordinates(x0,y0));
+
+                TempListOfSegments.push_front(Segment(Coordinates(LocalStartX,LocalStartY),TempListOfSegments.begin()->_Start));
+
+                //dodawanie konca sciezki omijajacej
+                TempListOfSegments.push_back(Segment((--TempListOfSegments.end())->_End,Coordinates(LocalEndX,LocalEndY)));
+
+
+                ChangeStartOfCordSysForSegment(TempListOfSegments,Coordinates(-SquareX*_SquareLength,-SquareY*_SquareLength));
+                ListIter=_ListOfSegments.erase(ListIter);//wywalenie starej trasy przez kwadrat
+
+                list<Segment>::iterator TempListIter=TempListOfSegments.begin();
+                for(;TempListIter!=TempListOfSegments.end();TempListIter++)
+                {
+                	cout<<TempListIter->_Start._x<<" "<<TempListIter->_Start._y<<"---->"<<TempListIter->_End._x<<" "<<TempListIter->_End._y<<endl;
+                	_ListOfSegments.insert(ListIter,*TempListIter);
+                }
+
+
+        }
+}
+
 void Agent::DoSthWhenIAmWaitingToEnterSquare(){};
 void Agent::DoSthWhenIAmLeavingSquare(){};
 
